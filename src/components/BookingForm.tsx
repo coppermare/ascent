@@ -149,7 +149,7 @@ export function BookingForm() {
       </div>
 
       <Button type="submit" size="lg" className="w-full">
-        Request a call
+        Book
       </Button>
 
       <p className="text-[12px] text-center" style={{ color: "#A1A1AA" }}>

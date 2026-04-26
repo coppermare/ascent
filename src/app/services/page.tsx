@@ -161,7 +161,7 @@ export default function ServicesPage() {
               </p>
             </div>
             <ButtonLink href="/book" className="w-full">
-              Book a call to discuss
+              Book
             </ButtonLink>
           </div>
         </div>
@@ -271,7 +271,7 @@ export default function ServicesPage() {
               </p>
             </div>
             <ButtonLink href="/book" className="w-full">
-              Book a call to discuss
+              Book
             </ButtonLink>
           </div>
         </div>
@@ -407,7 +407,7 @@ export default function ServicesPage() {
 
       <ClosingCTA
         headline="Not sure which engagement is right?"
-        body="Book a 30-minute call. We'll ask a few questions and tell you what we'd expect to find in your signal audit."
+        body="Thirty minutes, no sales script. A few questions, then a straight answer on what your audit would show."
       />
     </>
   );

@@ -52,16 +52,17 @@ export function Nav() {
         {/* Desktop CTAs */}
         <div className="hidden items-center gap-3 lg:flex">
           <ButtonLink href="/work" variant="ghost" size="sm">
-            See Our Work
+            Our Work
           </ButtonLink>
           <ButtonLink href="/book" variant="primary" size="sm">
-            Book a Call
+            Book
           </ButtonLink>
         </div>
 
         {/* Mobile hamburger */}
         <button
-          className="flex items-center justify-center lg:hidden"
+          type="button"
+          className="inline-flex h-11 min-h-[44px] w-11 min-w-[44px] items-center justify-center rounded lg:hidden"
           onClick={() => setOpen(!open)}
           aria-label={open ? "Close menu" : "Open menu"}
         >
@@ -97,11 +98,23 @@ export function Nav() {
             );
           })}
           <hr style={{ borderColor: "var(--border)" }} />
-          <ButtonLink href="/work" variant="ghost" onClick={() => setOpen(false)}>
-            See Our Work
+          <ButtonLink
+            href="/work"
+            variant="ghost"
+            size="lg"
+            className="w-full"
+            onClick={() => setOpen(false)}
+          >
+            Our Work
           </ButtonLink>
-          <ButtonLink href="/book" variant="primary" size="lg" className="w-full" onClick={() => setOpen(false)}>
-            Book a Call
+          <ButtonLink
+            href="/book"
+            variant="primary"
+            size="lg"
+            className="w-full"
+            onClick={() => setOpen(false)}
+          >
+            Book
           </ButtonLink>
         </div>
       )}

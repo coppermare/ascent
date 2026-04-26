@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 import { BookingForm } from "@/components/BookingForm";
 
 export const metadata: Metadata = {
-  title: "Book a Call — Ascent",
+  title: "Book — Ascent",
   description:
-    "Book a 30-minute call with Ascent. We'll ask a few questions, tell you what we'd find in a signal audit, and recommend the right starting point.",
+    "Schedule 30 minutes with Ascent. We'll ask a few questions, tell you what we'd find in a signal audit, and recommend the right starting point.",
 };
 
 const forYou = [
@@ -47,7 +47,7 @@ export default function BookPage() {
             className="text-[12px] font-bold tracking-[0.12em] uppercase mb-4"
             style={{ color: "#5A4FCF" }}
           >
-            Book a call
+            Book
           </p>
           <h1
             className="text-[36px] md:text-[40px] font-bold tracking-tight leading-[1.1] mb-6"

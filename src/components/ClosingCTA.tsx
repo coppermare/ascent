@@ -9,8 +9,8 @@ interface ClosingCTAProps {
 
 export function ClosingCTA({
   headline = "Ready to find where your growth is actually coming from?",
-  body = "Book a 30-minute call. We'll tell you whether we're the right fit — and if not, point you in the right direction.",
-  cta = "Book a 30-minute call",
+  body = "Thirty minutes, no pitch. We'll tell you whether we're a fit — and if not, where to go next.",
+  cta = "Book",
   href = "/book",
 }: ClosingCTAProps) {
   return (

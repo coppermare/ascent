@@ -288,7 +288,7 @@ export default function WorkPage() {
 
       <ClosingCTA
         headline="Want results like these for your business?"
-        body="Book a 30-minute call. We'll tell you what we'd find in a signal audit and whether a sprint makes sense for where you are."
+        body="Thirty minutes, no deck. We'll tell you what an audit would surface and whether a sprint fits where you are."
       />
     </>
   );

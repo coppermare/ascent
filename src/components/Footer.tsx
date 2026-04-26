@@ -71,7 +71,7 @@ export function Footer() {
             © {new Date().getFullYear()} Ascent. All rights reserved.
           </p>
           <ButtonLink href="/book" size="sm">
-            Book a 30-minute call
+            Book
           </ButtonLink>
         </div>
       </div>

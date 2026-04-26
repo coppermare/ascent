@@ -204,7 +204,7 @@ export default function FAQPage() {
             style={{ borderColor: "#E4E4E7" }}
           >
             <h3 className="text-[18px] font-semibold mb-2" style={{ color: "#0A0A0A" }}>
-              Book a discovery call
+              Book now
             </h3>
             <p
               className="text-[15px] leading-relaxed mb-5"
@@ -213,7 +213,7 @@ export default function FAQPage() {
               30 minutes. We'll tell you whether there's a fit and what we'd expect to find in your signal audit.
             </p>
             <ButtonLink href="/book">
-              Book a 30-minute call
+              Book
             </ButtonLink>
           </div>
 
@@ -231,7 +231,7 @@ export default function FAQPage() {
               Download the Signal Audit Guide — the exact framework we use with new clients, adapted for you to run yourself.
             </p>
             <ButtonLink href="/#lead-magnet" variant="secondary">
-              Get the free guide
+              Get guide
             </ButtonLink>
           </div>
         </div>
@@ -239,7 +239,7 @@ export default function FAQPage() {
 
       <ClosingCTA
         headline="Still not sure if we're the right fit?"
-        body="Book a 30-minute call. We don't pitch on it — we ask questions and tell you honestly whether a sprint makes sense for where you are."
+        body="Thirty minutes, no pitch — just questions and an honest read on whether a sprint fits you."
       />
     </>
   );

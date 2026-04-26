@@ -40,8 +40,8 @@ export function EmailCapture() {
         onFocus={(e) => (e.target.style.borderColor = "#5A4FCF")}
         onBlur={(e) => (e.target.style.borderColor = "#E4E4E7")}
       />
-      <Button type="submit">
-        Get the Guide
+      <Button type="submit" className="w-full shrink-0 sm:w-auto">
+        Get guide
       </Button>
     </form>
   );

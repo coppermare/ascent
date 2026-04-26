@@ -288,7 +288,7 @@ export default function AboutPage() {
 
       <ClosingCTA
         headline="Work with a team that measures everything."
-        body="Book a 30-minute call. We'll tell you whether we're the right fit and what we'd expect to find in your signal audit."
+        body="Thirty minutes, no deck. We'll tell you whether we're a fit and what we'd look for in your audit."
       />
     </>
   );

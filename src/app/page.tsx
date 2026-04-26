@@ -100,15 +100,10 @@ export default function HomePage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <ButtonLink href="/book" variant="inverted" size="lg">
-              Book a 30-minute call
+              Book
             </ButtonLink>
-            <ButtonLink
-              href="/work"
-              variant="secondary"
-              size="lg"
-              className="border-white/40 text-white hover:bg-white/10"
-            >
-              See our work
+            <ButtonLink href="/work" variant="onInverse" size="lg">
+              Our Work
             </ButtonLink>
           </div>
         </div>

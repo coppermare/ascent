@@ -42,7 +42,7 @@ export default function ContactPage() {
       <section className="py-24 px-6" style={{ background: "#FAF9F6" }}>
         <div className="mx-auto max-w-[1200px] grid grid-cols-1 lg:grid-cols-2 gap-12">
 
-          {/* Primary: Book a call */}
+          {/* Primary path: book */}
           <div
             className="border rounded-md p-8"
             style={{ background: "#F5F1EA", borderColor: "#E4E4E7" }}
@@ -57,7 +57,7 @@ export default function ContactPage() {
               className="text-[26px] font-bold tracking-tight mb-4"
               style={{ color: "#0A0A0A" }}
             >
-              Book a 30-minute discovery call
+              Book now
             </h2>
             <p
               className="text-[16px] leading-relaxed mb-7"
@@ -101,7 +101,7 @@ export default function ContactPage() {
             </div>
 
             <ButtonLink href="/book" className="w-full">
-              Book a 30-minute call
+              Book
             </ButtonLink>
           </div>
 
