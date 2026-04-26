@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { List, X } from "@phosphor-icons/react";
 import { ButtonLink } from "@/components/Button";
 import { BrandLogo } from "@/components/BrandLogo";
 
@@ -67,9 +67,9 @@ export function Nav() {
           aria-label={open ? "Close menu" : "Open menu"}
         >
           {open ? (
-            <X size={22} style={{ color: "var(--heading)" }} />
+            <X size={22} weight="regular" style={{ color: "var(--heading)" }} />
           ) : (
-            <Menu size={22} style={{ color: "var(--heading)" }} />
+            <List size={22} weight="regular" style={{ color: "var(--heading)" }} />
           )}
         </button>
       </div>
