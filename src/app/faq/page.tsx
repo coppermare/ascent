@@ -1,7 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { ClosingCTA } from "@/components/ClosingCTA";
-import { ButtonLink } from "@/components/Button";
 
 export const metadata: Metadata = {
   title: "FAQ — Ascent",
@@ -189,50 +188,6 @@ export default function FAQPage() {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Still have questions */}
-      <section
-        className="py-20 px-6 border-t"
-        style={{ background: "#F5F1EA", borderColor: "#E4E4E7" }}
-      >
-        <div className="mx-auto max-w-[720px] grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div
-            className="bg-white border rounded-md p-7"
-            style={{ borderColor: "#E4E4E7" }}
-          >
-            <h3 className="text-[18px] font-semibold mb-2" style={{ color: "#0A0A0A" }}>
-              Book now
-            </h3>
-            <p
-              className="text-[15px] leading-relaxed mb-5"
-              style={{ color: "#3F3F46" }}
-            >
-              30 minutes. We'll tell you whether there's a fit and what we'd expect to find in your signal audit.
-            </p>
-            <ButtonLink href="/book">
-              Book
-            </ButtonLink>
-          </div>
-
-          <div
-            className="bg-white border rounded-md p-7"
-            style={{ borderColor: "#E4E4E7" }}
-          >
-            <h3 className="text-[18px] font-semibold mb-2" style={{ color: "#0A0A0A" }}>
-              Run your own audit first
-            </h3>
-            <p
-              className="text-[15px] leading-relaxed mb-5"
-              style={{ color: "#3F3F46" }}
-            >
-              Download the Signal Audit Guide — the exact framework we use with new clients, adapted for you to run yourself.
-            </p>
-            <ButtonLink href="/#lead-magnet" variant="secondary">
-              Get guide
-            </ButtonLink>
           </div>
         </div>
       </section>

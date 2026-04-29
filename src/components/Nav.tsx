@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { List, X } from "@phosphor-icons/react";
 import { ButtonLink } from "@/components/Button";
@@ -16,18 +16,29 @@ const links = [
 
 export function Nav() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const isHome = pathname === "/";
+  const transparent = isHome && !scrolled && !open;
 
   return (
     <header
+      className="fixed top-0 inset-x-0 z-50 h-16 transition-colors duration-300"
       style={{
-        background: "var(--background)",
-        borderBottom: "1px solid var(--border)",
+        background: transparent ? "transparent" : "var(--background)",
+        borderBottom: transparent ? "1px solid transparent" : "1px solid var(--border)",
       }}
-      className="sticky top-0 z-50 h-16"
     >
       <div className="mx-auto flex h-full max-w-[1200px] items-center justify-between px-6">
-        <BrandLogo variant="primary" height={22} withLink />
+        <BrandLogo variant={transparent ? "white" : "primary"} height={22} withLink />
 
         {/* Desktop nav */}
         <nav className="hidden items-center gap-8 lg:flex">
@@ -37,9 +48,11 @@ export function Nav() {
               <Link
                 key={href}
                 href={href}
-                className="text-[14px] transition-colors hover:opacity-70"
+                className="text-[14px] transition-opacity hover:opacity-70"
                 style={{
-                  color: active ? "var(--primary)" : "var(--body-text)",
+                  color: transparent
+                    ? active ? "#ffffff" : "rgba(255,255,255,0.75)"
+                    : active ? "var(--primary)" : "var(--body-text)",
                   fontWeight: active ? 600 : 400,
                 }}
               >
@@ -49,12 +62,9 @@ export function Nav() {
           })}
         </nav>
 
-        {/* Desktop CTAs */}
+        {/* Desktop CTA */}
         <div className="hidden items-center gap-3 lg:flex">
-          <ButtonLink href="/work" variant="ghost" size="sm">
-            Our Work
-          </ButtonLink>
-          <ButtonLink href="/book" variant="primary" size="sm">
+          <ButtonLink href="/book" variant={transparent ? "inverted" : "primary"} size="sm">
             Book
           </ButtonLink>
         </div>
@@ -67,9 +77,9 @@ export function Nav() {
           aria-label={open ? "Close menu" : "Open menu"}
         >
           {open ? (
-            <X size={22} weight="regular" style={{ color: "var(--heading)" }} />
+            <X size={22} weight="regular" style={{ color: transparent ? "#ffffff" : "var(--heading)" }} />
           ) : (
-            <List size={22} weight="regular" style={{ color: "var(--heading)" }} />
+            <List size={22} weight="regular" style={{ color: transparent ? "#ffffff" : "var(--heading)" }} />
           )}
         </button>
       </div>
@@ -98,15 +108,6 @@ export function Nav() {
             );
           })}
           <hr style={{ borderColor: "var(--border)" }} />
-          <ButtonLink
-            href="/work"
-            variant="ghost"
-            size="lg"
-            className="w-full"
-            onClick={() => setOpen(false)}
-          >
-            Our Work
-          </ButtonLink>
           <ButtonLink
             href="/book"
             variant="primary"

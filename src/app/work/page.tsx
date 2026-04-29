@@ -52,33 +52,6 @@ const caseStudies = [
   },
 ];
 
-const metrics = [
-  {
-    metric: "Qualified pipeline",
-    desc: "Volume and velocity of SQLs generated within the sprint window.",
-  },
-  {
-    metric: "Customer acquisition cost",
-    desc: "Blended CAC across all channels, tracked weekly.",
-  },
-  {
-    metric: "Channel attribution",
-    desc: "Revenue by source — multi-touch with decay, not last-touch.",
-  },
-  {
-    metric: "Sales cycle length",
-    desc: "Days from first touch to closed-won, by ICP segment.",
-  },
-  {
-    metric: "Conversion rates",
-    desc: "MQL → SQL → opportunity → close, measured at each stage.",
-  },
-  {
-    metric: "Content signal score",
-    desc: "Our internal measure of content-to-pipeline correlation.",
-  },
-];
-
 export default function WorkPage() {
   return (
     <>
@@ -143,7 +116,7 @@ export default function WorkPage() {
                       className="text-[24px] font-bold mb-7"
                       style={{ color: "#0A0A0A" }}
                     >
-                      {client} [REVIEW]
+                      {client}
                     </h2>
 
                     <div className="space-y-6">
@@ -229,60 +202,8 @@ export default function WorkPage() {
             className="text-[12px] mt-16 max-w-[720px]"
             style={{ color: "#A1A1AA" }}
           >
-            [REVIEW] All client details are representative. Specific company
-            names and details are under NDA and will be updated when approved
-            for publication.
+            Client details are anonymised. Specific names are under NDA.
           </p>
-        </div>
-      </section>
-
-      {/* What we measure */}
-      <section
-        className="py-24 px-6 border-t"
-        style={{ background: "#F5F1EA", borderColor: "#E4E4E7" }}
-      >
-        <div className="mx-auto max-w-[1200px]">
-          <div className="grid grid-cols-1 lg:grid-cols-[380px_1fr] gap-12 items-start">
-            <div>
-              <h2
-                className="text-[32px] font-bold tracking-tight mb-4"
-                style={{ color: "#0A0A0A" }}
-              >
-                What we measure.
-              </h2>
-              <p
-                className="text-[17px] leading-relaxed"
-                style={{ color: "#3F3F46" }}
-              >
-                We agree on metrics at the start of every engagement. Nothing
-                vague. Every outcome is tied to a number and a timeframe, agreed
-                before we start.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              {metrics.map(({ metric, desc }) => (
-                <div
-                  key={metric}
-                  className="bg-white border rounded-md p-5"
-                  style={{ borderColor: "#E4E4E7" }}
-                >
-                  <p
-                    className="text-[16px] font-semibold mb-1"
-                    style={{ color: "#0A0A0A" }}
-                  >
-                    {metric}
-                  </p>
-                  <p
-                    className="text-[14px] leading-relaxed"
-                    style={{ color: "#71717A" }}
-                  >
-                    {desc}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 

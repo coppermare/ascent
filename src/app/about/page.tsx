@@ -66,35 +66,15 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* The problem */}
+      {/* How we work */}
       <section className="py-24 px-6" style={{ background: "#FAF9F6" }}>
         <div className="mx-auto max-w-[720px] space-y-8">
-          <div>
-            <h2
-              className="text-[24px] font-semibold mb-4"
-              style={{ color: "#0A0A0A" }}
-            >
-              The problem with traditional growth agencies
-            </h2>
-            <p
-              className="text-[17px] leading-relaxed"
-              style={{ color: "#3F3F46" }}
-            >
-              Traditional agencies are structured around deliverables: content
-              calendars, ad campaigns, monthly reports. Their incentive is
-              billable hours, not compounding results. Most of the strategy you
-              pay for in month one is the same strategy they gave the last
-              client.
-            </p>
-            <p
-              className="text-[17px] leading-relaxed mt-4"
-              style={{ color: "#3F3F46" }}
-            >
-              Adding AI to that model doesn't fix it. It makes the deliverables
-              cheaper to produce. You still get the same playbook, slightly
-              faster.
-            </p>
-          </div>
+          <p className="text-[17px] leading-relaxed" style={{ color: "#3F3F46" }}>
+            Traditional agencies are structured around deliverables: content
+            calendars, ad campaigns, monthly reports. Their incentive is
+            billable hours, not compounding results. Adding AI to that model
+            doesn't fix it — it just makes the same playbook cheaper to produce.
+          </p>
 
           <div
             className="border-l-4 pl-8 py-2"
@@ -109,41 +89,19 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div>
-            <h2
-              className="text-[24px] font-semibold mb-4"
-              style={{ color: "#0A0A0A" }}
-            >
-              How we work
-            </h2>
-            <p
-              className="text-[17px] leading-relaxed"
-              style={{ color: "#3F3F46" }}
-            >
-              Every engagement at Ascent begins with a Signal Audit. We map your
-              growth signals before we recommend anything: which channels are
-              actually driving revenue, which are burning budget, and where
-              you're leaving pipeline on the table. Most clients find something
-              material they weren't tracking.
-            </p>
-            <p
-              className="text-[17px] leading-relaxed mt-4"
-              style={{ color: "#3F3F46" }}
-            >
-              From there, we work in focused sprints with defined outcomes.
-              Not open-ended retainers. Not monthly strategy calls. Specific
-              results, agreed upfront, measured throughout.
-            </p>
-            <p
-              className="text-[17px] leading-relaxed mt-4"
-              style={{ color: "#3F3F46" }}
-            >
-              We use AI throughout — not as a shortcut, but as infrastructure.
-              Signal detection, content at scale, targeting refinement,
-              attribution modelling. The things that used to take teams of ten,
-              handled by a small, focused group with the right tools.
-            </p>
-          </div>
+          <p className="text-[17px] leading-relaxed" style={{ color: "#3F3F46" }}>
+            Every engagement begins with a Signal Audit — which channels are
+            actually driving revenue, which are burning budget, and where
+            you're leaving pipeline on the table. From there, we work in
+            focused sprints with defined outcomes. Not open-ended retainers.
+            Specific results, agreed upfront, measured throughout.
+          </p>
+          <p className="text-[17px] leading-relaxed" style={{ color: "#3F3F46" }}>
+            We use AI throughout — not as a headline, but as infrastructure.
+            Signal detection, content at scale, targeting refinement,
+            attribution modelling. The things that used to take teams of ten,
+            handled by a small, focused group with the right tools.
+          </p>
         </div>
       </section>
 
@@ -220,69 +178,6 @@ export default function AboutPage() {
               </li>
             ))}
           </ul>
-        </div>
-      </section>
-
-      {/* Team */}
-      <section
-        className="py-24 px-6 border-t"
-        style={{ background: "#F5F1EA", borderColor: "#E4E4E7" }}
-      >
-        <div className="mx-auto max-w-[1200px]">
-          <h2
-            className="text-[32px] font-bold tracking-tight mb-12"
-            style={{ color: "#0A0A0A" }}
-          >
-            The team
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                name: "[REVIEW]",
-                role: "Founder & Lead Strategist",
-                bio: "[REVIEW] Background and expertise to be added.",
-              },
-              {
-                name: "[REVIEW]",
-                role: "Head of Growth",
-                bio: "[REVIEW] Background and expertise to be added.",
-              },
-              {
-                name: "[REVIEW]",
-                role: "AI & Data Lead",
-                bio: "[REVIEW] Background and expertise to be added.",
-              },
-            ].map(({ name, role, bio }) => (
-              <div
-                key={role}
-                className="bg-white border rounded-md p-6"
-                style={{ borderColor: "#E4E4E7" }}
-              >
-                <div
-                  className="h-14 w-14 rounded-full mb-4"
-                  style={{ background: "#EAE8FA" }}
-                />
-                <p
-                  className="text-[17px] font-semibold"
-                  style={{ color: "#0A0A0A" }}
-                >
-                  {name}
-                </p>
-                <p
-                  className="text-[14px] mb-3"
-                  style={{ color: "#5A4FCF" }}
-                >
-                  {role}
-                </p>
-                <p
-                  className="text-[15px] leading-relaxed"
-                  style={{ color: "#3F3F46" }}
-                >
-                  {bio}
-                </p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
