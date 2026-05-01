@@ -15,7 +15,8 @@ Key characteristics:
 - Geist Sans at varying weights does most of the visual work
 - Ample negative space signals confidence, not emptiness
 - Interactive elements are immediately legible without relying on colour alone
-- No decorative gradients, illustrations, or background textures
+- Grainy gradient shaders on impact sections only — hero, closing CTA, and accent backgrounds
+- No decorative gradients or illustrations in content sections
 
 ## 2. Colour Palette & Roles
 
@@ -136,6 +137,7 @@ Don't:
 - Don't add border-radius above 16px except for pills and avatars
 - Don't use primary colour for decoration — it should always signal action
 - Don't use letter-spacing on body text or anything below 20px
+- Don't apply grain shaders to content sections (cards, tables, forms, text-heavy layouts)
 
 ## 8. Responsive Behaviour
 

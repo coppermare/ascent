@@ -2,7 +2,7 @@
 
 import { GrainGradient } from "@paper-design/shaders-react";
 
-export function HeroShader() {
+export function HeroShader({ speed = 1 }: { speed?: number }) {
   return (
     <GrainGradient
       width="100%"
@@ -14,7 +14,7 @@ export function HeroShader() {
       intensity={1}
       noise={0.49}
       shape="wave"
-      speed={1}
+      speed={speed}
       scale={1.08}
       offsetX={-0.02}
       offsetY={0.18}
