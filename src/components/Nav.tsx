@@ -38,7 +38,7 @@ export function Nav() {
       }}
     >
       <div className="mx-auto flex h-full max-w-[1200px] items-center justify-between px-6">
-        <BrandLogo variant={transparent ? "white" : "primary"} height={22} withLink />
+        <BrandLogo variant={transparent ? "white" : "primary"} height={27} withLink />
 
         {/* Desktop nav */}
         <nav className="hidden items-center gap-8 lg:flex">

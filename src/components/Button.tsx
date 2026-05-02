@@ -12,7 +12,7 @@ export type ButtonVariant =
 export type ButtonSize = "default" | "sm" | "lg";
 
 const base =
-  "box-border inline-flex min-h-[44px] items-center justify-center gap-1.5 rounded border border-transparent font-semibold leading-none transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5A4FCF] disabled:pointer-events-none disabled:opacity-50";
+  "box-border inline-flex items-center justify-center gap-1.5 rounded border border-transparent font-semibold leading-none transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5A4FCF] disabled:pointer-events-none disabled:opacity-50";
 
 /* DESIGN.md: min 44px touch; mobile primary CTAs 48px — `lg` for hero, default/sm at 44px */
 const variants: Record<ButtonVariant, string> = {
@@ -27,8 +27,8 @@ const variants: Record<ButtonVariant, string> = {
 };
 
 const sizes: Record<ButtonSize, string> = {
-  /* Compact nav / footer: same min height as default, slightly tighter padding */
-  sm: "h-11 min-h-[44px] px-3.5 text-[13px]",
+  /* Compact nav */
+  sm: "h-8 px-3.5 text-[13px]",
   default: "h-11 min-h-[44px] px-5 text-[14px]",
   /* Hero & mobile menu — 48px (DESIGN.md mobile primary) */
   lg: "h-12 min-h-[48px] px-6 text-[15px]",

@@ -23,6 +23,7 @@ import { SectionShader } from "@/components/SectionShader";
 import { BrandVisual } from "@/components/BrandVisual";
 import { GrainGradient } from "@paper-design/shaders-react";
 import { StatCard } from "@/components/StatCard";
+import MagnetLines from "@/components/MagnetLines";
 
 export const metadata: Metadata = {
   title: "Ascent — Find your signal. Sprint to results.",
@@ -85,18 +86,22 @@ const engagementStats = [
   {
     value: "5 days",
     label: "To complete the signal audit and rank every channel by revenue impact",
+    image: "/images/stat-bg-panels.png",
   },
   {
     value: "8 wks",
     label: "From audit findings to agreed results — not a presentation of them",
+    image: "/images/stat-bg-curves.png",
   },
   {
     value: "≤5",
     label: "Active client engagements at any time. A hard limit, not a target",
+    image: "/images/stat-bg-panels.png",
   },
   {
     value: "0",
     label: "Open-ended retainers. Every engagement closes against a defined result",
+    image: "/images/stat-bg-curves.png",
   },
 ];
 
@@ -142,46 +147,46 @@ const services: {
   },
 ];
 
-const coverageAreas: { label: string; desc: string; Icon: Icon }[] = [
+const coverageAreas: { label: string; desc: string; icon: string }[] = [
   {
     label: "Paid acquisition",
     desc: "Search, social, and programmatic targeted by signal, not assumption.",
-    Icon: CurrencyDollar,
+    icon: "/images/icons/paid-acquisition.png",
   },
   {
     label: "SEO and organic",
     desc: "Content and structure built around what your buyers actually search.",
-    Icon: MagnifyingGlass,
+    icon: "/images/icons/seo-organic.png",
   },
   {
     label: "Content strategy",
     desc: "Production at scale, anchored to the signals that precede closed deals.",
-    Icon: Article,
+    icon: "/images/icons/content-strategy.png",
   },
   {
     label: "Email and lifecycle",
     desc: "Sequences that move buyers forward, not just keep you visible.",
-    Icon: EnvelopeSimple,
+    icon: "/images/icons/email-lifecycle.png",
   },
   {
     label: "ICP refinement",
     desc: "Who you should be selling to, defined by who has actually bought.",
-    Icon: Funnel,
+    icon: "/images/icons/icp-refinement.png",
   },
   {
     label: "Channel attribution",
     desc: "Every source ranked by revenue contribution, not traffic volume.",
-    Icon: ChartBar,
+    icon: "/images/icons/channel-attribution.png",
   },
   {
     label: "Conversion optimisation",
     desc: "Remove what slows buyers down. Keep what moves them to yes.",
-    Icon: TrendUp,
+    icon: "/images/icons/conversion-optimisation.png",
   },
   {
     label: "Account-based marketing",
     desc: "Focused outbound for companies where the ICP is small and known.",
-    Icon: Buildings,
+    icon: "/images/icons/account-based-marketing.png",
   },
 ];
 
@@ -211,6 +216,7 @@ const testimonials = [
     name: "Sarah Chen",
     role: "VP Growth",
     company: "Series B Fintech",
+    image: "/images/testimonials/sarah-chen.png",
   },
   {
     quote:
@@ -218,6 +224,23 @@ const testimonials = [
     name: "Tom Bergman",
     role: "CEO",
     company: "Series A Developer Tools",
+    image: "/images/testimonials/tom-bergman.png",
+  },
+  {
+    quote:
+      "We came in thinking we had a conversion problem. The audit showed it was a targeting problem. We weren't reaching the buyers who would actually close. Fixing that changed everything.",
+    name: "Priya Nair",
+    role: "Head of Marketing",
+    company: "Series B SaaS",
+    image: "/images/testimonials/priya-nair.png",
+  },
+  {
+    quote:
+      "Six months in and the retainer still pays for itself every month. The sprint gave us a repeatable system. We stopped guessing which campaigns to run and started following the data.",
+    name: "James Okafor",
+    role: "Co-founder",
+    company: "Series A Marketplace",
+    image: "/images/testimonials/james-okafor.png",
   },
 ];
 
@@ -278,33 +301,50 @@ export default function HomePage() {
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden -mt-16 py-40 md:py-52 px-6">
-        <img
-          src="/images/hero-bg.png"
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover object-center"
+      <section className="relative overflow-hidden -mt-16 pt-32 md:pt-40 pb-0 px-6" style={{ background: "#000000" }}>
+        <GrainGradient
+          key="hero-grain-10"
+          width={1280}
+          height={720}
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}
+          colors={["#5a4fcf", "#000000"]}
+          colorBack="#000000"
+          softness={0}
+          intensity={0.15}
+          noise={1}
+          shape="corners"
+          speed={0}
+          scale={1}
+          rotation={212}
+          offsetX={0.28}
+          offsetY={0.3}
         />
-<div className="relative mx-auto max-w-[1200px]">
-          <h1
-            className="text-[44px] md:text-[62px] lg:text-[76px] font-bold leading-[1.0] tracking-[-0.03em] max-w-[740px] mb-8"
-            style={{ color: "#ffffff" }}
-          >
-            You&rsquo;re growing.
-            <br />
-            You just don&rsquo;t know why.
-          </h1>
-          <p
-            className="text-[18px] md:text-[20px] leading-relaxed max-w-[460px] mb-10"
-            style={{ color: "rgba(255,255,255,0.72)" }}
-          >
-            We find what&rsquo;s actually driving your revenue and what
-            isn&rsquo;t. Then we build from it. Series A and B only.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3">
-            <ButtonLink href="/book" variant="inverted" size="lg">
-              Book a call
-            </ButtonLink>
+        <div className="relative mx-auto max-w-[1200px]">
+          <div className="mb-10 lg:mb-14">
+            <h1
+              className="text-[38px] md:text-[52px] lg:text-[68px] font-normal leading-[1.05] tracking-[-0.03em] mb-6"
+              style={{ color: "#ffffff" }}
+            >
+              You&rsquo;re growing.
+              <br />
+              You just don&rsquo;t know why.
+            </h1>
+            <p
+              className="text-[15px] leading-relaxed max-w-[360px]"
+              style={{ color: "rgba(255,255,255,0.55)" }}
+            >
+              We find what&rsquo;s actually driving your revenue and what
+              isn&rsquo;t. Then we build from it. Series A and B only.
+            </p>
+          </div>
+
+          <div className="relative w-full rounded-t-2xl overflow-hidden" style={{ height: "clamp(320px, 55vw, 680px)" }}>
+            <img
+              src="/images/hero-bg.png"
+              alt=""
+              aria-hidden="true"
+              className="absolute inset-0 w-full h-full object-cover object-center"
+            />
           </div>
         </div>
       </section>
@@ -479,9 +519,9 @@ export default function HomePage() {
               results are on the table.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {engagementStats.map(({ value, label }) => (
-              <StatCard key={value} value={value} label={label} />
+          <div className="stat-row">
+            {engagementStats.map(({ value, label, image }) => (
+              <StatCard key={value} value={value} label={label} image={image} />
             ))}
           </div>
         </div>
@@ -503,21 +543,31 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div
-            className="mb-16 border-l-4 pl-8 max-w-[760px]"
-            style={{ borderColor: "#5A4FCF" }}
-          >
-            <blockquote
-              className="text-[22px] md:text-[26px] font-semibold leading-snug mb-5"
-              style={{ color: "#0A0A0A" }}
-            >
-              &ldquo;We had been running ads for two years. The signal audit
-              found a content channel responsible for 40% of our pipeline.
-              It had been completely untracked.&rdquo;
-            </blockquote>
-            <p className="text-[14px]" style={{ color: "#71717A" }}>
-              Head of Growth, Series B SaaS
-            </p>
+          <div className="mb-16 flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-16">
+            <div className="flex-shrink-0">
+              <MagnetLines
+                rows={8}
+                columns={8}
+                containerSize="280px"
+                lineColor="#5A4FCF"
+                lineWidth="2px"
+                lineHeight="26px"
+                baseAngle={0}
+              />
+            </div>
+            <div className="max-w-[680px]">
+              <blockquote
+                className="text-[22px] md:text-[26px] font-semibold leading-snug mb-5"
+                style={{ color: "#0A0A0A" }}
+              >
+                &ldquo;We had been running ads for two years. The signal audit
+                found a content channel responsible for 40% of our pipeline.
+                It had been completely untracked.&rdquo;
+              </blockquote>
+              <p className="text-[14px]" style={{ color: "#71717A" }}>
+                Head of Growth, Series B SaaS
+              </p>
+            </div>
           </div>
 
           <div
@@ -546,45 +596,62 @@ export default function HomePage() {
 
       {/* ── Coverage Areas ───────────────────────────────────────── */}
       <section className="py-24 px-6" style={{ background: "#FAF9F6" }}>
-        <div className="mx-auto max-w-[1200px]">
-          <div className="mb-16 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-24 items-end">
+        <div
+          className="mx-auto max-w-[1200px] overflow-hidden rounded-3xl py-32"
+          style={{
+            backgroundImage: "url('/images/channels-bg.png')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
+          <div className="px-12 mb-40">
             <h2
-              className="text-[44px] md:text-[52px] font-normal tracking-tight leading-[1.1]"
+              className="text-[44px] md:text-[52px] font-normal tracking-tight leading-[1.1] mb-4"
               style={{ color: "#0A0A0A" }}
             >
               Every channel, in scope.
             </h2>
-            <p className="text-[17px] leading-relaxed" style={{ color: "#3F3F46" }}>
+            <p className="text-[17px] leading-relaxed max-w-[520px]" style={{ color: "#3F3F46" }}>
               Every engagement starts from signal, not a preferred playbook.
               The audit tells us where to spend your time and budget. These
               are the levers we look at — the data determines which ones to pull.
             </p>
           </div>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-8">
-            {coverageAreas.map(({ label, desc, Icon: AreaIcon }) => (
-              <div key={label} className="flex items-start gap-4">
+
+          {/* Row 1 — scrolls left */}
+          <div className="relative mb-4 overflow-hidden">
+            <div className="flex animate-carousel-left" style={{ width: "max-content" }}>
+              {[...coverageAreas.slice(0, 4), ...coverageAreas.slice(0, 4), ...coverageAreas.slice(0, 4), ...coverageAreas.slice(0, 4)].map(({ label, icon }, i) => (
                 <div
-                  className="w-9 h-9 rounded shrink-0 flex items-center justify-center"
-                  style={{ background: "#EAE8FA", border: "1px solid #D4CFFE" }}
+                  key={`row1-${i}`}
+                  className="flex items-center gap-3 rounded-2xl px-5 py-4 shrink-0"
+                  style={{ background: "#FFFFFF", width: 220, marginRight: 16 }}
                 >
-                  <AreaIcon size={18} weight="duotone" color="#5A4FCF" />
-                </div>
-                <div>
-                  <p
-                    className="text-[15px] font-semibold mb-1"
-                    style={{ color: "#0A0A0A" }}
-                  >
+                  <img src={icon} alt={label} className="w-11 h-11 shrink-0 object-contain" />
+                  <p className="text-[14px] font-semibold" style={{ color: "#0A0A0A" }}>
                     {label}
                   </p>
-                  <p
-                    className="text-[13px] leading-snug"
-                    style={{ color: "#71717A" }}
-                  >
-                    {desc}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Row 2 — scrolls right */}
+          <div className="relative overflow-hidden">
+            <div className="flex animate-carousel-right" style={{ width: "max-content" }}>
+              {[...coverageAreas.slice(4), ...coverageAreas.slice(4), ...coverageAreas.slice(4), ...coverageAreas.slice(4)].map(({ label, icon }, i) => (
+                <div
+                  key={`row2-${i}`}
+                  className="flex items-center gap-3 rounded-2xl px-5 py-4 shrink-0"
+                  style={{ background: "#FFFFFF", width: 220, marginRight: 16 }}
+                >
+                  <img src={icon} alt={label} className="w-11 h-11 shrink-0 object-contain" />
+                  <p className="text-[14px] font-semibold" style={{ color: "#0A0A0A" }}>
+                    {label}
                   </p>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -605,49 +672,37 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {testimonials.map(({ quote, name, role, company }) => (
+          <div className="testimonial-row">
+            {testimonials.map(({ quote, name, role, company, image }) => (
               <div
                 key={name}
-                className="flex flex-col rounded-md border p-8"
+                className="testimonial-card rounded-2xl"
                 style={{
-                  background: "#FFFFFF",
-                  borderColor: "#E4E4E7",
-                  boxShadow:
-                    "0 1px 3px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.04)",
+                  backgroundImage: `url('${image}')`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center top",
                 }}
               >
+                {/* Bottom gradient for text legibility */}
                 <div
-                  className="w-9 h-9 rounded mb-6 shrink-0 flex items-center justify-center"
-                  style={{ background: "#EAE8FA" }}
-                >
-                  <Quotes size={18} weight="fill" color="#5A4FCF" />
-                </div>
-                <p
-                  className="text-[16px] leading-relaxed flex-1 mb-8"
-                  style={{ color: "#0A0A0A" }}
-                >
-                  {quote}
-                </p>
-                <div
-                  className="flex items-center gap-3 pt-6 border-t"
-                  style={{ borderColor: "#E4E4E7" }}
-                >
-                  <div
-                    className="w-10 h-10 rounded-full shrink-0"
-                    style={{ background: "#EAE8FA" }}
-                  />
-                  <div>
-                    <p
-                      className="text-[14px] font-semibold"
-                      style={{ color: "#0A0A0A" }}
-                    >
-                      {name}
-                    </p>
-                    <p className="text-[13px]" style={{ color: "#71717A" }}>
-                      {role} &middot; {company}
-                    </p>
-                  </div>
+                  className="absolute inset-0 rounded-2xl"
+                  style={{
+                    background: "linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.2) 50%, transparent 100%)",
+                    zIndex: 1,
+                  }}
+                />
+
+                {/* Expanded state — text pinned to bottom */}
+                <div className="t-expanded absolute inset-0 flex flex-col justify-end p-8" style={{ zIndex: 4 }}>
+                  <p className="t-quote text-[16px] leading-relaxed mb-2" style={{ color: "rgba(255,255,255,0.92)" }}>
+                    {quote}
+                  </p>
+                  <p className="t-name text-[14px] font-semibold" style={{ color: "#FFFFFF" }}>
+                    {name}
+                  </p>
+                  <p className="t-meta text-[13px]" style={{ color: "rgba(255,255,255,0.65)" }}>
+                    {role} &middot; {company}
+                  </p>
                 </div>
               </div>
             ))}
