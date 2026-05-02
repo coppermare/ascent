@@ -47,6 +47,144 @@
   --radius-xl: 9999px;
 }
 
+/* ── Stat row ────────────────────────────────────────────── */
+.stat-row {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.stat-row::-webkit-scrollbar { display: none; }
+
+.stat-row > * {
+  flex: 0 0 75vw;
+  scroll-snap-align: start;
+}
+
+@media (min-width: 768px) {
+  .stat-row {
+    overflow-x: visible;
+    scroll-snap-type: none;
+  }
+
+  .stat-row > * {
+    flex: 1 1 0;
+  }
+}
+
+/* ── Testimonial card hover ───────────────────────────────── */
+.testimonial-row {
+  display: flex;
+  align-items: stretch;
+  gap: 16px;
+  /* Mobile: horizontal scroll */
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.testimonial-row::-webkit-scrollbar { display: none; }
+
+.testimonial-card {
+  position: relative;
+  overflow: hidden;
+  /* Mobile: fixed-width cards, height driven by aspect-ratio */
+  flex: 0 0 75vw;
+  aspect-ratio: 3 / 4;
+  scroll-snap-align: start;
+  transition: box-shadow 0.4s ease;
+}
+
+/* Desktop: accordion behaviour */
+@media (min-width: 768px) {
+  .testimonial-row {
+    overflow-x: visible;
+    scroll-snap-type: none;
+    gap: 8px;
+    /*
+     * Lock height to 3:4 of the expanded card width.
+     * Expanded card = (container - gaps) * 3/6 = (min(100vw-48px,1200px) - 24px) / 2
+     * Height = expanded_width * 4/3 = (min(100vw-48px,1200px) - 24px) * 2/3
+     */
+    height: calc((min(100vw - 48px, 1200px) - 24px) * 2 / 3);
+  }
+
+  .testimonial-card {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0;
+    aspect-ratio: unset;
+    min-width: 80px;
+    scroll-snap-align: none;
+    transition: flex-grow 0.5s ease, box-shadow 0.4s ease;
+  }
+
+  .testimonial-card:first-child { flex-grow: 3; }
+
+  .testimonial-row:hover .testimonial-card:first-child:not(:hover) { flex-grow: 1; }
+}
+
+.testimonial-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.25'/%3E%3C/svg%3E"),
+    linear-gradient(to top, rgba(5,8,40,1) 0%, rgba(5,8,40,0.85) 50%, rgba(5,8,40,0) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Text sits above all overlays */
+.testimonial-card .t-expanded { z-index: 3; }
+
+/* Mobile: all cards show their text */
+.testimonial-card .t-expanded {
+  opacity: 1;
+  transition: opacity 0.35s ease;
+}
+
+@media (min-width: 768px) {
+  .testimonial-card:hover::before { opacity: 1; }
+
+  .testimonial-card:hover {
+    flex-grow: 3;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Desktop: hide text by default, show on first card and hover */
+  .testimonial-card .t-expanded { opacity: 0; }
+  .testimonial-card:first-child .t-expanded { opacity: 1; }
+  .testimonial-card:hover .t-expanded { opacity: 1; }
+  .testimonial-row:hover .testimonial-card:first-child:not(:hover) .t-expanded { opacity: 0; }
+}
+
+
+@keyframes carousel-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-25%); }
+}
+
+@keyframes carousel-right {
+  from { transform: translateX(-25%); }
+  to   { transform: translateX(0); }
+}
+
+.animate-carousel-left {
+  animation: carousel-left 28s linear infinite;
+}
+
+.animate-carousel-right {
+  animation: carousel-right 28s linear infinite;
+}
+
 :root {
   --primary: #5A4FCF;
   --primary-hover: #4840B8;
