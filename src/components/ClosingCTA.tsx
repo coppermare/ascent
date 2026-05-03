@@ -32,7 +32,7 @@ export function ClosingCTA({
           className="absolute inset-0"
           style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.72) 100%)" }}
         />
-        <div className="relative flex flex-col items-start justify-center px-12 py-20 h-full" style={{ minHeight: "500px" }}>
+        <div className="relative flex flex-col items-start justify-center px-6 md:px-12 py-20 h-full" style={{ minHeight: "500px" }}>
           <h2
             className="text-[44px] md:text-[56px] font-normal leading-[1.05] tracking-tight mb-6 max-w-[640px]"
             style={{ color: "#ffffff" }}

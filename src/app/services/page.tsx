@@ -97,30 +97,6 @@ export default function ServicesPage() {
         subtitle="Every engagement starts with a Signal Audit. What we find determines what comes next."
       />
 
-      {/* Jump links */}
-      <div
-        className="border-b sticky top-0 z-10"
-        style={{ background: "#0A0A0A", borderColor: "rgba(255,255,255,0.08)" }}
-      >
-        <div className="mx-auto max-w-[1200px] px-6">
-          <div className="flex gap-1 overflow-x-auto">
-            {services.map(({ id, name }, idx) => {
-              const Icon = serviceIcons[idx];
-              return (
-                <a
-                  key={id}
-                  href={`#${id}`}
-                  className="shrink-0 inline-flex items-center gap-2 text-[13px] font-medium px-4 py-3.5 transition-colors hover:text-white"
-                  style={{ color: "rgba(255,255,255,0.45)" }}
-                >
-                  <Icon size={14} style={{ color: "#8B82E0" }} />
-                  {name}
-                </a>
-              );
-            })}
-          </div>
-        </div>
-      </div>
 
       {services.map(({ id, name, tagline, body, details, image, bg, cardBg }, i) => {
         const Icon = serviceIcons[i];
@@ -166,7 +142,7 @@ export default function ServicesPage() {
               </AnimateIn>
 
               {/* Card */}
-              <AnimateIn delay={0.1} className={`border rounded-lg p-8 space-y-5${i % 2 === 1 ? " lg:col-start-1 lg:row-start-1" : ""}`}
+              <AnimateIn delay={0.1} className={`border rounded-lg p-5 md:p-8 space-y-5${i % 2 === 1 ? " lg:col-start-1 lg:row-start-1" : ""}`}
                 style={{ background: cardBg, borderColor: "#E4E4E7" }}
               >
                 {image && (

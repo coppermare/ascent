@@ -68,36 +68,26 @@ export function StatCard({ value, label, image }: StatCardProps) {
       <div
         className="absolute inset-0"
         style={{
-          background: "linear-gradient(to top, rgba(90,79,207,0.75) 0%, rgba(90,79,207,0.3) 45%, rgba(90,79,207,0) 100%)",
+          background: "linear-gradient(to top, rgba(90,79,207,0.85) 0%, rgba(90,79,207,0.4) 50%, rgba(90,79,207,0) 100%)",
         }}
       />
 
-      {/* stat content: label and value at fixed positions so numbers align across all cards */}
-      <p
-        className="absolute text-[13px] leading-snug"
-        style={{
-          fontFamily: "var(--font-geist-sans)",
-          color: "rgba(255,255,255,0.7)",
-          bottom: 24,
-          left: 24,
-          right: 24,
-        }}
-      >
-        {label}
-      </p>
-      {value !== "" && (
+      <div className="absolute bottom-0 left-0 right-0 p-6 flex flex-col gap-1">
+        {value !== "" && (
+          <p
+            className="text-[40px] md:text-[48px] font-normal tracking-[-0.02em] leading-none whitespace-nowrap"
+            style={{ fontFamily: "var(--font-geist-sans)", color: "#FFFFFF" }}
+          >
+            {display}
+          </p>
+        )}
         <p
-          className="absolute text-[36px] md:text-[44px] font-normal tracking-[-0.02em] leading-none whitespace-nowrap"
-          style={{
-            fontFamily: "var(--font-geist-sans)",
-            color: "#FFFFFF",
-            bottom: 72,
-            left: 24,
-          }}
+          className="text-[14px] leading-snug"
+          style={{ fontFamily: "var(--font-geist-sans)", color: "rgba(255,255,255,0.75)" }}
         >
-          {display}
+          {label}
         </p>
-      )}
+      </div>
     </div>
   );
 }

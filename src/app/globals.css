@@ -93,8 +93,8 @@
   position: relative;
   overflow: hidden;
   /* Mobile: fixed-width cards, height driven by aspect-ratio */
-  flex: 0 0 75vw;
-  aspect-ratio: 3 / 4;
+  flex: 0 0 80vw;
+  min-height: 520px;
   scroll-snap-align: start;
   transition: box-shadow 0.4s ease;
 }
@@ -152,8 +152,6 @@
 }
 
 @media (min-width: 768px) {
-  .testimonial-card:hover::before { opacity: 1; }
-
   .testimonial-card:hover {
     flex-grow: 3;
     box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);

@@ -123,7 +123,7 @@ const services: {
     figure: "Binoculars",
     title: "Signal Audit",
     desc: "Five days to map your entire growth picture. Every channel, every conversion path, every spend category ranked by its actual revenue contribution. Most clients find at least one channel they have been overfunding and one they did not know was working.",
-    tag: "5 days",
+    tag: "FIG-BINOCULARS",
     href: "/services#signal-audit",
     Icon: Binoculars,
     image: "/images/binoculars.png",
@@ -133,7 +133,7 @@ const services: {
     figure: "Seedling",
     title: "Growth Sprint",
     desc: "Eight weeks. Outcomes agreed before day one, not aspired to. We build and test from week one, adapt from signal in weeks two through four, scale what is working in five through eight. At close: results against the agreed targets, not a document about them.",
-    tag: "8 weeks",
+    tag: "FIG-SEEDLING",
     href: "/services#growth-sprint",
     Icon: Rocket,
     image: "/images/growth-sprint.png",
@@ -143,7 +143,7 @@ const services: {
     figure: "Handshake",
     title: "Retainer Partnership",
     desc: "For clients who hit their sprint targets and want to keep compounding. Quarterly goals, not hours billed. We stay in the data, keep running experiments, and tell you honestly when we are no longer the right partner for your stage.",
-    tag: "Post-sprint only",
+    tag: "FIG-HANDSHAKE",
     href: "/services#retainer",
     Icon: ArrowsClockwise,
     image: "/images/retainer-partnership.png",
@@ -336,7 +336,7 @@ export default function HomePage() {
               You just don&rsquo;t know why.
             </h1>
             <p
-              className="text-[15px] leading-relaxed max-w-[360px] lg:pt-3 lg:shrink-0"
+              className="text-[18px] leading-relaxed max-w-[360px] lg:pt-3 lg:shrink-0"
               style={{ color: "rgba(255,255,255,0.55)" }}
             >
               We find what&rsquo;s actually driving your revenue and what
@@ -383,7 +383,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-[1200px] px-6 pt-20 pb-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-24 items-end">
             <AnimateIn as="h2"
-              className="text-[44px] md:text-[56px] font-normal tracking-tight leading-[1.05]"
+              className="text-[30px] md:text-[56px] font-normal tracking-tight leading-[1.05]"
               style={{ color: "#ffffff" }}
             >
               You&rsquo;re reading the wrong signals.
@@ -425,11 +425,11 @@ export default function HomePage() {
       </section>
 
       {/* ── Services ─────────────────────────────────────────────── */}
-      <section className="py-20" style={{ background: "#FAF9F6" }}>
+      <section className="py-16 md:py-24" style={{ background: "#FAF9F6" }}>
         <div className="mx-auto max-w-[1200px] px-6">
           <div className="mb-10 flex flex-col md:grid md:grid-cols-2 md:grid-rows-[auto_auto] gap-x-16 gap-y-5 md:items-start">
             <AnimateIn as="h2"
-              className="text-[44px] md:text-[52px] font-normal tracking-tight leading-[1.1] md:col-start-1 md:row-start-1"
+              className="text-[30px] md:text-[52px] font-normal tracking-tight leading-[1.1] md:col-start-1 md:row-start-1"
               style={{ color: "#0A0A0A" }}
             >
               The sequence is the strategy.
@@ -489,13 +489,13 @@ export default function HomePage() {
 
       {/* ── Engagement Stats ─────────────────────────────────────── */}
       <section
-        className="py-20"
+        className="py-16 md:py-24"
         style={{ background: "#F5F1EA" }}
       >
         <div className="mx-auto max-w-[1200px] px-6">
-          <div className="mb-16 max-w-[480px]">
+          <div className="mb-10 md:mb-16 max-w-[480px]">
             <AnimateIn as="h2"
-              className="text-[44px] md:text-[52px] font-normal tracking-tight leading-[1.1] mb-4"
+              className="text-[30px] md:text-[52px] font-normal tracking-tight leading-[1.1] mb-4"
               style={{ color: "#0A0A0A" }}
             >
               The engagement in numbers.
@@ -514,9 +514,9 @@ export default function HomePage() {
       </section>
 
       {/* ── Results ──────────────────────────────────────────────── */}
-      <section className="py-20" style={{ background: "#0A0A0A" }}>
+      <section className="py-16 md:py-24" style={{ background: "#0A0A0A" }}>
         <div className="mx-auto max-w-[1200px] px-6">
-          <div className="mb-16 rounded-lg overflow-hidden flex flex-col md:flex-row">
+          <div className="mb-10 md:mb-16 rounded-lg overflow-hidden flex flex-col md:flex-row">
             {/* Image — 3:4 portrait with heading overlaid top-left */}
             <div className="relative w-full md:w-[50%] shrink-0 aspect-[3/4]">
               <img
@@ -525,11 +525,11 @@ export default function HomePage() {
                 aria-hidden="true"
                 className="absolute inset-0 w-full h-full object-cover"
               />
-              <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-start"
+              <div className="absolute inset-0 p-6 md:p-10 flex flex-col justify-start"
                 style={{ background: "linear-gradient(to bottom, rgba(90,79,207,0.7) 0%, transparent 60%)" }}
               >
                 <h2
-                  className="text-[44px] md:text-[52px] font-normal tracking-tight leading-[1.05] mb-4"
+                  className="text-[30px] md:text-[52px] font-normal tracking-tight leading-[1.05] mb-4"
                   style={{ color: "#ffffff" }}
                 >
                   Closed results,<br />not forecasts.
@@ -541,7 +541,7 @@ export default function HomePage() {
             </div>
             {/* Quote text */}
             <div
-              className="flex flex-col justify-end p-10 md:p-14"
+              className="flex flex-col justify-end p-6 md:p-14"
               style={{ background: "#5A4FCF" }}
             >
               <blockquote
@@ -562,11 +562,11 @@ export default function HomePage() {
       </section>
 
       {/* ── Outcomes ─────────────────────────────────────────────── */}
-      <section className="py-20" style={{ background: "#0A0A0A" }}>
+      <section className="py-16 md:py-24" style={{ background: "#0A0A0A" }}>
         <div className="mx-auto max-w-[1200px] px-6">
-          <div className="mb-16 max-w-[480px]">
+          <div className="mb-10 md:mb-16 max-w-[480px]">
             <AnimateIn as="h2"
-              className="text-[44px] md:text-[52px] font-normal tracking-tight leading-[1.1] mb-4"
+              className="text-[30px] md:text-[52px] font-normal tracking-tight leading-[1.1] mb-4"
               style={{ color: "#ffffff" }}
             >
               Three targets. All hit.
@@ -609,18 +609,18 @@ export default function HomePage() {
       </section>
 
       {/* ── Coverage Areas ───────────────────────────────────────── */}
-      <section className="py-24 px-6" style={{ background: "#FAF9F6" }}>
+      <section className="py-16 md:py-24 px-6" style={{ background: "#FAF9F6" }}>
         <div
-          className="mx-auto max-w-[1200px] overflow-hidden rounded-xl py-20"
+          className="mx-auto max-w-[1200px] overflow-hidden rounded-xl py-12 md:py-20"
           style={{
             backgroundImage: "url('/images/channels-bg.png')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
         >
-          <div className="px-12 mb-16">
+          <div className="px-6 md:px-12 mb-16">
             <AnimateIn as="h2"
-              className="text-[44px] md:text-[52px] font-normal tracking-tight leading-[1.1] mb-4"
+              className="text-[30px] md:text-[52px] font-normal tracking-tight leading-[1.1] mb-4"
               style={{ color: "#0A0A0A" }}
             >
               Every channel, in scope.
@@ -671,11 +671,11 @@ export default function HomePage() {
       </section>
 
       {/* ── Testimonials ─────────────────────────────────────────── */}
-      <section className="py-20" style={{ background: "#F5F1EA" }}>
+      <section className="py-16 md:py-24" style={{ background: "#F5F1EA" }}>
         <div className="mx-auto max-w-[1200px] px-6">
-          <div className="mb-16 max-w-[480px]">
+          <div className="mb-10 md:mb-16 max-w-[480px]">
             <AnimateIn as="h2"
-              className="text-[44px] md:text-[52px] font-normal tracking-tight leading-[1.1] mb-4"
+              className="text-[30px] md:text-[52px] font-normal tracking-tight leading-[1.1] mb-4"
               style={{ color: "#0A0A0A" }}
             >
               In their words.
@@ -707,7 +707,7 @@ export default function HomePage() {
                 />
 
                 {/* Expanded state — text pinned to bottom */}
-                <div className="t-expanded absolute inset-0 flex flex-col justify-end p-8" style={{ zIndex: 4 }}>
+                <div className="t-expanded absolute inset-0 flex flex-col justify-end p-6" style={{ zIndex: 4 }}>
                   <p className="t-quote text-[16px] leading-relaxed mb-2" style={{ color: "rgba(255,255,255,0.92)" }}>
                     {quote}
                   </p>
@@ -726,7 +726,7 @@ export default function HomePage() {
 
       {/* ── About / Team ─────────────────────────────────────────── */}
       <section
-        className="relative overflow-hidden py-24"
+        className="relative overflow-hidden py-16 md:py-24"
         style={{ background: "#0A0A0A" }}
       >
         <GrainGradient
@@ -748,7 +748,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-16 items-start">
             <div>
               <AnimateIn as="h2"
-                className="text-[44px] md:text-[52px] font-normal tracking-tight leading-[1.1] mb-6"
+                className="text-[30px] md:text-[52px] font-normal tracking-tight leading-[1.1] mb-6"
                 style={{ color: "#ffffff" }}
               >
                 Built by operators.
@@ -764,15 +764,7 @@ export default function HomePage() {
                 what the data looks like when it&rsquo;s being read wrong,
                 because we have read it wrong ourselves.
               </AnimateIn>
-              <AnimateIn delay={0.15} as="p"
-                className="text-[17px] leading-relaxed mb-10 max-w-[520px]"
-                style={{ color: "rgba(255,255,255,0.72)" }}
-              >
-                Every engagement is led by the same people you speak to on the
-                first call. There are no account managers. There is no handoff
-                after the pitch.
-              </AnimateIn>
-              <AnimateIn delay={0.2}>
+              <AnimateIn delay={0.15}>
                 <ButtonLink href="/about" variant="inverted" size="default">
                   About us
                 </ButtonLink>
@@ -802,11 +794,11 @@ export default function HomePage() {
       </section>
 
       {/* ── FAQ ──────────────────────────────────────────────────── */}
-      <section className="py-20" style={{ background: "#F5F1EA" }}>
+      <section className="py-16 md:py-24" style={{ background: "#F5F1EA" }}>
         <div className="mx-auto max-w-[1200px] px-6">
           <div className="mb-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <h2
-              className="text-[44px] md:text-[52px] font-normal tracking-tight leading-[1.05]"
+              className="text-[30px] md:text-[52px] font-normal tracking-tight leading-[1.05]"
               style={{ color: "#0A0A0A" }}
             >
               Questions we hear most.
@@ -820,15 +812,15 @@ export default function HomePage() {
       </section>
 
       {/* ── Lead Magnet ──────────────────────────────────────────── */}
-      <section id="lead-magnet" className="py-24 px-6" style={{ background: "#FAF9F6" }}>
+      <section id="lead-magnet" className="py-16 md:py-24 px-6" style={{ background: "#FAF9F6" }}>
         <div
-          className="relative mx-auto max-w-[1200px] overflow-hidden rounded-xl py-16 px-12"
+          className="relative mx-auto max-w-[1200px] overflow-hidden rounded-xl py-12 px-6 md:py-24 md:px-16"
           style={{ backgroundImage: "url('/images/audit-bg.png')", backgroundSize: "cover", backgroundPosition: "center" }}
         >
           <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.65) 100%)" }} />
           <div className="relative max-w-[720px]">
             <AnimateIn as="h2"
-              className="text-[44px] md:text-[52px] font-normal tracking-tight leading-[1.1] mb-4"
+              className="text-[30px] md:text-[52px] font-normal tracking-tight leading-[1.1] mb-4"
               style={{ color: "#ffffff" }}
             >
               Run the audit yourself.

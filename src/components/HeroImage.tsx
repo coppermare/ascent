@@ -18,14 +18,14 @@ export function HeroImage() {
   return (
     <div
       ref={containerRef}
-      className="relative w-full rounded-lg overflow-hidden"
-      style={{ height: 'clamp(320px, 55vw, 680px)', willChange: 'transform' }}
+      className="relative w-screen -ml-6 md:ml-0 md:w-full md:rounded-lg h-[600px] md:h-auto overflow-hidden"
+      style={{ willChange: 'transform' }}
     >
       <img
         src="/images/hero-bg.png"
         alt=""
         aria-hidden="true"
-        className="absolute inset-0 w-full h-full object-cover object-center"
+        className="w-full h-full md:h-auto object-cover md:object-none object-center block"
       />
     </div>
   );

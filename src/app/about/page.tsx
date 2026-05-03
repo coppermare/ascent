@@ -109,7 +109,7 @@ export default function AboutPage() {
               <div key={number} className="flex gap-6">
                 <span
                   className="text-[40px] font-light leading-none shrink-0 select-none"
-                  style={{ color: "#EAE8FA", fontVariantNumeric: "tabular-nums" }}
+                  style={{ color: "#C4BFEE", fontVariantNumeric: "tabular-nums" }}
                 >
                   {number}
                 </span>

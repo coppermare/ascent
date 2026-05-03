@@ -32,7 +32,7 @@ export function EmailCapture() {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder="your@email.com"
-        className="flex-1 h-11 rounded border px-4 text-[14px] bg-white focus:outline-none transition-colors"
+        className="w-full min-w-0 flex-1 h-12 min-h-[48px] rounded border px-4 text-[14px] bg-white focus:outline-none transition-colors"
         style={{
           borderColor: "#E4E4E7",
           color: "#0A0A0A",
@@ -40,7 +40,7 @@ export function EmailCapture() {
         onFocus={(e) => (e.target.style.borderColor = "#5A4FCF")}
         onBlur={(e) => (e.target.style.borderColor = "#E4E4E7")}
       />
-      <Button type="submit" className="w-full shrink-0 sm:w-auto">
+      <Button type="submit" size="lg" className="w-full shrink-0 sm:w-auto">
         Get guide
       </Button>
     </form>

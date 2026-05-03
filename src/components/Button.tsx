@@ -18,9 +18,9 @@ const base =
 const variants: Record<ButtonVariant, string> = {
   primary: "border border-[#5A4FCF] bg-[#5A4FCF] text-white hover:border-[#4840B8] hover:bg-[#4840B8]",
   secondary:
-    "border-[1.5px] border-[#0A0A0A] bg-transparent text-[#0A0A0A] hover:bg-[#F5F1EA]",
+    "border-[1.5px] border-[#0A0A0A] bg-transparent text-[#0A0A0A] hover:bg-[#0A0A0A] hover:text-white",
   ghost:
-    "border-[1.5px] border-[#0A0A0A] bg-transparent text-[#0A0A0A] hover:bg-[#F5F1EA]",
+    "border-[1.5px] border-[#0A0A0A] bg-transparent text-[#0A0A0A] hover:bg-[#0A0A0A] hover:text-white",
   inverted: "border-0 bg-white text-[#5A4FCF] hover:bg-white/90",
   onInverse:
     "border-[1.5px] border-white/40 bg-transparent text-white hover:bg-white/10",

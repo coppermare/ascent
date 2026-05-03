@@ -64,7 +64,7 @@ export default function InsightsPage() {
               {/* Cover image */}
               {featured.coverImage && (
                 <div
-                  className="hidden lg:block rounded-lg overflow-hidden"
+                  className="rounded-lg overflow-hidden"
                   style={{ aspectRatio: "4/3" }}
                 >
                   <img
@@ -91,7 +91,7 @@ export default function InsightsPage() {
                 year: "numeric",
               });
               return (
-                <article key={slug} className="py-10 grid grid-cols-1 md:grid-cols-[1fr_160px] gap-6 items-start">
+                <article key={slug} className="py-10 grid grid-cols-[1fr_120px] md:grid-cols-[1fr_160px] gap-6 items-start">
                   <div>
                     <div className="flex flex-wrap items-center gap-3 mb-3">
                       <span
@@ -121,7 +121,7 @@ export default function InsightsPage() {
                   </div>
                   {/* Cover thumbnail */}
                   {coverImage ? (
-                    <Link href={`/insights/${slug}`} className="hidden md:block">
+                    <Link href={`/insights/${slug}`} className="block">
                       <div className="rounded-lg overflow-hidden" style={{ aspectRatio: "4/3" }}>
                         <img
                           src={coverImage}
@@ -132,7 +132,7 @@ export default function InsightsPage() {
                       </div>
                     </Link>
                   ) : (
-                    <div className="hidden md:block md:text-right pt-1">
+                    <div className="text-right pt-1">
                       <p className="text-[13px]" style={{ color: "#A1A1AA" }}>
                         {formatted}
                       </p>
