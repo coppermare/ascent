@@ -11,6 +11,7 @@ const links = [
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
   { href: "/work", label: "Work" },
+  { href: "/blog", label: "Writing" },
   { href: "/faq", label: "FAQ" },
 ];
 
@@ -72,7 +73,7 @@ export function Nav() {
         {/* Mobile hamburger */}
         <button
           type="button"
-          className="inline-flex h-11 min-h-[44px] w-11 min-w-[44px] items-center justify-center rounded lg:hidden"
+          className="inline-flex h-11 min-h-[44px] w-11 min-w-[44px] items-center justify-center rounded lg:hidden focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5A4FCF]"
           onClick={() => setOpen(!open)}
           aria-label={open ? "Close menu" : "Open menu"}
         >

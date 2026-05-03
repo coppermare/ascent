@@ -19,11 +19,13 @@ import { ClosingCTA } from "@/components/ClosingCTA";
 import { EmailCapture } from "@/components/EmailCapture";
 import { ButtonLink } from "@/components/Button";
 import { HeroShader } from "@/components/HeroShader";
-import { SectionShader } from "@/components/SectionShader";
 import { BrandVisual } from "@/components/BrandVisual";
 import { GrainGradient } from "@paper-design/shaders-react";
 import { StatCard } from "@/components/StatCard";
 import MagnetLines from "@/components/MagnetLines";
+import { HeroImage } from "@/components/HeroImage";
+import { LogoLoop } from "@/components/LogoLoop";
+import { AnimateIn, StaggerIn } from "@/components/AnimateIn";
 
 export const metadata: Metadata = {
   title: "Ascent — Find your signal. Sprint to results.",
@@ -86,22 +88,22 @@ const engagementStats = [
   {
     value: "5 days",
     label: "To complete the signal audit and rank every channel by revenue impact",
-    image: "/images/stat-bg-panels.png",
+    image: "/images/stat-card-1.png",
   },
   {
     value: "8 wks",
     label: "From audit findings to agreed results — not a presentation of them",
-    image: "/images/stat-bg-curves.png",
+    image: "/images/stat-card-2.png",
   },
   {
-    value: "≤5",
+    value: "5",
     label: "Active client engagements at any time. A hard limit, not a target",
-    image: "/images/stat-bg-panels.png",
+    image: "/images/stat-card-3.png",
   },
   {
     value: "0",
     label: "Open-ended retainers. Every engagement closes against a defined result",
-    image: "/images/stat-bg-curves.png",
+    image: "/images/stat-card-4.png",
   },
 ];
 
@@ -191,21 +193,24 @@ const coverageAreas: { label: string; desc: string; icon: string }[] = [
 ];
 
 
-const outcomes = [
+const outcomes: { metric: string; detail: string; shape: 'line' | 'diamond' | 'arrow' }[] = [
   {
     metric: "+3.2× qualified pipeline",
     detail:
       "Series A fintech. Target was 2×. We rebuilt the ICP definition and cut two channels generating volume but not qualified pipeline. Closed the sprint at 3.2×.",
+    shape: "line",
   },
   {
     metric: "−28% customer acquisition cost",
     detail:
       "The audit found 60% of paid budget sitting in three channels accounting for less than 15% of closed revenue. Three weeks to reallocate. The CAC drop held at the six-month mark.",
+    shape: "line",
   },
   {
     metric: "4× faster sales cycle",
     detail:
       "The content strategy was built for awareness, not conversion. We rebuilt it around the signals that preceded closed deals. Average deal time went from 90 days to 22.",
+    shape: "line",
   },
 ];
 
@@ -301,7 +306,7 @@ export default function HomePage() {
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden -mt-16 pt-32 md:pt-40 pb-0 px-6" style={{ background: "#000000" }}>
+      <section className="relative overflow-hidden -mt-16 pt-32 md:pt-40 pb-0" style={{ background: "#000000" }}>
         <GrainGradient
           key="hero-grain-10"
           width={1280}
@@ -319,10 +324,10 @@ export default function HomePage() {
           offsetX={0.28}
           offsetY={0.3}
         />
-        <div className="relative mx-auto max-w-[1200px]">
-          <div className="mb-10 lg:mb-14">
+        <div className="relative mx-auto max-w-[1200px] px-6">
+          <div className="mb-10 lg:mb-14 flex flex-col lg:flex-row lg:items-start lg:justify-between lg:gap-16">
             <h1
-              className="text-[38px] md:text-[52px] lg:text-[68px] font-normal leading-[1.05] tracking-[-0.03em] mb-6"
+              className="text-[38px] md:text-[52px] lg:text-[68px] font-normal leading-[1.05] tracking-[-0.03em] mb-6 lg:mb-0"
               style={{ color: "#ffffff" }}
             >
               You&rsquo;re growing.
@@ -330,7 +335,7 @@ export default function HomePage() {
               You just don&rsquo;t know why.
             </h1>
             <p
-              className="text-[15px] leading-relaxed max-w-[360px]"
+              className="text-[15px] leading-relaxed max-w-[360px] lg:pt-3 lg:shrink-0"
               style={{ color: "rgba(255,255,255,0.55)" }}
             >
               We find what&rsquo;s actually driving your revenue and what
@@ -338,42 +343,40 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="relative w-full rounded-t-2xl overflow-hidden" style={{ height: "clamp(320px, 55vw, 680px)" }}>
-            <img
-              src="/images/hero-bg.png"
-              alt=""
-              aria-hidden="true"
-              className="absolute inset-0 w-full h-full object-cover object-center"
-            />
-          </div>
+          <HeroImage />
         </div>
       </section>
 
       {/* ── Client bar ───────────────────────────────────────────── */}
       <section
-        className="py-14 px-6 border-b"
-        style={{ background: "#FAF9F6", borderColor: "#E4E4E7" }}
+        className="py-14 overflow-hidden"
+        style={{ background: "#000000" }}
       >
-        <div className="mx-auto max-w-[1200px]">
-          <p
-            className="text-[13px] text-center mb-8"
-            style={{ color: "#A1A1AA" }}
-          >
-            Trusted by growth teams at Series A and B companies
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-5">
-            {clientLogos.map(({ name, Mark }) => (
-              <div
-                key={name}
-                className="flex items-center gap-2.5"
-                style={{ color: "#BCBCC2" }}
-              >
+        <p
+          className="text-[15px] text-center mb-10 px-6"
+          style={{ color: "rgba(255,255,255,0.35)" }}
+        >
+          Trusted by growth teams at Series A and B companies
+        </p>
+        <LogoLoop
+          logos={clientLogos.map(({ name, Mark }) => ({
+            node: (
+              <div className="flex items-center gap-3" style={{ color: "rgba(255,255,255,0.5)" }}>
                 <Mark />
-                <span className="text-[15px] font-semibold">{name}</span>
+                <span className="text-[18px] font-semibold">{name}</span>
               </div>
-            ))}
-          </div>
-        </div>
+            ),
+            title: name,
+          }))}
+          speed={60}
+          direction="left"
+          logoHeight={24}
+          gap={72}
+          hoverSpeed={0}
+          fadeOut
+          fadeOutColor="#000000"
+          ariaLabel="Trusted clients"
+        />
       </section>
 
       {/* ── Brand Visual ─────────────────────────────────────────── */}
@@ -384,21 +387,22 @@ export default function HomePage() {
         {/* Text row */}
         <div className="mx-auto max-w-[1200px] px-6 pt-20 pb-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-24 items-end">
-            <h2
+            <AnimateIn as="h2"
               className="text-[44px] md:text-[56px] font-normal tracking-tight leading-[1.05]"
               style={{ color: "#ffffff" }}
             >
               You&rsquo;re reading the wrong signals.
-            </h2>
-            <p
+            </AnimateIn>
+            <AnimateIn delay={0.1}
               className="text-[17px] leading-relaxed lg:pb-2"
               style={{ color: "rgba(255,255,255,0.5)" }}
+              as="p"
             >
               Not because you lack data. Because no one has looked at which data
               actually precedes closed revenue — and which is just noise. Most
               clients arrive having confidently funded the wrong channels for 12
               months or more.
-            </p>
+            </AnimateIn>
           </div>
         </div>
 
@@ -426,25 +430,26 @@ export default function HomePage() {
       </section>
 
       {/* ── Services ─────────────────────────────────────────────── */}
-      <section className="py-24 px-6" style={{ background: "#FAF9F6" }}>
-        <div className="mx-auto max-w-[1200px]">
+      <section className="py-20" style={{ background: "#FAF9F6" }}>
+        <div className="mx-auto max-w-[1200px] px-6">
           <div className="mb-16 flex flex-col md:grid md:grid-cols-2 md:grid-rows-[auto_auto] gap-x-16 gap-y-5 md:items-start">
-            <h2
+            <AnimateIn as="h2"
               className="text-[44px] md:text-[52px] font-normal tracking-tight leading-[1.1] md:col-start-1 md:row-start-1"
               style={{ color: "#0A0A0A" }}
             >
               The sequence is the strategy.
-            </h2>
-            <p
+            </AnimateIn>
+            <AnimateIn delay={0.1}
               className="text-[17px] leading-relaxed md:col-start-2 md:row-start-1 md:row-span-2 md:pt-1"
               style={{ color: "#3F3F46" }}
+              as="p"
             >
               We audit before we touch your budget. We sprint before we
               retain. Every step qualifies the next — so nothing gets built
               on an assumption.
-            </p>
+            </AnimateIn>
             <div className="md:col-start-1 md:row-start-2">
-              <ButtonLink href="/services" variant="primary" size="sm">
+              <ButtonLink href="/services" variant="primary" size="default">
                 Full details
               </ButtonLink>
             </div>
@@ -470,7 +475,7 @@ export default function HomePage() {
                   </div>
                 )}
                 <h3
-                  className="text-[22px] font-bold tracking-tight mb-3"
+                  className="text-[22px] font-semibold tracking-tight mb-3"
                   style={{ color: "#0A0A0A" }}
                 >
                   {title}
@@ -489,35 +494,21 @@ export default function HomePage() {
 
       {/* ── Engagement Stats ─────────────────────────────────────── */}
       <section
-        className="relative overflow-hidden py-24 px-6"
-        style={{ background: "#f5f1ea" }}
+        className="py-20"
+        style={{ background: "#F5F1EA" }}
       >
-        <GrainGradient
-          width="100%"
-          height="100%"
-          style={{ position: "absolute", inset: 0 }}
-          colors={["#f5f1ea", "#c5c0f0", "#f5f1ea"]}
-          colorBack="#f5f1ea"
-          softness={1}
-          intensity={0.5}
-          noise={0.14}
-          shape="wave"
-          speed={0.4}
-          scale={1.2}
-          offsetY={0.15}
-        />
-        <div className="relative mx-auto max-w-[1200px]">
+        <div className="mx-auto max-w-[1200px] px-6">
           <div className="mb-16 max-w-[480px]">
-            <h2
+            <AnimateIn as="h2"
               className="text-[44px] md:text-[52px] font-normal tracking-tight leading-[1.1] mb-4"
               style={{ color: "#0A0A0A" }}
             >
               The engagement in numbers.
-            </h2>
-            <p className="text-[17px] leading-relaxed" style={{ color: "#3F3F46" }}>
+            </AnimateIn>
+            <AnimateIn delay={0.1} as="p" className="text-[17px] leading-relaxed" style={{ color: "#3F3F46" }}>
               Fixed timelines. Defined scope. No open-ended retainers until
               results are on the table.
-            </p>
+            </AnimateIn>
           </div>
           <div className="stat-row">
             {engagementStats.map(({ value, label, image }) => (
@@ -528,76 +519,104 @@ export default function HomePage() {
       </section>
 
       {/* ── Results ──────────────────────────────────────────────── */}
-      <section className="py-24 px-6" style={{ background: "#F5F1EA" }}>
-        <div className="mx-auto max-w-[1200px]">
-          <div className="mb-16 max-w-[480px]">
-            <h2
-              className="text-[44px] md:text-[52px] font-normal tracking-tight leading-[1.1] mb-4"
-              style={{ color: "#0A0A0A" }}
-            >
-              Closed results, not forecasts.
-            </h2>
-            <p className="text-[17px] leading-relaxed" style={{ color: "#3F3F46" }}>
-              Three engagements from the last 18 months. Targets were set
-              before week one. These are what the data showed at close.
-            </p>
-          </div>
-
-          <div className="mb-16 flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-16">
-            <div className="flex-shrink-0">
-              <MagnetLines
-                rows={8}
-                columns={8}
-                containerSize="280px"
-                lineColor="#5A4FCF"
-                lineWidth="2px"
-                lineHeight="26px"
-                baseAngle={0}
+      <section className="py-20" style={{ background: "#0A0A0A" }}>
+        <div className="mx-auto max-w-[1200px] px-6">
+          <div className="mb-16 rounded-lg overflow-hidden flex flex-col md:flex-row">
+            {/* Image — 3:4 portrait with heading overlaid top-left */}
+            <div className="relative w-full md:w-[50%] shrink-0 aspect-[3/4]">
+              <img
+                src="/images/quote-bg.png"
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 w-full h-full object-cover"
               />
+              <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-start"
+                style={{ background: "linear-gradient(to bottom, rgba(90,79,207,0.7) 0%, transparent 60%)" }}
+              >
+                <h2
+                  className="text-[44px] md:text-[52px] font-normal tracking-tight leading-[1.05] mb-4"
+                  style={{ color: "#ffffff" }}
+                >
+                  Closed results,<br />not forecasts.
+                </h2>
+                <p className="text-[13px] leading-relaxed max-w-[260px]" style={{ color: "rgba(255,255,255,0.75)" }}>
+                  Three engagements from the last 18 months. Targets were set before week one. These are what the data showed at close.
+                </p>
+              </div>
             </div>
-            <div className="max-w-[680px]">
+            {/* Quote text */}
+            <div
+              className="flex flex-col justify-end p-10 md:p-14"
+              style={{ background: "#5A4FCF" }}
+            >
               <blockquote
-                className="text-[22px] md:text-[26px] font-semibold leading-snug mb-5"
-                style={{ color: "#0A0A0A" }}
+                className="text-[28px] md:text-[38px] font-normal leading-[1.1] mb-8"
+                style={{ color: "#FFFFFF" }}
               >
                 &ldquo;We had been running ads for two years. The signal audit
                 found a content channel responsible for 40% of our pipeline.
                 It had been completely untracked.&rdquo;
               </blockquote>
-              <p className="text-[14px]" style={{ color: "#71717A" }}>
+              <p className="text-[14px]" style={{ color: "rgba(255,255,255,0.65)" }}>
                 Head of Growth, Series B SaaS
               </p>
             </div>
           </div>
 
-          <div
-            className="grid grid-cols-1 md:grid-cols-3 gap-10 pt-12 border-t"
-            style={{ borderColor: "#E4E4E7" }}
-          >
-            {outcomes.map(({ metric, detail }) => (
+        </div>
+      </section>
+
+      {/* ── Outcomes ─────────────────────────────────────────────── */}
+      <section className="py-20" style={{ background: "#0A0A0A" }}>
+        <div className="mx-auto max-w-[1200px] px-6">
+          <div className="mb-16 max-w-[480px]">
+            <AnimateIn as="h2"
+              className="text-[44px] md:text-[52px] font-normal tracking-tight leading-[1.1] mb-4"
+              style={{ color: "#ffffff" }}
+            >
+              Three targets. All hit.
+            </AnimateIn>
+            <AnimateIn delay={0.1} as="p" className="text-[17px] leading-relaxed" style={{ color: "rgba(255,255,255,0.5)" }}>
+              Defined before week one. Measured at close.
+            </AnimateIn>
+          </div>
+
+          <StaggerIn className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {outcomes.map(({ metric, detail, shape }) => (
               <div key={metric}>
+                <MagnetLines
+                  rows={6}
+                  columns={12}
+                  containerSize="100%"
+                  lineColor="#5A4FCF"
+                  lineWidth="2px"
+                  lineHeight="14px"
+                  baseAngle={0}
+                  shape={shape}
+                  style={{ width: "100%", height: "140px", marginBottom: "24px" }}
+                />
                 <p
-                  className="text-[26px] font-bold tracking-tight mb-3"
-                  style={{ color: "#0A0A0A" }}
+                  className="text-[38px] md:text-[46px] font-normal tracking-tight leading-[1.05] mb-3"
+                  style={{ color: "#ffffff" }}
                 >
                   {metric}
                 </p>
                 <p
                   className="text-[15px] leading-relaxed"
-                  style={{ color: "#3F3F46" }}
+                  style={{ color: "rgba(255,255,255,0.5)" }}
                 >
                   {detail}
                 </p>
               </div>
             ))}
-          </div>
+          </StaggerIn>
         </div>
       </section>
 
       {/* ── Coverage Areas ───────────────────────────────────────── */}
       <section className="py-24 px-6" style={{ background: "#FAF9F6" }}>
         <div
-          className="mx-auto max-w-[1200px] overflow-hidden rounded-3xl py-32"
+          className="mx-auto max-w-[1200px] overflow-hidden rounded-xl py-20"
           style={{
             backgroundImage: "url('/images/channels-bg.png')",
             backgroundSize: "cover",
@@ -605,17 +624,17 @@ export default function HomePage() {
           }}
         >
           <div className="px-12 mb-40">
-            <h2
+            <AnimateIn as="h2"
               className="text-[44px] md:text-[52px] font-normal tracking-tight leading-[1.1] mb-4"
               style={{ color: "#0A0A0A" }}
             >
               Every channel, in scope.
-            </h2>
-            <p className="text-[17px] leading-relaxed max-w-[520px]" style={{ color: "#3F3F46" }}>
+            </AnimateIn>
+            <AnimateIn delay={0.1} as="p" className="text-[17px] leading-relaxed max-w-[520px]" style={{ color: "#3F3F46" }}>
               Every engagement starts from signal, not a preferred playbook.
               The audit tells us where to spend your time and budget. These
               are the levers we look at — the data determines which ones to pull.
-            </p>
+            </AnimateIn>
           </div>
 
           {/* Row 1 — scrolls left */}
@@ -624,7 +643,7 @@ export default function HomePage() {
               {[...coverageAreas.slice(0, 4), ...coverageAreas.slice(0, 4), ...coverageAreas.slice(0, 4), ...coverageAreas.slice(0, 4)].map(({ label, icon }, i) => (
                 <div
                   key={`row1-${i}`}
-                  className="flex items-center gap-3 rounded-2xl px-5 py-4 shrink-0"
+                  className="flex items-center gap-3 rounded-lg px-5 py-4 shrink-0"
                   style={{ background: "#FFFFFF", width: 220, marginRight: 16 }}
                 >
                   <img src={icon} alt={label} className="w-11 h-11 shrink-0 object-contain" />
@@ -642,7 +661,7 @@ export default function HomePage() {
               {[...coverageAreas.slice(4), ...coverageAreas.slice(4), ...coverageAreas.slice(4), ...coverageAreas.slice(4)].map(({ label, icon }, i) => (
                 <div
                   key={`row2-${i}`}
-                  className="flex items-center gap-3 rounded-2xl px-5 py-4 shrink-0"
+                  className="flex items-center gap-3 rounded-lg px-5 py-4 shrink-0"
                   style={{ background: "#FFFFFF", width: 220, marginRight: 16 }}
                 >
                   <img src={icon} alt={label} className="w-11 h-11 shrink-0 object-contain" />
@@ -657,26 +676,26 @@ export default function HomePage() {
       </section>
 
       {/* ── Testimonials ─────────────────────────────────────────── */}
-      <section className="py-24 px-6" style={{ background: "#F5F1EA" }}>
-        <div className="mx-auto max-w-[1200px]">
+      <section className="py-20" style={{ background: "#F5F1EA" }}>
+        <div className="mx-auto max-w-[1200px] px-6">
           <div className="mb-16 max-w-[480px]">
-            <h2
+            <AnimateIn as="h2"
               className="text-[44px] md:text-[52px] font-normal tracking-tight leading-[1.1] mb-4"
               style={{ color: "#0A0A0A" }}
             >
               In their words.
-            </h2>
-            <p className="text-[17px] leading-relaxed" style={{ color: "#3F3F46" }}>
+            </AnimateIn>
+            <AnimateIn delay={0.1} as="p" className="text-[17px] leading-relaxed" style={{ color: "#3F3F46" }}>
               From clients who ran a sprint or audit with us. Shared with
               permission. No editing, no polish.
-            </p>
+            </AnimateIn>
           </div>
 
           <div className="testimonial-row">
             {testimonials.map(({ quote, name, role, company, image }) => (
               <div
                 key={name}
-                className="testimonial-card rounded-2xl"
+                className="testimonial-card rounded-lg"
                 style={{
                   backgroundImage: `url('${image}')`,
                   backgroundSize: "cover",
@@ -685,9 +704,9 @@ export default function HomePage() {
               >
                 {/* Bottom gradient for text legibility */}
                 <div
-                  className="absolute inset-0 rounded-2xl"
+                  className="absolute inset-0 rounded-lg"
                   style={{
-                    background: "linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.2) 50%, transparent 100%)",
+                    background: "linear-gradient(to top, rgba(90,79,207,0.85) 0%, rgba(90,79,207,0.25) 50%, transparent 100%)",
                     zIndex: 1,
                   }}
                 />
@@ -712,22 +731,36 @@ export default function HomePage() {
 
       {/* ── About / Team ─────────────────────────────────────────── */}
       <section
-        className="relative overflow-hidden py-24 px-6"
+        className="relative overflow-hidden py-24"
         style={{ background: "#0A0A0A" }}
       >
+        <GrainGradient
+          width="100%"
+          height="100%"
+          style={{ position: "absolute", inset: 0 }}
+          colors={["#f5f1ea", "#c5c0f0", "#f5f1ea"]}
+          colorBack="#f5f1ea"
+          softness={1}
+          intensity={0.5}
+          noise={0.14}
+          shape="wave"
+          speed={0.4}
+          scale={1.2}
+          offsetY={0.15}
+        />
         <HeroShader />
-        <div className="relative mx-auto max-w-[1200px]">
+        <div className="relative mx-auto max-w-[1200px] px-6">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-16 items-start">
             <div>
-              <h2
+              <AnimateIn as="h2"
                 className="text-[44px] md:text-[52px] font-normal tracking-tight leading-[1.1] mb-6"
                 style={{ color: "#ffffff" }}
               >
                 Built by operators.
                 <br />
                 Not strategists.
-              </h2>
-              <p
+              </AnimateIn>
+              <AnimateIn delay={0.1} as="p"
                 className="text-[17px] leading-relaxed mb-5 max-w-[520px]"
                 style={{ color: "rgba(255,255,255,0.72)" }}
               >
@@ -735,28 +768,27 @@ export default function HomePage() {
                 inside Series A and B companies before building this. We know
                 what the data looks like when it&rsquo;s being read wrong,
                 because we have read it wrong ourselves.
-              </p>
-              <p
+              </AnimateIn>
+              <AnimateIn delay={0.15} as="p"
                 className="text-[17px] leading-relaxed mb-10 max-w-[520px]"
                 style={{ color: "rgba(255,255,255,0.72)" }}
               >
                 Every engagement is led by the same people you speak to on the
                 first call. There are no account managers. There is no handoff
                 after the pitch.
-              </p>
-              <ButtonLink href="/about" variant="onInverse" size="default">
-                About the team
-              </ButtonLink>
+              </AnimateIn>
+              <AnimateIn delay={0.2}>
+                <ButtonLink href="/about" variant="inverted" size="default">
+                  About the team
+                </ButtonLink>
+              </AnimateIn>
             </div>
 
-            <div
-              className="grid grid-cols-2 gap-px"
-              style={{ background: "rgba(255,255,255,0.08)" }}
-            >
+            <div className="grid grid-cols-2 gap-8">
               {teamStats.map(({ value, label }) => (
-                <div key={value} className="p-8" style={{ background: "#0A0A0A" }}>
+                <div key={value} className="p-0">
                   <p
-                    className="text-[40px] font-bold tracking-[-0.04em] leading-none mb-3"
+                    className="text-[56px] md:text-[64px] font-normal tracking-[-0.03em] leading-none mb-3"
                     style={{ color: "#ffffff" }}
                   >
                     {value}
@@ -775,8 +807,8 @@ export default function HomePage() {
       </section>
 
       {/* ── FAQ ──────────────────────────────────────────────────── */}
-      <section className="py-24 px-6" style={{ background: "#F5F1EA" }}>
-        <div className="mx-auto max-w-[1200px]">
+      <section className="py-20" style={{ background: "#F5F1EA" }}>
+        <div className="mx-auto max-w-[1200px] px-6">
           <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-16">
             <div className="lg:sticky lg:top-24 self-start">
               <h2
@@ -805,7 +837,7 @@ export default function HomePage() {
                   style={{ borderColor: "#E4E4E7" }}
                 >
                   <h3
-                    className="text-[18px] font-bold tracking-tight mb-3"
+                    className="text-[18px] font-semibold tracking-tight mb-3"
                     style={{ color: "#0A0A0A" }}
                   >
                     {q}
@@ -824,53 +856,44 @@ export default function HomePage() {
       </section>
 
       {/* ── Lead Magnet ──────────────────────────────────────────── */}
-      <section
-        id="lead-magnet"
-        className="relative overflow-hidden py-24 px-6"
-        style={{ background: "#EAE8FA" }}
-      >
-        <SectionShader
-          colors={["#EAE8FA", "#D4CFFE"]}
-          colorBack="#BBB5FA"
-          shape="ripple"
-          intensity={0.45}
-          noise={0.28}
-          speed={0.22}
-          softness={0.82}
-          scale={1.15}
-          offsetY={0.1}
-        />
-        <div className="relative mx-auto max-w-[720px] text-center">
-          <h2
-            className="text-[44px] md:text-[52px] font-normal tracking-tight leading-[1.1] mb-4"
-            style={{ color: "#0A0A0A" }}
-          >
-            Run the audit yourself.
-          </h2>
-          <p
-            className="text-[17px] leading-relaxed mb-10 max-w-[480px] mx-auto"
-            style={{ color: "#3F3F46" }}
-          >
-            The exact diagnostic we run on every new client, adapted so
-            founders and growth leads can use it without us. Twelve pages.
-            Most people find something they were not expecting.
-          </p>
+      <section id="lead-magnet" className="py-24 px-6" style={{ background: "#FAF9F6" }}>
+        <div
+          className="relative mx-auto max-w-[1200px] overflow-hidden rounded-xl py-16 px-12"
+          style={{ backgroundImage: "url('/images/audit-bg.png')", backgroundSize: "cover", backgroundPosition: "center" }}
+        >
+          <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.65) 100%)" }} />
+          <div className="relative max-w-[720px]">
+            <AnimateIn as="h2"
+              className="text-[44px] md:text-[52px] font-normal tracking-tight leading-[1.1] mb-4"
+              style={{ color: "#ffffff" }}
+            >
+              Run the audit yourself.
+            </AnimateIn>
+            <AnimateIn delay={0.1} as="p"
+              className="text-[17px] leading-relaxed mb-10 max-w-[480px]"
+              style={{ color: "rgba(255,255,255,0.7)" }}
+            >
+              The exact diagnostic we run on every new client, adapted so
+              founders and growth leads can use it without us. Twelve pages.
+              Most people find something they were not expecting.
+            </AnimateIn>
 
-          <div className="grid grid-cols-2 gap-y-3 gap-x-6 mb-10 max-w-[400px] mx-auto text-left">
-            {frameworkItems.map((item) => (
-              <div key={item} className="flex items-center gap-2.5">
-                <span
-                  className="h-1.5 w-1.5 rounded-full shrink-0"
-                  style={{ background: "#5A4FCF" }}
-                />
-                <span className="text-[14px]" style={{ color: "#3F3F46" }}>
-                  {item}
-                </span>
-              </div>
-            ))}
+            <div className="grid grid-cols-2 gap-y-3 gap-x-6 mb-10 max-w-[400px]">
+              {frameworkItems.map((item) => (
+                <div key={item} className="flex items-center gap-2.5">
+                  <span
+                    className="h-1.5 w-1.5 rounded-full shrink-0"
+                    style={{ background: "#a89ff5" }}
+                  />
+                  <span className="text-[14px]" style={{ color: "rgba(255,255,255,0.8)" }}>
+                    {item}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            <EmailCapture />
           </div>
-
-          <EmailCapture />
         </div>
       </section>
 

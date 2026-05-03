@@ -41,23 +41,28 @@ Key characteristics:
 Font family: Geist Sans for headings and body. Geist Mono for code blocks only.
 Fallback: 'Geist Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif
 
-| Role | Size (px) | Weight | Line Height | Letter Spacing |
-|---|---|---|---|---|
-| Hero | 64px | 700 | 1.05 | -0.03em |
-| H1 | 48px | 700 | 1.10 | -0.02em |
-| H2 | 36px | 700 | 1.15 | -0.02em |
-| H3 | 24px | 600 | 1.30 | -0.01em |
-| H4 | 20px | 600 | 1.35 | -0.01em |
-| Body | 16px | 400 | 1.60 | 0 |
-| Small | 14px | 400 | 1.50 | 0 |
-| Caption | 12px | 400 | 1.40 | 0.01em |
-| Button | 14px | 600 | 1.00 | 0.01em |
-| Code | 13px | 400 | 1.60 | 0 |
+| Role | Size (px) | Weight | Tailwind | Line Height | Letter Spacing |
+|---|---|---|---|---|---|
+| Hero | 64px | 300 (light) | font-light | 1.05 | -0.03em |
+| H1 | 52px | 300 (light) | font-light | 1.05 | -0.02em |
+| H2 | 36px | 400 (normal) | font-normal | 1.15 | -0.02em |
+| H3 | 24px | 600 (semibold) | font-semibold | 1.30 | -0.01em |
+| H4 | 20px | 600 (semibold) | font-semibold | 1.35 | -0.01em |
+| Body | 16px | 400 (normal) | font-normal | 1.60 | 0 |
+| Small | 14px | 400 (normal) | font-normal | 1.50 | 0 |
+| Caption | 12px | 400 (normal) | font-normal | 1.40 | 0.01em |
+| Button | 14px | 600 (semibold) | font-semibold | 1.00 | 0 |
+| Code | 13px | 400 (normal) | font-normal | 1.60 | 0 |
+
+**Weight rationale:** Display and section headings use light/normal weights for an editorial,
+unhurried feel. Contrast comes from size and spacing, not weight. Semibold is reserved for
+subheadings, labels, buttons, and UI elements that need to stand out at smaller sizes.
 
 Principles:
-- Never use more than two weights in a single component
+- Never use font-bold (700) for headings — use font-light (300) for Hero/H1, font-normal (400) for H2
 - Keep body copy line length between 55 and 70 characters
 - Use letter-spacing only at display sizes, never on body copy
+- font-semibold (600) is the maximum weight for labels and UI text
 
 ## 4. Component Stylings
 
@@ -99,10 +104,12 @@ Container widths:
 - Wide (full-bleed sections): 100%, 48px side padding
 
 Border radius:
-- Inputs, buttons: 4px
-- Cards, panels: 6px
-- Modals: 8px
-- Pills, avatars: 9999px
+- Micro elements (status dots, inline chips): 2px
+- Inputs, buttons: 4px (Tailwind: `rounded`)
+- Cards, panels, form containers: 8px (Tailwind: `rounded-lg`)
+- Large section insets (featured stat blocks, image frames): 12px (Tailwind: `rounded-xl`)
+- Pills, tags, avatars: 9999px (Tailwind: `rounded-full`)
+- **Hard rule: never exceed 12px for any card or container. rounded-2xl and rounded-3xl are forbidden.**
 
 Sections breathe. Vertical padding on full-width sections never below 64px.
 When in doubt, add space rather than remove it.
@@ -122,7 +129,7 @@ Shadows use black only. Elevation should be felt, not seen.
 
 Do:
 - Use #5A4FCF for primary CTAs only — one dominant action per screen
-- Use Geist 700 for headings, 400 for all body copy
+- Use Geist 300 (light) for Hero/H1, 400 (normal) for H2, 600 (semibold) for H3/H4 and UI labels
 - Keep body line length between 55 and 70 characters
 - Use surface (#F5F1EA) to visually group related content
 - Reserve success / warning / error tokens for system feedback only
@@ -134,7 +141,7 @@ Don't:
 - Don't use muted text (#A1A1AA) for any interactive element
 - Don't exceed 3 levels of typographic hierarchy on a single screen
 - Don't use shadows on elements already inside a card
-- Don't add border-radius above 16px except for pills and avatars
+- Don't add border-radius above 12px except for pills and avatars (rounded-2xl, rounded-3xl are forbidden)
 - Don't use primary colour for decoration — it should always signal action
 - Don't use letter-spacing on body text or anything below 20px
 - Don't apply grain shaders to content sections (cards, tables, forms, text-heavy layouts)

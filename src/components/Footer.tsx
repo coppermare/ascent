@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ButtonLink } from "@/components/Button";
-import { BrandLogo } from "@/components/BrandLogo";
+import { HeroShader } from "@/components/HeroShader";
 
 const footerLinks = {
   Company: [
@@ -15,34 +15,30 @@ const footerLinks = {
   ],
   Resources: [
     { href: "/faq", label: "FAQ" },
+    { href: "/blog", label: "Writing" },
     { href: "/#lead-magnet", label: "Signal Audit Guide" },
   ],
 };
 
 export function Footer() {
   return (
-    <footer
-      style={{ borderTop: "1px solid var(--border)" }}
-      className="mt-auto py-14"
-    >
-      <div className="mx-auto max-w-[1200px] px-6">
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-[1fr_auto_auto_auto] mb-12">
-          {/* Brand */}
+    <footer className="relative overflow-hidden mt-auto" style={{ background: "#0A0A0A" }}>
+      <HeroShader speed={0} />
+
+      <div className="relative mx-auto max-w-[1200px] px-6 pt-20">
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-[1fr_auto_auto_auto] mb-16">
+          {/* Description — logo moved to bottom */}
           <div className="col-span-2 md:col-span-1 max-w-[280px]">
-            <div className="mb-3">
-              <BrandLogo variant="black" height={24} withLink />
-            </div>
-            <p className="text-[14px] leading-relaxed" style={{ color: "var(--secondary-text)" }}>
+            <p className="text-[14px] leading-relaxed" style={{ color: "rgba(255,255,255,0.45)" }}>
               AI-native growth for Series A and B companies ready to move.
             </p>
           </div>
 
-          {/* Link groups */}
           {Object.entries(footerLinks).map(([group, links]) => (
             <div key={group}>
               <p
-                className="text-[11px] font-bold tracking-[0.1em] uppercase mb-4"
-                style={{ color: "var(--muted-text)" }}
+                className="text-[11px] font-semibold tracking-[0.08em] uppercase mb-4"
+                style={{ color: "rgba(255,255,255,0.3)" }}
               >
                 {group}
               </p>
@@ -51,8 +47,8 @@ export function Footer() {
                   <li key={href}>
                     <Link
                       href={href}
-                      className="text-[14px] transition-opacity hover:opacity-70"
-                      style={{ color: "var(--secondary-text)" }}
+                      className="text-[14px] transition-opacity hover:opacity-100"
+                      style={{ color: "rgba(255,255,255,0.55)" }}
                     >
                       {label}
                     </Link>
@@ -64,16 +60,28 @@ export function Footer() {
         </div>
 
         <div
-          className="pt-8 border-t flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
-          style={{ borderColor: "var(--border)" }}
+          className="pt-8 border-t flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-10"
+          style={{ borderColor: "rgba(255,255,255,0.1)" }}
         >
-          <p className="text-[13px]" style={{ color: "var(--muted-text)" }}>
+          <p className="text-[13px]" style={{ color: "rgba(255,255,255,0.3)" }}>
             © {new Date().getFullYear()} Ascent. All rights reserved.
           </p>
-          <ButtonLink href="/book" size="sm">
+          <ButtonLink href="/book" variant="inverted" size="sm">
             Book
           </ButtonLink>
         </div>
+      </div>
+
+      {/* Full-width wordmark */}
+      <div className="relative w-full px-6 pb-6">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/logo_primary.svg"
+          alt="Ascent"
+          className="w-full"
+          style={{ maskImage: "linear-gradient(to bottom, black 0%, transparent 100%)", WebkitMaskImage: "linear-gradient(to bottom, black 0%, transparent 100%)" }}
+          aria-hidden="true"
+        />
       </div>
     </footer>
   );

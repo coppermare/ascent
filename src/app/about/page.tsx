@@ -1,189 +1,184 @@
 import type { Metadata } from "next";
 import { ClosingCTA } from "@/components/ClosingCTA";
+import { PageHeader } from "@/components/PageHeader";
+import { AnimateIn, StaggerIn } from "@/components/AnimateIn";
 
 export const metadata: Metadata = {
   title: "About — Ascent",
   description:
-    "Ascent is an AI growth agency built differently. We start with data, build strategy around what we find, and execute faster than traditional teams can match.",
+    "Ascent is a growth consultancy built around data, not playbooks. We start with a signal audit, work in focused sprints, and measure everything.",
 };
 
 const principles = [
   {
-    title: "Start with the signal.",
-    body: "Every engagement begins with a Signal Audit. Before we recommend anything, we need to know what's actually working. No assumptions, no inherited playbooks.",
+    number: "01",
+    title: "Read the data before touching the strategy.",
+    body: "Every engagement starts with a Signal Audit. We spend five days mapping what's actually driving revenue before we recommend a single change. The data tells us where to go. Not the other way around.",
   },
   {
-    title: "Define the outcome before you start.",
-    body: "We agree on what success looks like before an engagement begins. Not a vague direction — a specific metric and a timeframe. If we can't define it, we shouldn't be billing for it.",
+    number: "02",
+    title: "Agree on the number before you agree on the work.",
+    body: "We set a specific metric and a timeframe before any engagement begins. If we can't name what success looks like, we shouldn't be charging for it. Most agencies skip this step. We won't start without it.",
   },
   {
-    title: "Strategy and execution are the same thing.",
-    body: "Traditional agencies separate them. Strategy first, then a deck, then a handoff, then execution. We build and test in week one. The strategy evolves from what we learn.",
+    number: "03",
+    title: "Build from day one, not week six.",
+    body: "Strategy and execution run in parallel. We're testing in week one, adapting in weeks two through four, scaling what works in weeks five through eight. A deck is not a deliverable.",
   },
   {
-    title: "AI is infrastructure, not a differentiator.",
-    body: "Every agency claims to use AI now. We don't use it as a headline. We use it for signal detection, content at scale, attribution modelling, and targeting refinement. It either improves results or it doesn't.",
+    number: "04",
+    title: "AI is plumbing, not a pitch.",
+    body: "We use it for signal detection, content at scale, attribution modelling, and targeting. It's in the infrastructure, not the marketing. It either moves the number or it doesn't — and we measure which.",
   },
 ];
 
 const wontDo = [
-  "Take on clients we can't grow. If your market, model, or current stage makes results unlikely in the next 8 weeks, we'll say so before we start.",
-  "Run open-ended retainers. Every engagement has a defined scope and outcome. Ongoing work follows a sprint — never precedes it.",
-  "Deliver a strategy deck and leave you to execute it. We build and run, not advise and watch.",
-  "Use AI as a marketing claim. It's infrastructure. It either improves results or it doesn't — and we measure which.",
-  "Take the call if it's not the right fit. We'd rather tell you now than discover it six weeks in.",
+  "Take on clients we can't grow. If your stage, model, or market makes eight-week results unlikely, we'll say so on the discovery call — before anything is agreed.",
+  "Start a retainer without a sprint. Ongoing work has to follow results. We won't bill for maintenance on a growth function we haven't already built.",
+  "Hand you a strategy and disappear. We don't write plans for other people to execute. If we can't run it ourselves, we won't propose it.",
+  "Treat AI as a selling point. It's in the workflow the same way spreadsheets are — useful, unremarkable, and only worth keeping if it improves the output.",
+  "Drag out a bad fit. If it becomes clear mid-engagement that we're not the right partner, we'll say so directly and work out an honest exit.",
 ];
 
 export default function AboutPage() {
   return (
     <>
-      {/* Header */}
-      <section
-        className="py-24 px-6 border-b"
-        style={{ background: "#FAF9F6", borderColor: "#E4E4E7" }}
-      >
-        <div className="mx-auto max-w-[720px]">
-          <p
-            className="text-[12px] font-bold tracking-[0.12em] uppercase mb-4"
-            style={{ color: "#5A4FCF" }}
-          >
-            About
-          </p>
-          <h1
-            className="text-[40px] md:text-[48px] font-bold tracking-tight leading-[1.1] mb-6"
-            style={{ color: "#0A0A0A" }}
-          >
-            Built differently. On purpose.
-          </h1>
-          <p
-            className="text-[20px] leading-relaxed"
-            style={{ color: "#3F3F46" }}
-          >
-            Ascent exists because most growth agencies are AI-augmented at best.
-            They run the same playbooks they always have and add a few AI tools
-            on top. We started from a different premise.
-          </p>
-        </div>
-      </section>
+      <PageHeader
+        variant="dark"
+        title="We work differently. On purpose."
+        subtitle="Most agencies run the same playbook with different tools. We start with the data."
+      />
 
-      {/* How we work */}
-      <section className="py-24 px-6" style={{ background: "#FAF9F6" }}>
-        <div className="mx-auto max-w-[720px] space-y-8">
-          <p className="text-[17px] leading-relaxed" style={{ color: "#3F3F46" }}>
-            Traditional agencies are structured around deliverables: content
-            calendars, ad campaigns, monthly reports. Their incentive is
-            billable hours, not compounding results. Adding AI to that model
-            doesn't fix it — it just makes the same playbook cheaper to produce.
-          </p>
+      {/* How we think */}
+      <section className="py-16 md:py-24" style={{ background: "#FAF9F6" }}>
+        <div className="mx-auto max-w-[1200px] px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_440px] gap-16 items-start">
+            <div className="space-y-6">
+              <p className="text-[17px] leading-[1.75]" style={{ color: "#3F3F46" }}>
+                Most growth agencies are structured around deliverables —
+                content calendars, ad packages, monthly reports. Their
+                incentive is the retainer. The retainer rewards activity, not
+                results. Adding AI to that model doesn't change it.
+              </p>
+              <p className="text-[17px] leading-[1.75]" style={{ color: "#3F3F46" }}>
+                We start every engagement with a Signal Audit. Five days. We
+                map which channels are actually driving revenue, which are
+                burning budget, and where pipeline is sitting unattributed.
+                Most teams are surprised by at least one finding. Some are
+                surprised by three.
+              </p>
+              <p className="text-[17px] leading-[1.75]" style={{ color: "#3F3F46" }}>
+                Then we work. Defined outcomes, agreed upfront, measured
+                throughout. Eight weeks or fewer. If we hit the targets, we
+                talk about what comes next. If we don't, we own it.
+              </p>
+            </div>
 
-          <div
-            className="border-l-4 pl-8 py-2"
-            style={{ borderColor: "#5A4FCF" }}
-          >
-            <p
-              className="text-[20px] font-semibold leading-snug"
-              style={{ color: "#0A0A0A" }}
+            <div
+              className="rounded-lg p-8"
+              style={{ background: "#0A0A0A" }}
             >
-              We start with data. We find where growth is already happening —
-              and where it should be. Then we build everything around that.
-            </p>
+              <div className="space-y-6">
+                {[
+                  { value: "12+", label: "Years combined experience" },
+                  { value: "5 days", label: "Signal audit turnaround" },
+                  { value: "8 wks", label: "Standard sprint duration" },
+                  { value: "100%", label: "Sprint readiness before we start" },
+                ].map(({ value, label }) => (
+                  <div key={label} className="border-b pb-5 last:border-0 last:pb-0" style={{ borderColor: "rgba(255,255,255,0.08)" }}>
+                    <p className="text-[32px] font-normal leading-none mb-1" style={{ color: "#ffffff" }}>
+                      {value}
+                    </p>
+                    <p className="text-[14px]" style={{ color: "rgba(255,255,255,0.5)" }}>
+                      {label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-
-          <p className="text-[17px] leading-relaxed" style={{ color: "#3F3F46" }}>
-            Every engagement begins with a Signal Audit — which channels are
-            actually driving revenue, which are burning budget, and where
-            you're leaving pipeline on the table. From there, we work in
-            focused sprints with defined outcomes. Not open-ended retainers.
-            Specific results, agreed upfront, measured throughout.
-          </p>
-          <p className="text-[17px] leading-relaxed" style={{ color: "#3F3F46" }}>
-            We use AI throughout — not as a headline, but as infrastructure.
-            Signal detection, content at scale, targeting refinement,
-            attribution modelling. The things that used to take teams of ten,
-            handled by a small, focused group with the right tools.
-          </p>
         </div>
       </section>
 
       {/* Principles */}
-      <section
-        className="py-24 px-6 border-t"
-        style={{ background: "#F5F1EA", borderColor: "#E4E4E7" }}
-      >
-        <div className="mx-auto max-w-[1200px]">
-          <h2
-            className="text-[32px] font-bold tracking-tight mb-12"
-            style={{ color: "#0A0A0A" }}
+      <section className="py-16 md:py-24 border-t" style={{ background: "#F5F1EA", borderColor: "#E4E4E7" }}>
+        <div className="mx-auto max-w-[1200px] px-6">
+          <AnimateIn as="h2"
+            className="text-[32px] md:text-[36px] font-normal tracking-tight mb-14"
+            style={{ color: "#0A0A0A", letterSpacing: "-0.02em" }}
           >
             How we think
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            {principles.map(({ title, body }) => (
-              <div key={title}>
-                <h3
-                  className="text-[18px] font-semibold mb-3"
-                  style={{ color: "#0A0A0A" }}
+          </AnimateIn>
+          <StaggerIn className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12">
+            {principles.map(({ number, title, body }) => (
+              <div key={number} className="flex gap-6">
+                <span
+                  className="text-[40px] font-light leading-none shrink-0 select-none"
+                  style={{ color: "#EAE8FA", fontVariantNumeric: "tabular-nums" }}
                 >
-                  {title}
-                </h3>
-                <p
-                  className="text-[16px] leading-relaxed"
-                  style={{ color: "#3F3F46" }}
-                >
-                  {body}
-                </p>
+                  {number}
+                </span>
+                <div>
+                  <h3
+                    className="text-[18px] font-semibold mb-2 leading-snug"
+                    style={{ color: "#0A0A0A" }}
+                  >
+                    {title}
+                  </h3>
+                  <p className="text-[15px] leading-[1.75]" style={{ color: "#3F3F46" }}>
+                    {body}
+                  </p>
+                </div>
               </div>
             ))}
-          </div>
+          </StaggerIn>
         </div>
       </section>
 
       {/* What we won't do */}
-      <section
-        className="py-24 px-6 border-t"
-        style={{ background: "#FAF9F6", borderColor: "#E4E4E7" }}
-      >
-        <div className="mx-auto max-w-[720px]">
-          <h2
-            className="text-[32px] font-bold tracking-tight mb-6"
-            style={{ color: "#0A0A0A" }}
-          >
-            What we won't do
-          </h2>
-          <p
-            className="text-[17px] leading-relaxed mb-8"
-            style={{ color: "#3F3F46" }}
-          >
-            This is as important as what we do. Clarity about what we won't
-            take on is the reason the engagements we do take on actually work.
-          </p>
-          <ul className="space-y-4">
-            {wontDo.map((item) => (
-              <li key={item} className="flex items-start gap-4">
-                <span
-                  className="mt-1 h-5 w-5 shrink-0 rounded-full flex items-center justify-center"
-                  style={{ background: "#EAE8FA" }}
-                >
+      <section className="py-16 md:py-24" style={{ background: "#0A0A0A" }}>
+        <div className="mx-auto max-w-[1200px] px-6">
+          <div className="max-w-[640px]">
+            <AnimateIn as="h2"
+              className="text-[32px] md:text-[36px] font-normal tracking-tight mb-4"
+              style={{ color: "#ffffff", letterSpacing: "-0.02em" }}
+            >
+              What we won't do
+            </AnimateIn>
+            <AnimateIn delay={0.1}>
+              <p
+                className="text-[17px] leading-[1.75] mb-10"
+                style={{ color: "rgba(255,255,255,0.55)" }}
+              >
+                Clarity about what we won't take on is the reason the engagements
+                we do take on actually work.
+              </p>
+            </AnimateIn>
+            <StaggerIn className="space-y-0 divide-y" style={{ borderColor: "rgba(255,255,255,0.08)" }}>
+              {wontDo.map((item, i) => (
+                <li key={i} className="flex items-start gap-4 py-5">
                   <span
-                    className="block h-1.5 w-1.5 rounded-full"
-                    style={{ background: "#5A4FCF" }}
-                  />
-                </span>
-                <p
-                  className="text-[16px] leading-relaxed"
-                  style={{ color: "#3F3F46" }}
-                >
-                  {item}
-                </p>
-              </li>
-            ))}
-          </ul>
+                    className="mt-[3px] h-5 w-5 shrink-0 rounded-full flex items-center justify-center"
+                    style={{ background: "rgba(90,79,207,0.2)" }}
+                  >
+                    <span
+                      className="block h-1.5 w-1.5 rounded-full"
+                      style={{ background: "#5A4FCF" }}
+                    />
+                  </span>
+                  <p className="text-[16px] leading-[1.75]" style={{ color: "rgba(255,255,255,0.7)" }}>
+                    {item}
+                  </p>
+                </li>
+              ))}
+            </StaggerIn>
+          </div>
         </div>
       </section>
 
       <ClosingCTA
         headline="Work with a team that measures everything."
-        body="Thirty minutes, no deck. We'll tell you whether we're a fit and what we'd look for in your audit."
+        body="Thirty minutes, no deck. We'll tell you whether we're a fit and what we'd find in your audit."
       />
     </>
   );

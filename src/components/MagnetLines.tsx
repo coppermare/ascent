@@ -3,6 +3,8 @@
 import { useRef, useEffect } from "react";
 import "./MagnetLines.css";
 
+type Shape = 'line' | 'dot' | 'diamond' | 'arrow';
+
 interface MagnetLinesProps {
   rows?: number;
   columns?: number;
@@ -11,8 +13,48 @@ interface MagnetLinesProps {
   lineWidth?: string;
   lineHeight?: string;
   baseAngle?: number;
+  shape?: Shape;
   className?: string;
   style?: React.CSSProperties;
+}
+
+function getSpanStyle(
+  shape: Shape,
+  lineColor: string,
+  lineWidth: string,
+  lineHeight: string
+): React.CSSProperties {
+  switch (shape) {
+    case 'dot':
+      return {
+        backgroundColor: lineColor,
+        width: lineHeight,
+        height: lineHeight,
+        borderRadius: '9999px',
+      };
+    case 'diamond':
+      return {
+        backgroundColor: lineColor,
+        width: lineHeight,
+        height: lineHeight,
+        borderRadius: 0,
+        clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)',
+      };
+    case 'arrow':
+      return {
+        backgroundColor: lineColor,
+        width: lineHeight,
+        height: lineHeight,
+        borderRadius: 0,
+        clipPath: 'polygon(50% 0%, 90% 100%, 50% 62%, 10% 100%)',
+      };
+    default:
+      return {
+        backgroundColor: lineColor,
+        width: lineWidth,
+        height: lineHeight,
+      };
+  }
 }
 
 export default function MagnetLines({
@@ -23,6 +65,7 @@ export default function MagnetLines({
   lineWidth = "1vmin",
   lineHeight = "6vmin",
   baseAngle = -10,
+  shape = 'line' as Shape,
   className = "",
   style = {},
 }: MagnetLinesProps) {
@@ -80,9 +123,7 @@ export default function MagnetLines({
           key={i}
           style={{
             ["--rotate" as string]: `${baseAngle}deg`,
-            backgroundColor: lineColor,
-            width: lineWidth,
-            height: lineHeight,
+            ...getSpanStyle(shape, lineColor, lineWidth, lineHeight),
           }}
         />
       ))}

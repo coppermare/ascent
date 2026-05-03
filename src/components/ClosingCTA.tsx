@@ -1,5 +1,4 @@
 import { ButtonLink } from "@/components/Button";
-import { HeroShader } from "@/components/HeroShader";
 
 interface ClosingCTAProps {
   headline?: string;
@@ -15,24 +14,41 @@ export function ClosingCTA({
   href = "/book",
 }: ClosingCTAProps) {
   return (
-    <section style={{ background: "#5A4FCF" }} className="relative overflow-hidden py-24 px-6">
-      <HeroShader />
-      <div className="relative mx-auto max-w-[720px] text-center">
-        <h2
-          className="text-[32px] font-bold leading-tight tracking-tight mb-4"
-          style={{ color: "#ffffff" }}
-        >
-          {headline}
-        </h2>
-        <p
-          className="text-[17px] leading-relaxed mb-8"
-          style={{ color: "rgba(255,255,255,0.8)" }}
-        >
-          {body}
-        </p>
-        <ButtonLink href={href} variant="inverted" size="lg">
-          {cta}
-        </ButtonLink>
+    <section className="py-16 px-6" style={{ background: "#FAF9F6" }}>
+      <div
+        className="relative mx-auto max-w-[1200px] overflow-hidden rounded-xl"
+        style={{ minHeight: "500px" }}
+      >
+        {/* Background image */}
+        <img
+          src="/images/cta-bg.png"
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        {/* Dark overlay for legibility */}
+        <div
+          className="absolute inset-0"
+          style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.72) 100%)" }}
+        />
+        <div className="relative flex flex-col items-start justify-center px-12 py-20 h-full" style={{ minHeight: "500px" }}>
+          <h2
+            className="text-[44px] md:text-[56px] font-normal leading-[1.05] tracking-tight mb-6 max-w-[640px]"
+            style={{ color: "#ffffff" }}
+          >
+            {headline}
+          </h2>
+          <p
+            className="text-[17px] leading-relaxed mb-10 max-w-[480px]"
+            style={{ color: "rgba(255,255,255,0.75)" }}
+          >
+            {body}
+          </p>
+          <ButtonLink href={href} variant="inverted" size="lg">
+            {cta}
+          </ButtonLink>
+        </div>
       </div>
     </section>
   );

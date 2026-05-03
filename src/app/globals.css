@@ -44,7 +44,7 @@
   --radius-sm: 4px;
   --radius-md: 6px;
   --radius-lg: 8px;
-  --radius-xl: 9999px;
+  --radius-xl: 12px;
 }
 
 /* ── Stat row ────────────────────────────────────────────── */
@@ -213,4 +213,86 @@
   h1, h2, h3, h4, h5, h6 {
     color: var(--heading);
   }
+}
+
+/* Radius overrides — outside @layer so they beat Tailwind utilities */
+.rounded-xl { border-radius: 12px; }
+.rounded-lg { border-radius: 8px; }
+.rounded-md { border-radius: 6px; }
+.rounded-sm { border-radius: 4px; }
+
+/* ── Blog post prose ─────────────────────────────────────── */
+.post-body {
+  font-size: 17px;
+  line-height: 1.8;
+  color: #3F3F46;
+}
+
+.post-body h2 {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: #0A0A0A;
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.post-body h3 {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #0A0A0A;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.post-body p {
+  margin-bottom: 1.4rem;
+}
+
+.post-body p:last-child {
+  margin-bottom: 0;
+}
+
+.post-body strong {
+  font-weight: 600;
+  color: #0A0A0A;
+}
+
+.post-body em {
+  font-style: italic;
+}
+
+.post-body ul, .post-body ol {
+  margin-bottom: 1.4rem;
+  padding-left: 1.5rem;
+}
+
+.post-body ul { list-style-type: disc; }
+.post-body ol { list-style-type: decimal; }
+
+.post-body li {
+  margin-bottom: 0.4rem;
+}
+
+.post-body hr {
+  border: none;
+  border-top: 1px solid #E4E4E7;
+  margin: 2.5rem 0;
+}
+
+.post-body blockquote {
+  border-left: 3px solid #5A4FCF;
+  padding-left: 1.25rem;
+  margin: 1.75rem 0;
+  font-size: 18px;
+  font-style: italic;
+  color: #71717A;
+}
+
+.post-body a {
+  color: #5A4FCF;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }

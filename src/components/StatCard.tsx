@@ -55,7 +55,7 @@ export function StatCard({ value, label, image }: StatCardProps) {
   return (
     <div
       ref={observeRef}
-      className="relative rounded-2xl overflow-hidden"
+      className="relative rounded-lg overflow-hidden"
       style={{
         aspectRatio: "3 / 4",
         backgroundImage: image ? `url('${image}')` : undefined,
@@ -68,19 +68,21 @@ export function StatCard({ value, label, image }: StatCardProps) {
       <div
         className="absolute inset-0"
         style={{
-          background: "linear-gradient(to top, rgba(5,8,40,0.92) 0%, rgba(5,8,40,0.5) 45%, rgba(5,8,40,0) 100%)",
+          background: "linear-gradient(to top, rgba(90,79,207,0.75) 0%, rgba(90,79,207,0.3) 45%, rgba(90,79,207,0) 100%)",
         }}
       />
 
       {/* stat content pinned to bottom */}
       <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8">
-        <p
-          className="text-[36px] md:text-[44px] font-normal tracking-[-0.02em] leading-none mb-3 whitespace-nowrap"
-          style={{ fontFamily: "var(--font-ibm-plex-mono)", color: "#FFFFFF" }}
-        >
-          {display}
-        </p>
-        <p className="text-[13px] leading-snug" style={{ color: "rgba(255,255,255,0.7)" }}>
+        {value !== "" && (
+          <p
+            className="text-[36px] md:text-[44px] font-normal tracking-[-0.02em] leading-none mb-3 whitespace-nowrap"
+            style={{ fontFamily: "var(--font-geist-sans)", color: "#FFFFFF" }}
+          >
+            {display}
+          </p>
+        )}
+        <p className="text-[13px] leading-snug" style={{ fontFamily: "var(--font-geist-sans)", color: "rgba(255,255,255,0.7)" }}>
           {label}
         </p>
       </div>

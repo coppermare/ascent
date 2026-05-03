@@ -24,7 +24,7 @@ export function EmailCapture() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col sm:flex-row gap-3 w-full max-w-[480px] mx-auto"
+      className="flex flex-col sm:flex-row gap-3 w-full max-w-[480px]"
     >
       <input
         type="email"

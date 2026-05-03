@@ -23,7 +23,7 @@ export function ContactForm() {
   if (submitted) {
     return (
       <div className="py-8">
-        <p className="text-[20px] font-bold mb-2" style={{ color: "#0A0A0A" }}>
+        <p className="text-[20px] font-semibold mb-2" style={{ color: "#0A0A0A" }}>
           Message received.
         </p>
         <p className="text-[15px]" style={{ color: "#3F3F46" }}>

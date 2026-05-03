@@ -472,7 +472,7 @@ export function GrainIconPreview() {
       </p>
       <header className="mb-10 max-w-2xl space-y-3">
         <h1
-          className="text-[32px] lg:text-[40px] font-bold tracking-tight"
+          className="text-[32px] lg:text-[40px] font-normal tracking-tight"
           style={{ color: "var(--heading)" }}
         >
           Grain gradient logo
@@ -488,7 +488,7 @@ export function GrainIconPreview() {
         <div className="flex flex-col items-center lg:items-stretch gap-6 order-first">
           <div
             ref={previewExportRef}
-            className="relative overflow-hidden rounded-2xl border shadow-[0_12px_40px_rgba(0,0,0,0.15)] mx-auto touch-none cursor-grab active:cursor-grabbing"
+            className="relative overflow-hidden rounded-lg border shadow-[0_12px_40px_rgba(0,0,0,0.15)] mx-auto touch-none cursor-grab active:cursor-grabbing"
             onPointerMove={onPreviewPointerMove}
             onPointerLeave={resetPreviewPointer}
             onPointerCancel={resetPreviewPointer}
@@ -561,7 +561,7 @@ export function GrainIconPreview() {
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
                 <p
-                  className="text-[12px] font-bold tracking-wide uppercase"
+                  className="text-[12px] font-semibold tracking-wide uppercase"
                   style={{ color: "var(--secondary-text)" }}
                 >
                   Essential controls

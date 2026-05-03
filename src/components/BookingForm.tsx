@@ -41,7 +41,7 @@ export function BookingForm() {
     return (
       <div className="py-8 text-center">
         <p
-          className="text-[22px] font-bold mb-3"
+          className="text-[22px] font-semibold mb-3"
           style={{ color: "#0A0A0A" }}
         >
           We'll be in touch within one business day.
