@@ -45,7 +45,7 @@ export function FAQContent({ faqs }: { faqs: FAQ[] }) {
           {active.questions.map(({ q, a }) => (
             <div key={q} className="py-8">
               <h3
-                className="text-[18px] font-semibold mb-3 leading-snug tracking-tight"
+                className="text-[18px] font-medium mb-3 leading-snug tracking-tight"
                 style={{ color: "#0A0A0A" }}
               >
                 {q}

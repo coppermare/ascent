@@ -58,7 +58,7 @@ export default function BookPage() {
             >
               This isn't a pitch. We ask about your business, your data, and
               what you've already tried. By the end, we'll tell you whether a
-              signal audit makes sense — and if it does, exactly what we'd
+              signal audit makes sense, and if it does, exactly what we'd
               expect to find.
             </p>
 
@@ -139,7 +139,7 @@ export default function BookPage() {
                 >
                   Signal Audit Guide
                 </Link>{" "}
-                — the same framework we use with new clients, adapted for you to run yourself.
+                The same framework we use with new clients, adapted for you to run yourself.
               </p>
             </div>
           </AnimateIn>

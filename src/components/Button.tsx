@@ -12,15 +12,15 @@ export type ButtonVariant =
 export type ButtonSize = "default" | "sm" | "lg";
 
 const base =
-  "box-border inline-flex items-center justify-center gap-1.5 rounded border border-transparent font-semibold leading-none transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5A4FCF] disabled:pointer-events-none disabled:opacity-50";
+  "box-border inline-flex items-center justify-center gap-1.5 rounded font-semibold leading-none transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5A4FCF] disabled:pointer-events-none disabled:opacity-50";
 
 /* DESIGN.md: min 44px touch; mobile primary CTAs 48px — `lg` for hero, default/sm at 44px */
 const variants: Record<ButtonVariant, string> = {
-  primary: "border-[#5A4FCF] bg-[#5A4FCF] text-white hover:border-[#4840B8] hover:bg-[#4840B8]",
+  primary: "border border-[#5A4FCF] bg-[#5A4FCF] text-white hover:border-[#4840B8] hover:bg-[#4840B8]",
   secondary:
     "border-[1.5px] border-[#0A0A0A] bg-transparent text-[#0A0A0A] hover:bg-[#F5F1EA]",
   ghost:
-    "border-[1.5px] border-[#5A4FCF] bg-transparent text-[#5A4FCF] hover:bg-[#EAE8FA]",
+    "border-[1.5px] border-[#0A0A0A] bg-transparent text-[#0A0A0A] hover:bg-[#F5F1EA]",
   inverted: "border-0 bg-white text-[#5A4FCF] hover:bg-white/90",
   onInverse:
     "border-[1.5px] border-white/40 bg-transparent text-white hover:bg-white/10",

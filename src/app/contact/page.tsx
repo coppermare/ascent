@@ -41,7 +41,7 @@ export default function ContactPage() {
                 style={{ color: "rgba(255,255,255,0.6)" }}
               >
                 Thirty minutes. We ask, you answer, we give you our honest
-                read on whether there's a fit — and what a signal audit would
+                read on whether there's a fit, and what a signal audit would
                 surface in your business.
               </p>
 
@@ -66,7 +66,7 @@ export default function ContactPage() {
               </div>
 
               <ButtonLink href="/book" variant="inverted" className="w-full justify-center">
-                Book a call
+                Book
               </ButtonLink>
             </div>
           </AnimateIn>
@@ -121,7 +121,7 @@ export default function ContactPage() {
               <Link href="/work" className="font-semibold hover:underline" style={{ color: "#5A4FCF" }}>
                 case studies
               </Link>{" "}
-              — specific outcomes from audits and sprints, with numbers.
+              Specific outcomes from audits and sprints, with numbers.
             </p>
           </div>
           <div>
@@ -133,7 +133,7 @@ export default function ContactPage() {
               <Link href="/#lead-magnet" className="font-semibold hover:underline" style={{ color: "#5A4FCF" }}>
                 Signal Audit Guide
               </Link>{" "}
-              — the framework we use with new clients, adapted for you.
+              The framework we use with new clients, adapted for you.
             </p>
           </div>
         </StaggerIn>

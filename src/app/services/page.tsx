@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { MagnifyingGlass, Rocket, ArrowsClockwise } from "@phosphor-icons/react/dist/ssr";
 import { ClosingCTA } from "@/components/ClosingCTA";
 import { ButtonLink } from "@/components/Button";
 import { PageHeader } from "@/components/PageHeader";
@@ -10,15 +11,18 @@ export const metadata: Metadata = {
     "Signal audits, growth sprints, and retainer partnerships. Every engagement starts with data. No playbooks, no retainers without a sprint.",
 };
 
+import type { Icon } from "@phosphor-icons/react";
+
+const serviceIcons: Icon[] = [MagnifyingGlass, Rocket, ArrowsClockwise];
+
 const services = [
   {
     id: "signal-audit",
-    number: "01",
     name: "Signal Audit",
     tagline: "Five days. A complete read of your growth.",
     body: [
       "Before we recommend anything, we need to know what's actually working. The Signal Audit is a five-day diagnostic that maps every meaningful growth signal in your business: inbound channels, conversion data, customer acquisition paths, content performance, and paid activity.",
-      "We surface what's driving revenue, what's burning budget, and what you're missing. Most companies discover at least one channel or motion that's significantly under-attributed — or one spend category that isn't earning its place.",
+      "We surface what's driving revenue, what's burning budget, and what you're missing. Most companies discover at least one channel or motion that's significantly under-attributed, or one spend category that isn't earning its place.",
     ],
     details: {
       duration: "5 business days",
@@ -29,7 +33,7 @@ const services = [
         "Top 3 immediate opportunities",
         "Sprint readiness recommendation",
       ],
-      fit: "You have traction but aren't clear on what's driving it — or you've hit a ceiling and want a fresh read before changing strategy.",
+      fit: "You have traction but aren't clear on what's driving it, or you've hit a ceiling and want a fresh read before changing strategy.",
     },
     image: "/images/audit-bg.png",
     bg: "#FAF9F6",
@@ -37,7 +41,6 @@ const services = [
   },
   {
     id: "growth-sprint",
-    number: "02",
     name: "Growth Sprint",
     tagline: "Eight weeks. Defined outcomes. Strategy and execution in parallel.",
     body: [
@@ -62,11 +65,10 @@ const services = [
   },
   {
     id: "retainer",
-    number: "03",
     name: "Retainer Partnership",
     tagline: "Post-sprint. Quarterly targets. Ongoing compound growth.",
     body: [
-      "Post-sprint partnerships for clients who want to keep compounding. We stay embedded in your growth function — running ongoing experiments, scaling what's working, adapting the strategy as your business changes.",
+      "Post-sprint partnerships for clients who want to keep compounding. We stay embedded in your growth function, running ongoing experiments, scaling what's working, adapting the strategy as your business changes.",
       "This is not a traditional retainer. We don't bill for hours. We set outcome targets each quarter and measure against them. If we stop being the right partner for your stage, we'll say so.",
     ],
     details: {
@@ -102,22 +104,27 @@ export default function ServicesPage() {
       >
         <div className="mx-auto max-w-[1200px] px-6">
           <div className="flex gap-1 overflow-x-auto">
-            {services.map(({ id, number, name }) => (
-              <a
-                key={id}
-                href={`#${id}`}
-                className="shrink-0 inline-flex items-center gap-2 text-[13px] font-medium px-4 py-3.5 transition-colors hover:text-white"
-                style={{ color: "rgba(255,255,255,0.45)" }}
-              >
-                <span style={{ color: "#8B82E0" }}>{number}</span>
-                {name}
-              </a>
-            ))}
+            {services.map(({ id, name }, idx) => {
+              const Icon = serviceIcons[idx];
+              return (
+                <a
+                  key={id}
+                  href={`#${id}`}
+                  className="shrink-0 inline-flex items-center gap-2 text-[13px] font-medium px-4 py-3.5 transition-colors hover:text-white"
+                  style={{ color: "rgba(255,255,255,0.45)" }}
+                >
+                  <Icon size={14} style={{ color: "#8B82E0" }} />
+                  {name}
+                </a>
+              );
+            })}
           </div>
         </div>
       </div>
 
-      {services.map(({ id, number, name, tagline, body, details, image, bg, cardBg }, i) => (
+      {services.map(({ id, name, tagline, body, details, image, bg, cardBg }, i) => {
+        const Icon = serviceIcons[i];
+        return (
         <section
           key={id}
           id={id}
@@ -132,17 +139,8 @@ export default function ServicesPage() {
             >
               {/* Content */}
               <AnimateIn className={i % 2 === 1 ? "lg:col-start-2" : ""}>
-                <div className="flex items-center gap-3 mb-6">
-                  <span
-                    className="text-[13px] font-semibold"
-                    style={{ color: "#5A4FCF" }}
-                  >
-                    {number}
-                  </span>
-                  <span
-                    className="h-px flex-1 max-w-[40px]"
-                    style={{ background: "#E4E4E7" }}
-                  />
+                <div className="mb-6">
+                  <Icon size={28} weight="duotone" style={{ color: "#5A4FCF" }} />
                 </div>
                 <h2
                   className="text-[32px] md:text-[36px] font-normal tracking-tight mb-3"
@@ -168,7 +166,7 @@ export default function ServicesPage() {
               </AnimateIn>
 
               {/* Card */}
-              <AnimateIn delay={0.1} className={`border rounded-lg p-8 space-y-7${i % 2 === 1 ? " lg:col-start-1 lg:row-start-1" : ""}`}
+              <AnimateIn delay={0.1} className={`border rounded-lg p-8 space-y-5${i % 2 === 1 ? " lg:col-start-1 lg:row-start-1" : ""}`}
                 style={{ background: cardBg, borderColor: "#E4E4E7" }}
               >
                 {image && (
@@ -182,62 +180,36 @@ export default function ServicesPage() {
                     />
                   </div>
                 )}
-                <div>
-                  <p
-                    className="text-[11px] font-semibold tracking-[0.08em] uppercase mb-2"
-                    style={{ color: "#71717A" }}
-                  >
-                    Duration
-                  </p>
-                  <p className="text-[16px] font-semibold" style={{ color: "#0A0A0A" }}>
-                    {details.duration}
-                  </p>
-                </div>
-                <div>
-                  <p
-                    className="text-[11px] font-semibold tracking-[0.08em] uppercase mb-3"
-                    style={{ color: "#71717A" }}
-                  >
-                    What&apos;s included
-                  </p>
-                  <ul className="space-y-2.5">
-                    {details.items.map((item) => (
-                      <li
-                        key={item}
-                        className="flex items-start gap-2.5 text-[14px]"
-                        style={{ color: "#3F3F46" }}
-                      >
-                        <span
-                          className="mt-[5px] h-1.5 w-1.5 shrink-0 rounded-full"
-                          style={{ background: "#5A4FCF" }}
-                        />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div
-                  className="rounded-lg p-4 border"
-                  style={{ background: bg === "#F5F1EA" ? "#FAF9F6" : "#F5F1EA", borderColor: "#E4E4E7" }}
-                >
-                  <p
-                    className="text-[11px] font-semibold tracking-[0.08em] uppercase mb-1.5"
-                    style={{ color: "#71717A" }}
-                  >
-                    Right for you if
-                  </p>
-                  <p className="text-[14px] leading-[1.65]" style={{ color: "#3F3F46" }}>
-                    {details.fit}
-                  </p>
-                </div>
+                <p className="text-[15px] font-medium" style={{ color: "#0A0A0A" }}>
+                  {details.duration}
+                </p>
+                <ul className="space-y-2.5">
+                  {details.items.map((item) => (
+                    <li
+                      key={item}
+                      className="flex items-start gap-2.5 text-[14px]"
+                      style={{ color: "#3F3F46" }}
+                    >
+                      <span
+                        className="mt-[5px] h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ background: "#5A4FCF" }}
+                      />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-[14px] leading-[1.65] italic" style={{ color: "#71717A" }}>
+                  {details.fit}
+                </p>
                 <ButtonLink href="/book" className="w-full justify-center">
-                  Book a call
+                  Book
                 </ButtonLink>
               </AnimateIn>
             </div>
           </div>
         </section>
-      ))}
+        );
+      })}
 
       <ClosingCTA
         headline="Not sure which engagement is right?"

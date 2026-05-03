@@ -16,7 +16,7 @@ export const faqs = [
     questions: [
       {
         q: "Do I have to do a Signal Audit before a Growth Sprint?",
-        a: "Yes. Every engagement starts with a Signal Audit, no exceptions. We need to know exactly where your growth is coming from — and where it isn't — before we recommend anything. If you book a Growth Sprint, the audit runs in week one at no additional cost.",
+        a: "Yes. Every engagement starts with a Signal Audit, no exceptions. We need to know exactly where your growth is coming from, and where it isn't, before we recommend anything. If you book a Growth Sprint, the audit runs in week one at no additional cost.",
       },
       {
         q: "How long is a Growth Sprint?",
@@ -24,7 +24,7 @@ export const faqs = [
       },
       {
         q: "Can I go straight to a Retainer Partnership?",
-        a: "No. Retainer partnerships are post-sprint only. We don't take on ongoing work cold — we need to understand your business at signal-audit depth before we can commit to ongoing results.",
+        a: "No. Retainer partnerships are post-sprint only. We don't take on ongoing work cold. We need to understand your business at signal-audit depth before we can commit to ongoing results.",
       },
       {
         q: "What happens at the end of a sprint?",
@@ -32,7 +32,7 @@ export const faqs = [
       },
       {
         q: "Do you work with agencies or direct to client only?",
-        a: "Direct to client only. We're embedded in your growth function during the engagement — that model doesn't work through an intermediary.",
+        a: "Direct to client only. We're embedded in your growth function during the engagement. That model doesn't work through an intermediary.",
       },
     ],
   },
@@ -45,7 +45,7 @@ export const faqs = [
       },
       {
         q: "How do you measure success in a sprint?",
-        a: "We agree on specific metrics before the sprint starts — qualified pipeline volume, CAC, sales cycle length, conversion rates. Nothing vague. Every outcome is tied to a number and a timeframe.",
+        a: "We agree on specific metrics before the sprint starts: qualified pipeline volume, CAC, sales cycle length, conversion rates. Nothing vague. Every outcome is tied to a number and a timeframe.",
       },
       {
         q: "What does 'AI-native' actually mean in practice?",
@@ -62,7 +62,7 @@ export const faqs = [
     questions: [
       {
         q: "What stage are you right for?",
-        a: "Series A and B primarily. You need product-market fit — we're not the right fit for pre-revenue companies. If pipeline has stalled, CAC is climbing, or you've hit a ceiling with traditional agencies, those are good signals that a sprint makes sense.",
+        a: "Series A and B primarily. You need product-market fit. We're not the right fit for pre-revenue companies. If pipeline has stalled, CAC is climbing, or you've hit a ceiling with traditional agencies, those are good signals that a sprint makes sense.",
       },
       {
         q: "What if I'm not ready for a sprint?",
@@ -83,7 +83,7 @@ export const faqs = [
     questions: [
       {
         q: "What does it cost?",
-        a: "We don't publish fixed prices because scope varies. A Signal Audit is priced based on the complexity of your growth stack. A Growth Sprint is priced against the defined outcomes and scope. Clear number before you commit — typically in the follow-up to the discovery call.",
+        a: "We don't publish fixed prices because scope varies. A Signal Audit is priced based on the complexity of your growth stack. A Growth Sprint is priced against the defined outcomes and scope. Clear number before you commit, typically in the follow-up to the discovery call.",
       },
       {
         q: "How quickly can you start?",
@@ -91,7 +91,7 @@ export const faqs = [
       },
       {
         q: "How much of my team's time does this require?",
-        a: "Minimal. Access to your data, a point of contact who can unblock decisions, and a weekly 30-minute check-in. We don't run discovery workshops or ask you to produce briefs — we figure out what we need and ask for it directly.",
+        a: "Minimal. Access to your data, a point of contact who can unblock decisions, and a weekly 30-minute check-in. We don't run discovery workshops or ask you to produce briefs. We figure out what we need and ask for it directly.",
       },
     ],
   },
@@ -112,7 +112,7 @@ export default function FAQPage() {
 
       <ClosingCTA
         headline="Still not sure if we're the right fit?"
-        body="Thirty minutes, no pitch — just questions and an honest read on whether a sprint fits you."
+        body="Thirty minutes, no pitch. Just questions and an honest read on whether a sprint fits you."
       />
     </>
   );

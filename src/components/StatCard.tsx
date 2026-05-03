@@ -72,20 +72,32 @@ export function StatCard({ value, label, image }: StatCardProps) {
         }}
       />
 
-      {/* stat content pinned to bottom */}
-      <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8">
-        {value !== "" && (
-          <p
-            className="text-[36px] md:text-[44px] font-normal tracking-[-0.02em] leading-none mb-3 whitespace-nowrap"
-            style={{ fontFamily: "var(--font-geist-sans)", color: "#FFFFFF" }}
-          >
-            {display}
-          </p>
-        )}
-        <p className="text-[13px] leading-snug" style={{ fontFamily: "var(--font-geist-sans)", color: "rgba(255,255,255,0.7)" }}>
-          {label}
+      {/* stat content: label and value at fixed positions so numbers align across all cards */}
+      <p
+        className="absolute text-[13px] leading-snug"
+        style={{
+          fontFamily: "var(--font-geist-sans)",
+          color: "rgba(255,255,255,0.7)",
+          bottom: 24,
+          left: 24,
+          right: 24,
+        }}
+      >
+        {label}
+      </p>
+      {value !== "" && (
+        <p
+          className="absolute text-[36px] md:text-[44px] font-normal tracking-[-0.02em] leading-none whitespace-nowrap"
+          style={{
+            fontFamily: "var(--font-geist-sans)",
+            color: "#FFFFFF",
+            bottom: 72,
+            left: 24,
+          }}
+        >
+          {display}
         </p>
-      </div>
+      )}
     </div>
   );
 }

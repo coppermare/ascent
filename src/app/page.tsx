@@ -26,6 +26,7 @@ import MagnetLines from "@/components/MagnetLines";
 import { HeroImage } from "@/components/HeroImage";
 import { LogoLoop } from "@/components/LogoLoop";
 import { AnimateIn, StaggerIn } from "@/components/AnimateIn";
+import { FAQAccordion } from "@/components/FAQAccordion";
 
 export const metadata: Metadata = {
   title: "Ascent — Find your signal. Sprint to results.",
@@ -92,7 +93,7 @@ const engagementStats = [
   },
   {
     value: "8 wks",
-    label: "From audit findings to agreed results — not a presentation of them",
+    label: "From audit findings to agreed results, not a presentation of them",
     image: "/images/stat-card-2.png",
   },
   {
@@ -352,12 +353,6 @@ export default function HomePage() {
         className="py-14 overflow-hidden"
         style={{ background: "#000000" }}
       >
-        <p
-          className="text-[15px] text-center mb-10 px-6"
-          style={{ color: "rgba(255,255,255,0.35)" }}
-        >
-          Trusted by growth teams at Series A and B companies
-        </p>
         <LogoLoop
           logos={clientLogos.map(({ name, Mark }) => ({
             node: (
@@ -399,7 +394,7 @@ export default function HomePage() {
               as="p"
             >
               Not because you lack data. Because no one has looked at which data
-              actually precedes closed revenue — and which is just noise. Most
+              actually precedes closed revenue, and which is just noise. Most
               clients arrive having confidently funded the wrong channels for 12
               months or more.
             </AnimateIn>
@@ -432,7 +427,7 @@ export default function HomePage() {
       {/* ── Services ─────────────────────────────────────────────── */}
       <section className="py-20" style={{ background: "#FAF9F6" }}>
         <div className="mx-auto max-w-[1200px] px-6">
-          <div className="mb-16 flex flex-col md:grid md:grid-cols-2 md:grid-rows-[auto_auto] gap-x-16 gap-y-5 md:items-start">
+          <div className="mb-10 flex flex-col md:grid md:grid-cols-2 md:grid-rows-[auto_auto] gap-x-16 gap-y-5 md:items-start">
             <AnimateIn as="h2"
               className="text-[44px] md:text-[52px] font-normal tracking-tight leading-[1.1] md:col-start-1 md:row-start-1"
               style={{ color: "#0A0A0A" }}
@@ -445,7 +440,7 @@ export default function HomePage() {
               as="p"
             >
               We audit before we touch your budget. We sprint before we
-              retain. Every step qualifies the next — so nothing gets built
+              retain. Every step qualifies the next, so nothing gets built
               on an assumption.
             </AnimateIn>
             <div className="md:col-start-1 md:row-start-2">
@@ -455,17 +450,17 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 border-t border-l" style={{ borderColor: "#E4E4E7" }}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {services.map(({ num, title, desc, tag, image }) => (
-              <div key={num} className="flex flex-col border-r border-b p-6" style={{ borderColor: "#E4E4E7" }}>
+              <div key={num} className="flex flex-col pt-6 border-t" style={{ borderColor: "#E4E4E7" }}>
                 <p
-                  className="text-[11px] font-semibold mb-4 tracking-widest uppercase"
+                  className="text-[12px] font-medium mb-4"
                   style={{ color: "#5A4FCF", fontFamily: "var(--font-ibm-plex-mono)" }}
                 >
                   {tag}
                 </p>
                 {image && (
-                  <div className="relative w-full aspect-[4/3] mb-6 rounded-lg overflow-hidden shrink-0">
+                  <div className="relative w-full aspect-[4/3] mb-5 rounded-lg overflow-hidden shrink-0">
                     <img
                       src={image}
                       alt=""
@@ -475,7 +470,7 @@ export default function HomePage() {
                   </div>
                 )}
                 <h3
-                  className="text-[22px] font-semibold tracking-tight mb-3"
+                  className="text-[20px] font-normal tracking-tight mb-3"
                   style={{ color: "#0A0A0A" }}
                 >
                   {title}
@@ -623,7 +618,7 @@ export default function HomePage() {
             backgroundPosition: "center",
           }}
         >
-          <div className="px-12 mb-40">
+          <div className="px-12 mb-16">
             <AnimateIn as="h2"
               className="text-[44px] md:text-[52px] font-normal tracking-tight leading-[1.1] mb-4"
               style={{ color: "#0A0A0A" }}
@@ -633,7 +628,7 @@ export default function HomePage() {
             <AnimateIn delay={0.1} as="p" className="text-[17px] leading-relaxed max-w-[520px]" style={{ color: "#3F3F46" }}>
               Every engagement starts from signal, not a preferred playbook.
               The audit tells us where to spend your time and budget. These
-              are the levers we look at — the data determines which ones to pull.
+              are the levers we look at. The data determines which ones to pull.
             </AnimateIn>
           </div>
 
@@ -779,7 +774,7 @@ export default function HomePage() {
               </AnimateIn>
               <AnimateIn delay={0.2}>
                 <ButtonLink href="/about" variant="inverted" size="default">
-                  About the team
+                  About us
                 </ButtonLink>
               </AnimateIn>
             </div>
@@ -809,49 +804,18 @@ export default function HomePage() {
       {/* ── FAQ ──────────────────────────────────────────────────── */}
       <section className="py-20" style={{ background: "#F5F1EA" }}>
         <div className="mx-auto max-w-[1200px] px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-16">
-            <div className="lg:sticky lg:top-24 self-start">
-              <h2
-                className="text-[44px] md:text-[52px] font-normal tracking-tight leading-[1.1] mb-4"
-                style={{ color: "#0A0A0A" }}
-              >
-                Questions we hear most.
-              </h2>
-              <p
-                className="text-[17px] leading-relaxed mb-8"
-                style={{ color: "#3F3F46" }}
-              >
-                If something isn&rsquo;t answered here, ask it on the call.
-                That&rsquo;s what the call is for.
-              </p>
-              <ButtonLink href="/book" variant="primary" size="default">
-                Book a call
-              </ButtonLink>
-            </div>
-
-            <div>
-              {faqs.map(({ q, a }, i) => (
-                <div
-                  key={q}
-                  className={`py-8 ${i > 0 ? "border-t" : ""}`}
-                  style={{ borderColor: "#E4E4E7" }}
-                >
-                  <h3
-                    className="text-[18px] font-semibold tracking-tight mb-3"
-                    style={{ color: "#0A0A0A" }}
-                  >
-                    {q}
-                  </h3>
-                  <p
-                    className="text-[16px] leading-relaxed max-w-[600px]"
-                    style={{ color: "#3F3F46" }}
-                  >
-                    {a}
-                  </p>
-                </div>
-              ))}
-            </div>
+          <div className="mb-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+            <h2
+              className="text-[44px] md:text-[52px] font-normal tracking-tight leading-[1.05]"
+              style={{ color: "#0A0A0A" }}
+            >
+              Questions we hear most.
+            </h2>
+            <ButtonLink href="/book" variant="primary" size="default">
+              Book
+            </ButtonLink>
           </div>
+          <FAQAccordion faqs={faqs} />
         </div>
       </section>
 
@@ -877,20 +841,6 @@ export default function HomePage() {
               founders and growth leads can use it without us. Twelve pages.
               Most people find something they were not expecting.
             </AnimateIn>
-
-            <div className="grid grid-cols-2 gap-y-3 gap-x-6 mb-10 max-w-[400px]">
-              {frameworkItems.map((item) => (
-                <div key={item} className="flex items-center gap-2.5">
-                  <span
-                    className="h-1.5 w-1.5 rounded-full shrink-0"
-                    style={{ background: "#a89ff5" }}
-                  />
-                  <span className="text-[14px]" style={{ color: "rgba(255,255,255,0.8)" }}>
-                    {item}
-                  </span>
-                </div>
-              ))}
-            </div>
 
             <EmailCapture />
           </div>

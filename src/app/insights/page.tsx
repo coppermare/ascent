@@ -6,12 +6,12 @@ import { ClosingCTA } from "@/components/ClosingCTA";
 import { AnimateIn, StaggerIn } from "@/components/AnimateIn";
 
 export const metadata: Metadata = {
-  title: "Writing — Ascent",
+  title: "Insights — Ascent",
   description:
     "Thinking on growth signals, attribution, and building a growth function that compounds. No SEO content, just what we've found to be true.",
 };
 
-export default function BlogPage() {
+export default function InsightsPage() {
   const [featured, ...rest] = blogPosts;
 
   const formattedFeatured = new Date(featured.date).toLocaleDateString("en-GB", {
@@ -24,7 +24,7 @@ export default function BlogPage() {
     <>
       <PageHeader
         variant="dark"
-        title="Writing."
+        title="Insights."
         subtitle="What we've found to be true about growth, attribution, and building something that compounds."
       />
 
@@ -33,7 +33,7 @@ export default function BlogPage() {
         <div className="mx-auto max-w-[1200px] px-6">
           <AnimateIn>
             <Link
-              href={`/blog/${featured.slug}`}
+              href={`/insights/${featured.slug}`}
               className="group grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-10 items-start"
             >
               <div>
@@ -52,23 +52,14 @@ export default function BlogPage() {
                   </span>
                 </div>
                 <h2
-                  className="text-[28px] md:text-[36px] font-normal leading-[1.1] tracking-tight mb-4 group-hover:opacity-70 transition-opacity"
+                  className="text-[28px] md:text-[36px] font-normal leading-[1.1] tracking-tight mb-4 group-hover:underline underline-offset-4"
                   style={{ color: "#0A0A0A", letterSpacing: "-0.02em" }}
                 >
                   {featured.title}
                 </h2>
-                <p className="text-[17px] leading-[1.75] mb-6 max-w-[560px]" style={{ color: "#71717A" }}>
+                <p className="text-[17px] leading-[1.75] max-w-[560px]" style={{ color: "#71717A" }}>
                   {featured.excerpt}
                 </p>
-                <span
-                  className="inline-flex items-center gap-2 text-[13px] font-medium group-hover:opacity-70 transition-opacity"
-                  style={{ color: "#5A4FCF" }}
-                >
-                  Read
-                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </span>
               </div>
               {/* Cover image */}
               {featured.coverImage && (
@@ -120,27 +111,17 @@ export default function BlogPage() {
                       className="text-[20px] font-normal mb-2 leading-snug tracking-tight"
                       style={{ color: "#0A0A0A", letterSpacing: "-0.01em" }}
                     >
-                      <Link href={`/blog/${slug}`} className="hover:opacity-70 transition-opacity">
+                      <Link href={`/insights/${slug}`} className="hover:underline underline-offset-4 transition-opacity">
                         {title}
                       </Link>
                     </h2>
-                    <p className="text-[15px] leading-[1.75] mb-4" style={{ color: "#71717A" }}>
+                    <p className="text-[15px] leading-[1.75]" style={{ color: "#71717A" }}>
                       {excerpt}
                     </p>
-                    <Link
-                      href={`/blog/${slug}`}
-                      className="inline-flex items-center gap-2 text-[13px] font-medium transition-opacity hover:opacity-70"
-                      style={{ color: "#5A4FCF" }}
-                    >
-                      Read
-                      <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
-                        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </Link>
                   </div>
                   {/* Cover thumbnail */}
                   {coverImage ? (
-                    <Link href={`/blog/${slug}`} className="hidden md:block">
+                    <Link href={`/insights/${slug}`} className="hidden md:block">
                       <div className="rounded-lg overflow-hidden" style={{ aspectRatio: "4/3" }}>
                         <img
                           src={coverImage}

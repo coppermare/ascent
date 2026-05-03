@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { ButtonLink } from "@/components/Button";
 import { HeroShader } from "@/components/HeroShader";
 
 const footerLinks = {
@@ -15,7 +14,7 @@ const footerLinks = {
   ],
   Resources: [
     { href: "/faq", label: "FAQ" },
-    { href: "/blog", label: "Writing" },
+    { href: "/insights", label: "Insights" },
     { href: "/#lead-magnet", label: "Signal Audit Guide" },
   ],
 };
@@ -27,10 +26,10 @@ export function Footer() {
 
       <div className="relative mx-auto max-w-[1200px] px-6 pt-20">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-[1fr_auto_auto_auto] mb-16">
-          {/* Description — logo moved to bottom */}
+          {/* Copyright */}
           <div className="col-span-2 md:col-span-1 max-w-[280px]">
-            <p className="text-[14px] leading-relaxed" style={{ color: "rgba(255,255,255,0.45)" }}>
-              AI-native growth for Series A and B companies ready to move.
+            <p className="text-[14px]" style={{ color: "rgba(255,255,255,0.45)" }}>
+              © {new Date().getFullYear()} Ascent. All rights reserved.
             </p>
           </div>
 
@@ -59,17 +58,6 @@ export function Footer() {
           ))}
         </div>
 
-        <div
-          className="pt-8 border-t flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-10"
-          style={{ borderColor: "rgba(255,255,255,0.1)" }}
-        >
-          <p className="text-[13px]" style={{ color: "rgba(255,255,255,0.3)" }}>
-            © {new Date().getFullYear()} Ascent. All rights reserved.
-          </p>
-          <ButtonLink href="/book" variant="inverted" size="sm">
-            Book
-          </ButtonLink>
-        </div>
       </div>
 
       {/* Full-width wordmark */}

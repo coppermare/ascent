@@ -1,7 +1,7 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { blogPosts, getBlogPost } from "@/data/blog-posts";
+import Link from "next/link";
 import { ClosingCTA } from "@/components/ClosingCTA";
 import { ButtonLink } from "@/components/Button";
 
@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function BlogPostPage({ params }: Props) {
+export default async function InsightPostPage({ params }: Props) {
   const { slug } = await params;
   const post = getBlogPost(slug);
   if (!post) notFound();
@@ -45,11 +45,11 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <>
-      <section className="pt-16 pb-12 md:pt-24 md:pb-16" style={{ background: "#0A0A0A" }}>
+      <section className="pt-16 pb-0 md:pt-24" style={{ background: "#0A0A0A" }}>
         <div className="mx-auto max-w-[720px] px-6">
           <div className="flex flex-wrap items-center gap-3 mb-8">
             <span
-              className="text-[11px] font-semibold tracking-[0.08em] uppercase px-3 py-1"
+              className="text-[12px] font-medium px-3 py-1"
               style={{ color: "#8B82E0", background: "rgba(139,130,224,0.12)", borderRadius: "4px" }}
             >
               {post.category}
@@ -67,13 +67,23 @@ export default async function BlogPostPage({ params }: Props) {
           >
             {post.title}
           </h1>
-          <p className="text-[18px] leading-[1.7]" style={{ color: "rgba(255,255,255,0.55)" }}>
+          <p className="text-[18px] leading-[1.7] pb-12" style={{ color: "rgba(255,255,255,0.55)" }}>
             {post.excerpt}
           </p>
         </div>
+        {post.coverImage && (
+          <div className="mx-auto max-w-[1200px] px-6">
+            <div className="rounded-t-xl overflow-hidden" style={{ aspectRatio: "16/9" }}>
+              <img
+                src={post.coverImage}
+                alt=""
+                aria-hidden="true"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        )}
       </section>
-
-      <div style={{ background: "#0A0A0A", borderBottom: "1px solid rgba(255,255,255,0.08)" }} />
 
       <section className="py-16 md:py-20" style={{ background: "#ffffff" }}>
         <div className="mx-auto max-w-[680px] px-6 post-body">
@@ -84,7 +94,7 @@ export default async function BlogPostPage({ params }: Props) {
       <section className="py-14 border-y" style={{ background: "#F5F1EA", borderColor: "#E4E4E7" }}>
         <div className="mx-auto max-w-[680px] px-6 flex flex-col sm:flex-row sm:items-center gap-6">
           <div className="flex-1">
-            <p className="text-[18px] font-semibold mb-1" style={{ color: "#0A0A0A" }}>
+            <p className="text-[18px] font-medium mb-1" style={{ color: "#0A0A0A" }}>
               Found something worth investigating?
             </p>
             <p className="text-[14px] leading-[1.65]" style={{ color: "#71717A" }}>
@@ -98,20 +108,20 @@ export default async function BlogPostPage({ params }: Props) {
       {related.length > 0 && (
         <section className="py-14 border-b" style={{ background: "#FAF9F6", borderColor: "#E4E4E7" }}>
           <div className="mx-auto max-w-[680px] px-6">
-            <p className="text-[11px] font-semibold tracking-[0.1em] uppercase mb-8" style={{ color: "#A1A1AA" }}>
-              More writing
+            <p className="text-[12px] font-medium uppercase tracking-[0.06em] mb-8" style={{ color: "#A1A1AA" }}>
+              More insights
             </p>
             <div className="space-y-8">
               {related.map((p) => (
                 <div key={p.slug} className="border-b pb-8 last:border-0 last:pb-0" style={{ borderColor: "#E4E4E7" }}>
                   <span
-                    className="text-[11px] font-semibold tracking-[0.08em] uppercase px-2.5 py-1 mb-3 inline-block"
+                    className="text-[12px] font-medium px-2.5 py-1 mb-3 inline-block"
                     style={{ color: "#5A4FCF", background: "#EAE8FA", borderRadius: "4px" }}
                   >
                     {p.category}
                   </span>
-                  <h3 className="text-[18px] font-semibold leading-snug mb-2 tracking-tight" style={{ color: "#0A0A0A" }}>
-                    <a href={`/blog/${p.slug}`} className="hover:opacity-70 transition-opacity">
+                  <h3 className="text-[18px] font-normal leading-snug mb-2 tracking-tight" style={{ color: "#0A0A0A" }}>
+                    <a href={`/insights/${p.slug}`} className="hover:underline underline-offset-4">
                       {p.title}
                     </a>
                   </h3>
@@ -127,7 +137,7 @@ export default async function BlogPostPage({ params }: Props) {
 
       <section className="py-10" style={{ background: "#FAF9F6" }}>
         <div className="mx-auto max-w-[680px] px-6">
-          <ButtonLink href="/blog" variant="secondary">All writing</ButtonLink>
+          <ButtonLink href="/insights" variant="secondary">All insights</ButtonLink>
         </div>
       </section>
 

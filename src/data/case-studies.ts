@@ -4,6 +4,7 @@ export interface CaseStudy {
   client: string;
   headline: string;
   duration: string;
+  coverImage: string;
   challenge: string;
   approach: string;
   methodology: string[];
@@ -16,13 +17,14 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "series-a-fintech",
     tag: "Growth Sprint",
-    client: "Series A fintech — UK",
+    client: "Series A fintech, UK",
     headline: "3.2× qualified pipeline. CAC down 28%. Sales cycle back to 34 days.",
     duration: "8-week sprint",
+    coverImage: "/images/growth-sprint.png",
     challenge:
-      "They raised their Series A on strong early traction, but pipeline had stalled in the nine months since. CAC was climbing — from £420 to £680 per qualified lead — and the growth team wasn't clear on which channels were responsible. Sales cycle had lengthened from 30 to 90 days without an obvious cause. The internal read was 'we need more content.' The real problem was different.",
+      "They raised their Series A on strong early traction, but pipeline had stalled in the nine months since. CAC was climbing from £420 to £680 per qualified lead, and the growth team wasn't clear on which channels were responsible. Sales cycle had lengthened from 30 to 90 days without an obvious cause. The internal read was 'we need more content.' The real problem was different.",
     approach:
-      "The signal audit surfaced that 60% of paid budget was concentrated in a single channel with deteriorating lead quality — high volume, low conversion, long cycles. Two content channels were generating genuine pipeline but completely untracked, so they looked like cost centres. We reallocated budget away from the underperforming channel, rebuilt their attribution model to surface what was actually working, and overhauled the content operation using AI-assisted production to increase output without increasing headcount. The sales cycle fix came last: it turned out to be a qualification issue in the CRM, not a market problem.",
+      "The signal audit surfaced that 60% of paid budget was concentrated in a single channel with deteriorating lead quality: high volume, low conversion, long cycles. Two content channels were generating genuine pipeline but completely untracked, so they looked like cost centres. We reallocated budget away from the underperforming channel, rebuilt their attribution model to surface what was actually working, and overhauled the content operation using AI-assisted production to increase output without increasing headcount. The sales cycle fix came last: it turned out to be a qualification issue in the CRM, not a market problem.",
     methodology: [
       "Five-day signal audit: channel mapping, attribution rebuild, pipeline source analysis",
       "Budget reallocation: shifted 60% of paid spend to validated high-conversion channels",
@@ -51,13 +53,14 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "series-b-saas",
     tag: "Signal Audit",
-    client: "Series B SaaS — US",
+    client: "Series B SaaS, US",
     headline: "40% of pipeline was invisible. Three positioning gaps. Sprint started the following week.",
     duration: "5-day audit",
+    coverImage: "/images/audit-bg.png",
     challenge:
-      "Strong product, good NRR, but new business acquisition had plateaued for two quarters. They'd hired a growth lead six months prior with no material change in the trend. The board was asking whether the plateau was a strategy problem, an execution problem, or a market problem — and the team didn't have a confident answer. They needed a clear read before committing to more headcount or spend.",
+      "Strong product, good NRR, but new business acquisition had plateaued for two quarters. They'd hired a growth lead six months prior with no material change in the trend. The board was asking whether the plateau was a strategy problem, an execution problem, or a market problem, and the team didn't have a confident answer. They needed a clear read before committing to more headcount or spend.",
     approach:
-      "Standalone signal audit — no sprint commitment required upfront. In five days we mapped every traffic and pipeline source against actual closed revenue. We identified a content channel responsible for 40% of historical pipeline that had been consistently misattributed to direct traffic in their analytics setup. We also ran a structured competitor positioning analysis and found three gaps no one in the market was clearly addressing. We delivered a sprint readiness recommendation with ranked opportunities and confidence scores for each. They proceeded to a full growth sprint the following week.",
+      "Standalone signal audit, no sprint commitment required upfront. In five days we mapped every traffic and pipeline source against actual closed revenue. We identified a content channel responsible for 40% of historical pipeline that had been consistently misattributed to direct traffic in their analytics setup. We also ran a structured competitor positioning analysis and found three gaps no one in the market was clearly addressing. We delivered a sprint readiness recommendation with ranked opportunities and confidence scores for each. They proceeded to a full growth sprint the following week.",
     methodology: [
       "Full channel-to-revenue attribution mapping across all traffic sources",
       "Analytics audit: identified misconfigured UTM tracking and direct traffic misattribution",
@@ -67,7 +70,7 @@ export const caseStudies: CaseStudy[] = [
       "Sprint readiness report: ranked opportunities with effort estimates and confidence scores",
     ],
     outcomes: [
-      "Channel driving 40% of pipeline — previously untracked — identified",
+      "Channel driving 40% of pipeline (previously untracked) identified",
       "Three positioning gaps confirmed, two now in market",
       "Proceeded to full growth sprint on completion of audit",
     ],
@@ -86,13 +89,14 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "series-b-marketplace",
     tag: "Retainer Partnership",
-    client: "Series B marketplace — EU",
+    client: "Series B marketplace, EU",
     headline: "90-day sales cycle to 22. Zero headcount added. 120 to 340 customers.",
     duration: "6-month retainer",
+    coverImage: "/images/retainer-partnership.png",
     challenge:
-      "Post-sprint client. The first sprint had focused on supply-side acquisition with strong results — supplier count up 2.4× in eight weeks. The challenge for the retainer was demand-side: scaling buyer acquisition against a new ICP that had emerged from the supply-side growth, without adding headcount. The founding team wanted to stay lean and weren't ready to build an internal growth function.",
+      "Post-sprint client. The first sprint had focused on supply-side acquisition with strong results: supplier count up 2.4× in eight weeks. The challenge for the retainer was demand-side: scaling buyer acquisition against a new ICP that had emerged from the supply-side growth, without adding headcount. The founding team wanted to stay lean and weren't ready to build an internal growth function.",
     approach:
-      "Embedded as their growth function for two quarters. Rather than handing off a strategy, we ran it. Ongoing experimentation across paid, content, and partnership channels — weekly cycles, clear test hypotheses, fast kills on what didn't work. Refreshed the signal audit each quarter as new cohort data came in and the ICP shifted. The 90-to-22-day sales cycle compression came from a combination of qualification tightening, better onboarding sequencing, and removing a manual step in the demo-to-trial flow that we identified in month two.",
+      "Embedded as their growth function for two quarters. Rather than handing off a strategy, we ran it. Ongoing experimentation across paid, content, and partnership channels: weekly cycles, clear test hypotheses, fast kills on what didn't work. Refreshed the signal audit each quarter as new cohort data came in and the ICP shifted. The 90-to-22-day sales cycle compression came from a combination of qualification tightening, better onboarding sequencing, and removing a manual step in the demo-to-trial flow that we identified in month two.",
     methodology: [
       "Quarterly signal audit refresh: re-mapped channel performance as ICP evolved",
       "Weekly experimentation cycles: structured test-and-kill across paid and content",
@@ -113,7 +117,7 @@ export const caseStudies: CaseStudy[] = [
       { value: "6 mo", label: "Retainer duration" },
     ],
     quote: {
-      text: "Most consultants hand you a strategy document and disappear. Ascent was in the weeds with us every week — running the experiments, reading the data, adapting the approach. That's the difference between a recommendation and a result.",
+      text: "Most consultants hand you a strategy document and disappear. Ascent was in the weeds with us every week, running the experiments, reading the data, adapting the approach. That's the difference between a recommendation and a result.",
       author: "Co-founder & COO",
       role: "Series B marketplace, EU",
     },

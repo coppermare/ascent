@@ -75,8 +75,8 @@ Disabled: background #A1A1AA.
 Secondary: transparent background, color #0A0A0A, border 1.5px solid #0A0A0A,
 border-radius 4px. Hover: background #F5F1EA. Disabled: color and border #A1A1AA.
 
-Ghost: transparent background, color #5A4FCF, border 1.5px solid #5A4FCF,
-border-radius 8px. Hover: background #EAE8FA.
+Ghost: transparent background, color #0A0A0A, border 1.5px solid #0A0A0A,
+border-radius 4px. Hover: background #F5F1EA.
 
 ### Cards
 background #FFFFFF, border 1px solid #E4E4E7, border-radius 6px, padding 24px,
@@ -145,6 +145,7 @@ Don't:
 - Don't use primary colour for decoration — it should always signal action
 - Don't use letter-spacing on body text or anything below 20px
 - Don't apply grain shaders to content sections (cards, tables, forms, text-heavy layouts)
+- Don't use icon-only buttons or icon library components (e.g. Phosphor) as expand/collapse or toggle indicators — use a small inline SVG or plain text character instead, styled in secondary text (#71717A)
 
 ## 8. Responsive Behaviour
 

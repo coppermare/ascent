@@ -28,15 +28,15 @@ const principles = [
   {
     number: "04",
     title: "AI is plumbing, not a pitch.",
-    body: "We use it for signal detection, content at scale, attribution modelling, and targeting. It's in the infrastructure, not the marketing. It either moves the number or it doesn't — and we measure which.",
+    body: "We use it for signal detection, content at scale, attribution modelling, and targeting. It's in the infrastructure, not the marketing. It either moves the number or it doesn't. We measure which.",
   },
 ];
 
 const wontDo = [
-  "Take on clients we can't grow. If your stage, model, or market makes eight-week results unlikely, we'll say so on the discovery call — before anything is agreed.",
+  "Take on clients we can't grow. If your stage, model, or market makes eight-week results unlikely, we'll say so on the discovery call, before anything is agreed.",
   "Start a retainer without a sprint. Ongoing work has to follow results. We won't bill for maintenance on a growth function we haven't already built.",
   "Hand you a strategy and disappear. We don't write plans for other people to execute. If we can't run it ourselves, we won't propose it.",
-  "Treat AI as a selling point. It's in the workflow the same way spreadsheets are — useful, unremarkable, and only worth keeping if it improves the output.",
+  "Treat AI as a selling point. It's in the workflow the same way spreadsheets are: useful, unremarkable, and only worth keeping if it improves the output.",
   "Drag out a bad fit. If it becomes clear mid-engagement that we're not the right partner, we'll say so directly and work out an honest exit.",
 ];
 
@@ -55,7 +55,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_440px] gap-16 items-start">
             <div className="space-y-6">
               <p className="text-[17px] leading-[1.75]" style={{ color: "#3F3F46" }}>
-                Most growth agencies are structured around deliverables —
+                Most growth agencies are structured around deliverables:
                 content calendars, ad packages, monthly reports. Their
                 incentive is the retainer. The retainer rewards activity, not
                 results. Adding AI to that model doesn't change it.
@@ -74,27 +74,22 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div
-              className="rounded-lg p-8"
-              style={{ background: "#0A0A0A" }}
-            >
-              <div className="space-y-6">
-                {[
-                  { value: "12+", label: "Years combined experience" },
-                  { value: "5 days", label: "Signal audit turnaround" },
-                  { value: "8 wks", label: "Standard sprint duration" },
-                  { value: "100%", label: "Sprint readiness before we start" },
-                ].map(({ value, label }) => (
-                  <div key={label} className="border-b pb-5 last:border-0 last:pb-0" style={{ borderColor: "rgba(255,255,255,0.08)" }}>
-                    <p className="text-[32px] font-normal leading-none mb-1" style={{ color: "#ffffff" }}>
-                      {value}
-                    </p>
-                    <p className="text-[14px]" style={{ color: "rgba(255,255,255,0.5)" }}>
-                      {label}
-                    </p>
-                  </div>
-                ))}
-              </div>
+            <div className="grid grid-cols-2 gap-x-8 gap-y-8 pt-2">
+              {[
+                { value: "12+", label: "Years combined experience" },
+                { value: "5 days", label: "Signal audit turnaround" },
+                { value: "8 wks", label: "Standard sprint duration" },
+                { value: "100%", label: "Sprint readiness before we start" },
+              ].map(({ value, label }) => (
+                <div key={label} className="border-t pt-5" style={{ borderColor: "#E4E4E7" }}>
+                  <p className="text-[32px] font-normal leading-none mb-1 tracking-tight" style={{ color: "#0A0A0A" }}>
+                    {value}
+                  </p>
+                  <p className="text-[13px]" style={{ color: "#71717A" }}>
+                    {label}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -120,7 +115,7 @@ export default function AboutPage() {
                 </span>
                 <div>
                   <h3
-                    className="text-[18px] font-semibold mb-2 leading-snug"
+                    className="text-[18px] font-medium mb-2 leading-snug"
                     style={{ color: "#0A0A0A" }}
                   >
                     {title}
@@ -156,7 +151,7 @@ export default function AboutPage() {
             </AnimateIn>
             <StaggerIn className="space-y-0 divide-y" style={{ borderColor: "rgba(255,255,255,0.08)" }}>
               {wontDo.map((item, i) => (
-                <li key={i} className="flex items-start gap-4 py-5">
+                <div key={i} className="flex items-start gap-4 py-5">
                   <span
                     className="mt-[3px] h-5 w-5 shrink-0 rounded-full flex items-center justify-center"
                     style={{ background: "rgba(90,79,207,0.2)" }}
@@ -169,7 +164,7 @@ export default function AboutPage() {
                   <p className="text-[16px] leading-[1.75]" style={{ color: "rgba(255,255,255,0.7)" }}>
                     {item}
                   </p>
-                </li>
+                </div>
               ))}
             </StaggerIn>
           </div>

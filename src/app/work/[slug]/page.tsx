@@ -2,7 +2,6 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { caseStudies, getCaseStudy } from "@/data/case-studies";
 import { ClosingCTA } from "@/components/ClosingCTA";
-import { PageHeader } from "@/components/PageHeader";
 import { ButtonLink } from "@/components/Button";
 
 interface Props {
@@ -30,45 +29,40 @@ export default async function CaseStudyPage({ params }: Props) {
 
   return (
     <>
-      <PageHeader variant="dark" title={cs.headline} />
-
-      {/* Meta row */}
-      <div
-        className="border-b"
-        style={{ background: "#0A0A0A", borderColor: "rgba(255,255,255,0.08)" }}
-      >
-        <div className="mx-auto max-w-[1200px] px-6 py-5 flex flex-wrap items-center gap-4">
-          <span
-            className="inline-block text-[12px] font-semibold border px-3 py-1"
-            style={{
-              color: "#8B82E0",
-              borderColor: "#8B82E0",
-              background: "rgba(139,130,224,0.12)",
-              borderRadius: "4px",
-            }}
+      {/* Hero */}
+      <section className="pt-28 pb-0" style={{ background: "#FAF9F6" }}>
+        <div className="mx-auto max-w-[1200px] px-6 pb-10">
+          <h1
+            className="text-[32px] md:text-[48px] font-normal leading-[1.05] tracking-tight max-w-[800px] mb-5"
+            style={{ color: "#0A0A0A", letterSpacing: "-0.02em" }}
           >
-            {cs.tag}
-          </span>
-          <span className="text-[13px]" style={{ color: "rgba(255,255,255,0.4)" }}>
-            {cs.client}
-          </span>
-          <span className="text-[13px]" style={{ color: "rgba(255,255,255,0.4)" }}>
-            {cs.duration}
-          </span>
+            {cs.headline}
+          </h1>
+          <p className="text-[18px] leading-[1.7] max-w-[640px]" style={{ color: "#3F3F46" }}>
+            {cs.challenge}
+          </p>
         </div>
-      </div>
+        {cs.coverImage && (
+          <div className="mx-auto max-w-[1200px] px-6">
+            <div className="rounded-xl overflow-hidden" style={{ aspectRatio: "16/9" }}>
+              <img
+                src={cs.coverImage}
+                alt=""
+                aria-hidden="true"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        )}
+      </section>
 
       {/* Stats */}
       <section className="py-14" style={{ background: "#FAF9F6" }}>
         <div className="mx-auto max-w-[1200px] px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-8">
             {cs.stats.map(({ value, label }) => (
-              <div
-                key={label}
-                className="rounded-lg border p-5"
-                style={{ background: "#F5F1EA", borderColor: "#E4E4E7" }}
-              >
-                <p className="text-[28px] md:text-[32px] font-normal leading-none mb-1.5" style={{ color: "#0A0A0A" }}>
+              <div key={label} className="border-t pt-5" style={{ borderColor: "#E4E4E7" }}>
+                <p className="text-[28px] md:text-[32px] font-normal leading-none mb-1.5 tracking-tight" style={{ color: "#0A0A0A" }}>
                   {value}
                 </p>
                 <p className="text-[13px] leading-snug" style={{ color: "#71717A" }}>
@@ -222,9 +216,7 @@ export default async function CaseStudyPage({ params }: Props) {
       {/* Back link */}
       <section className="py-10 border-t" style={{ background: "#FAF9F6", borderColor: "#E4E4E7" }}>
         <div className="mx-auto max-w-[1200px] px-6">
-          <ButtonLink href="/work" variant="secondary">
-            ← All case studies
-          </ButtonLink>
+          <ButtonLink href="/work" variant="secondary">All case studies</ButtonLink>
         </div>
       </section>
 
