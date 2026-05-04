@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { caseStudies, getCaseStudy } from "@/data/case-studies";
+import { getSiteUrl } from "@/lib/site";
 import { ClosingCTA } from "@/components/ClosingCTA";
 import { ButtonLink } from "@/components/Button";
 
@@ -16,9 +17,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const cs = getCaseStudy(slug);
   if (!cs) return {};
+  const url = `${getSiteUrl()}/work/${slug}`;
   return {
     title: `${cs.client} — Work — Ascent`,
     description: cs.headline,
+    alternates: { canonical: url },
+    openGraph: { title: `${cs.client} — Work`, description: cs.headline, url },
+    twitter: { card: "summary_large_image", title: `${cs.client} — Work`, description: cs.headline },
   };
 }
 

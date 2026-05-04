@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { HeroShader } from "@/components/HeroShader";
+import { FooterShader } from "@/components/FooterShader";
 
 const footerLinks = {
   Company: [
@@ -22,7 +22,7 @@ const footerLinks = {
 export function Footer() {
   return (
     <footer className="relative overflow-hidden mt-auto" style={{ background: "#0A0A0A" }}>
-      <HeroShader speed={0} />
+      <FooterShader />
 
       <div className="relative mx-auto max-w-[1200px] px-6 pt-20">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-[1fr_auto_auto_auto] mb-16">

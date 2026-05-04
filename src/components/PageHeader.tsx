@@ -2,7 +2,9 @@
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import { HeroShader } from "@/components/HeroShader";
+import dynamic from "next/dynamic";
+
+const HeroShader = dynamic(() => import("@/components/HeroShader").then(m => ({ default: m.HeroShader })), { ssr: false });
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin();

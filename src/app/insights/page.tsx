@@ -9,6 +9,11 @@ export const metadata: Metadata = {
   title: "Insights — Ascent",
   description:
     "Thinking on growth signals, attribution, and building a growth function that compounds. No SEO content, just what we've found to be true.",
+  openGraph: {
+    title: "Insights — Ascent",
+    description: "Thinking on growth signals, attribution, and building a growth function that compounds.",
+  },
+  twitter: { card: "summary_large_image" },
 };
 
 export default function InsightsPage() {
@@ -29,13 +34,27 @@ export default function InsightsPage() {
       />
 
       {/* Featured post */}
-      <section className="py-16 md:py-20 border-b" style={{ background: "#FAF9F6", borderColor: "#E4E4E7" }}>
+      <section className="py-8 md:py-10 border-b" style={{ background: "#FAF9F6", borderColor: "#E4E4E7" }}>
         <div className="mx-auto max-w-[1200px] px-6">
           <AnimateIn>
             <Link
               href={`/insights/${featured.slug}`}
-              className="group grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-10 items-start"
+              className="group grid grid-cols-1 lg:grid-cols-[360px_1fr] gap-10 items-start"
             >
+              {/* Cover image */}
+              {featured.coverImage && (
+                <div
+                  className="rounded-lg overflow-hidden"
+                  style={{ aspectRatio: "4/3" }}
+                >
+                  <img
+                    src={featured.coverImage}
+                    alt=""
+                    aria-hidden="true"
+                    className="w-full h-full object-cover group-hover:opacity-90 transition-opacity"
+                  />
+                </div>
+              )}
               <div>
                 <div className="flex flex-wrap items-center gap-3 mb-5">
                   <span
@@ -61,27 +80,13 @@ export default function InsightsPage() {
                   {featured.excerpt}
                 </p>
               </div>
-              {/* Cover image */}
-              {featured.coverImage && (
-                <div
-                  className="rounded-lg overflow-hidden"
-                  style={{ aspectRatio: "4/3" }}
-                >
-                  <img
-                    src={featured.coverImage}
-                    alt=""
-                    aria-hidden="true"
-                    className="w-full h-full object-cover group-hover:opacity-90 transition-opacity"
-                  />
-                </div>
-              )}
             </Link>
           </AnimateIn>
         </div>
       </section>
 
       {/* Remaining posts */}
-      <section className="py-16 md:py-20" style={{ background: "#FAF9F6" }}>
+      <section className="pt-4 md:pt-6 pb-16 md:pb-20" style={{ background: "#FAF9F6" }}>
         <div className="mx-auto max-w-[1200px] px-6">
           <StaggerIn className="divide-y" style={{ borderColor: "#E4E4E7" }} stagger={0.1}>
             {rest.map(({ slug, title, date, excerpt, readTime, category, coverImage }) => {
@@ -91,7 +96,26 @@ export default function InsightsPage() {
                 year: "numeric",
               });
               return (
-                <article key={slug} className="py-10 grid grid-cols-[1fr_120px] md:grid-cols-[1fr_160px] gap-6 items-start">
+                <article key={slug} className="py-10 grid grid-cols-1 md:grid-cols-[160px_1fr] gap-6 items-start">
+                  {/* Cover thumbnail */}
+                  {coverImage ? (
+                    <Link href={`/insights/${slug}`} className="block">
+                      <div className="rounded-lg overflow-hidden" style={{ aspectRatio: "4/3" }}>
+                        <img
+                          src={coverImage}
+                          alt=""
+                          aria-hidden="true"
+                          className="w-full h-full object-cover hover:opacity-90 transition-opacity"
+                        />
+                      </div>
+                    </Link>
+                  ) : (
+                    <div className="text-right pt-1">
+                      <p className="text-[13px]" style={{ color: "#A1A1AA" }}>
+                        {formatted}
+                      </p>
+                    </div>
+                  )}
                   <div>
                     <div className="flex flex-wrap items-center gap-3 mb-3">
                       <span
@@ -119,25 +143,6 @@ export default function InsightsPage() {
                       {excerpt}
                     </p>
                   </div>
-                  {/* Cover thumbnail */}
-                  {coverImage ? (
-                    <Link href={`/insights/${slug}`} className="block">
-                      <div className="rounded-lg overflow-hidden" style={{ aspectRatio: "4/3" }}>
-                        <img
-                          src={coverImage}
-                          alt=""
-                          aria-hidden="true"
-                          className="w-full h-full object-cover hover:opacity-90 transition-opacity"
-                        />
-                      </div>
-                    </Link>
-                  ) : (
-                    <div className="text-right pt-1">
-                      <p className="text-[13px]" style={{ color: "#A1A1AA" }}>
-                        {formatted}
-                      </p>
-                    </div>
-                  )}
                 </article>
               );
             })}

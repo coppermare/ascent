@@ -14,7 +14,6 @@
   --color-heading: var(--heading);
   --color-body: var(--body-text);
   --color-secondary-text: var(--secondary-text);
-  --color-muted: var(--muted-text);
   --color-success: var(--success);
   --color-warning: var(--warning);
   --color-error: var(--error);
@@ -60,7 +59,7 @@
 .stat-row::-webkit-scrollbar { display: none; }
 
 .stat-row > * {
-  flex: 0 0 75vw;
+  flex: 0 0 calc(75vw - 3rem);
   scroll-snap-align: start;
 }
 
@@ -94,7 +93,7 @@
   overflow: hidden;
   /* Mobile: fixed-width cards, height driven by aspect-ratio */
   flex: 0 0 80vw;
-  min-height: 520px;
+  min-height: clamp(400px, 70vh, 520px);
   scroll-snap-align: start;
   transition: box-shadow 0.4s ease;
 }

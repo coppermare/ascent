@@ -14,6 +14,8 @@ export function FAQAccordion({ faqs }: { faqs: FAQItem[] }) {
     <div>
       {faqs.map(({ q, a }, i) => {
         const isOpen = openIndex === i;
+        const panelId = `faq-panel-${i}`;
+        const triggerId = `faq-trigger-${i}`;
         return (
           <div
             key={q}
@@ -21,9 +23,11 @@ export function FAQAccordion({ faqs }: { faqs: FAQItem[] }) {
             style={{ borderColor: "#E4E4E7" }}
           >
             <button
+              id={triggerId}
               className="w-full flex items-center justify-between gap-6 py-6 text-left transition-opacity hover:opacity-70"
               onClick={() => setOpenIndex(isOpen ? null : i)}
               aria-expanded={isOpen}
+              aria-controls={panelId}
             >
               <span
                 className="text-[17px] font-normal leading-snug tracking-tight"
@@ -46,12 +50,18 @@ export function FAQAccordion({ faqs }: { faqs: FAQItem[] }) {
               </span>
             </button>
             {isOpen && (
-              <p
-                className="text-[16px] leading-relaxed pb-6 max-w-[600px]"
-                style={{ color: "#3F3F46" }}
+              <div
+                id={panelId}
+                role="region"
+                aria-labelledby={triggerId}
               >
-                {a}
-              </p>
+                <p
+                  className="text-[16px] leading-relaxed pb-6 max-w-[600px]"
+                  style={{ color: "#3F3F46" }}
+                >
+                  {a}
+                </p>
+              </div>
             )}
           </div>
         );

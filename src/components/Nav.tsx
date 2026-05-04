@@ -73,7 +73,7 @@ export function Nav() {
         {/* Mobile hamburger */}
         <button
           type="button"
-          className="inline-flex h-11 min-h-[44px] w-11 min-w-[44px] items-center justify-center rounded lg:hidden hover:bg-black/[0.06] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5A4FCF]"
+          className="inline-flex h-11 min-h-[44px] w-11 min-w-[44px] items-center justify-center rounded lg:hidden hover:bg-black/[0.06] transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--color-primary)"
           onClick={() => setOpen(!open)}
           aria-label={open ? "Close menu" : "Open menu"}
         >

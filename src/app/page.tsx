@@ -27,6 +27,7 @@ import { HeroImage } from "@/components/HeroImage";
 import { LogoLoop } from "@/components/LogoLoop";
 import { AnimateIn, StaggerIn } from "@/components/AnimateIn";
 import { FAQAccordion } from "@/components/FAQAccordion";
+import { SectionShader } from "@/components/SectionShader";
 
 export const metadata: Metadata = {
   title: "Ascent — Find your signal. Sprint to results.",
@@ -312,12 +313,14 @@ export default function HomePage() {
         <div className="relative mx-auto max-w-[1200px] px-6">
           <div className="mb-10 lg:mb-14 flex flex-col lg:flex-row lg:items-start lg:justify-between lg:gap-16">
             <h1
+              data-hero="heading"
               className="text-[38px] md:text-[52px] lg:text-[68px] font-normal leading-[1.05] tracking-[-0.03em] mb-6 lg:mb-0"
               style={{ color: "#ffffff" }}
             >
               Every ascent starts with a signal &mdash; we find yours.
             </h1>
             <p
+              data-hero="body"
               className="text-[18px] leading-relaxed max-w-[360px] lg:pt-3 lg:shrink-0"
               style={{ color: "rgba(255,255,255,0.7)" }}
             >
@@ -326,7 +329,9 @@ export default function HomePage() {
             </p>
           </div>
 
-          <HeroImage />
+          <div data-hero="image">
+            <HeroImage />
+          </div>
         </div>
       </section>
 
@@ -765,28 +770,23 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── FAQ ──────────────────────────────────────────────────── */}
-      <section className="py-16 md:py-24" style={{ background: "#F5F1EA" }}>
-        <div className="mx-auto max-w-[1200px] px-6">
-          <div className="mb-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-            <h2
-              className="text-[30px] md:text-[52px] font-normal tracking-tight leading-[1.05]"
-              style={{ color: "#0A0A0A" }}
-            >
-              Questions we hear most.
-            </h2>
-            <ButtonLink href="/book" variant="primary" size="default">
-              Book
-            </ButtonLink>
-          </div>
-          <FAQAccordion faqs={faqs} />
-        </div>
-      </section>
-
       {/* ── Lead Magnet ──────────────────────────────────────────── */}
-      <section id="lead-magnet" className="py-16 md:py-24 px-6" style={{ background: "#FAF9F6" }}>
+      <section id="lead-magnet" className="relative overflow-hidden pt-16 md:pt-24 pb-0 px-6">
+        <SectionShader
+          colors={["#000000", "#000000", "#000000"]}
+          colorBack="#f5f1ea"
+          softness={0.7}
+          intensity={1}
+          noise={1}
+          shape="wave"
+          speed={0}
+          scale={1.4}
+          rotation={360}
+          offsetX={0.22}
+          offsetY={0.46}
+        />
         <div
-          className="relative mx-auto max-w-[1200px] overflow-hidden rounded-xl py-12 px-6 md:py-24 md:px-16"
+          className="relative mx-auto max-w-[1200px] overflow-hidden rounded-t-xl py-24 px-6 md:py-48 md:px-16"
           style={{ backgroundImage: "url('/images/audit-bg.png')", backgroundSize: "cover", backgroundPosition: "center" }}
         >
           <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.65) 100%)" }} />
@@ -808,6 +808,21 @@ export default function HomePage() {
 
             <EmailCapture />
           </div>
+        </div>
+      </section>
+
+      {/* ── FAQ ──────────────────────────────────────────────────── */}
+      <section className="py-16 md:py-24" style={{ background: "#F5F1EA" }}>
+        <div className="mx-auto max-w-[1200px] px-6">
+          <div className="mb-10">
+            <h2
+              className="text-[30px] md:text-[52px] font-normal tracking-tight leading-[1.05]"
+              style={{ color: "#0A0A0A" }}
+            >
+              Questions we hear most.
+            </h2>
+          </div>
+          <FAQAccordion faqs={faqs} />
         </div>
       </section>
 

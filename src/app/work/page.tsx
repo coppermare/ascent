@@ -9,6 +9,11 @@ export const metadata: Metadata = {
   title: "Work — Ascent",
   description:
     "Specific results from Ascent growth sprints and signal audits. Real outcomes, not vague testimonials.",
+  openGraph: {
+    title: "Work — Ascent",
+    description: "Specific results from Ascent growth sprints and signal audits. Real outcomes, not vague testimonials.",
+  },
+  twitter: { card: "summary_large_image" },
 };
 
 export default function WorkPage() {
@@ -23,12 +28,12 @@ export default function WorkPage() {
       {/* Case studies */}
       <section className="py-16 md:py-24" style={{ background: "#FAF9F6" }}>
         <div className="mx-auto max-w-[1200px] px-6">
-          <StaggerIn className="space-y-0 divide-y" style={{ borderColor: "#E4E4E7" }} stagger={0.12}>
+          <StaggerIn className="grid grid-cols-1 md:grid-cols-2 gap-10" stagger={0.12}>
             {caseStudies.map(({ slug, headline, challenge, coverImage }) => (
-              <article key={slug} className="py-14 first:pt-0">
+              <article key={slug}>
                 <Link href={`/work/${slug}`} className="block group">
                   {coverImage && (
-                    <div className="w-full rounded-lg overflow-hidden mb-6" style={{ aspectRatio: "16/9" }}>
+                    <div className="w-full rounded-lg overflow-hidden mb-6" style={{ aspectRatio: "4/3" }}>
                       <img
                         src={coverImage}
                         alt=""

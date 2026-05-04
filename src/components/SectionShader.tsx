@@ -4,7 +4,7 @@ import { GrainGradient } from "@paper-design/shaders-react";
 import type { GrainGradientShape } from "@paper-design/shaders";
 
 interface SectionShaderProps {
-  colors: [string, string];
+  colors: [string, string] | [string, string, string];
   colorBack: string;
   shape?: GrainGradientShape;
   intensity?: number;
@@ -14,6 +14,7 @@ interface SectionShaderProps {
   scale?: number;
   offsetX?: number;
   offsetY?: number;
+  rotation?: number;
 }
 
 export function SectionShader({
@@ -27,6 +28,7 @@ export function SectionShader({
   scale = 1.2,
   offsetX = 0,
   offsetY = 0,
+  rotation,
 }: SectionShaderProps) {
   return (
     <GrainGradient
@@ -43,6 +45,7 @@ export function SectionShader({
       scale={scale}
       offsetX={offsetX}
       offsetY={offsetY}
+      {...(rotation !== undefined ? { rotation } : {})}
     />
   );
 }

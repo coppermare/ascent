@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { blogPosts, getBlogPost } from "@/data/blog-posts";
+import { getSiteUrl } from "@/lib/site";
 import { ClosingCTA } from "@/components/ClosingCTA";
 import { ButtonLink } from "@/components/Button";
 
@@ -17,9 +18,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = getBlogPost(slug);
   if (!post) return {};
+  const url = `${getSiteUrl()}/blog/${slug}`;
   return {
     title: `${post.title} — Ascent`,
     description: post.excerpt,
+    alternates: { canonical: url },
+    openGraph: { title: post.title, description: post.excerpt, url, type: "article" },
+    twitter: { card: "summary_large_image", title: post.title, description: post.excerpt },
   };
 }
 
