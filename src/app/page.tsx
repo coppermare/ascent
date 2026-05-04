@@ -18,9 +18,9 @@ import type { Icon } from "@phosphor-icons/react";
 import { ClosingCTA } from "@/components/ClosingCTA";
 import { EmailCapture } from "@/components/EmailCapture";
 import { ButtonLink } from "@/components/Button";
-import { HeroShader } from "@/components/HeroShader";
 import { BrandVisual } from "@/components/BrandVisual";
-import { GrainGradient } from "@paper-design/shaders-react";
+import { AboutShader } from "@/components/AboutShader";
+import { HeroGrainShader } from "@/components/HeroGrainShader";
 import { StatCard } from "@/components/StatCard";
 import MagnetLines from "@/components/MagnetLines";
 import { HeroImage } from "@/components/HeroImage";
@@ -31,7 +31,7 @@ import { FAQAccordion } from "@/components/FAQAccordion";
 export const metadata: Metadata = {
   title: "Ascent — Find your signal. Sprint to results.",
   description:
-    "Ascent maps every growth signal in your business, cuts what is not working, and builds from what is. Signal audits, growth sprints, and retainer partnerships for Series A and B companies.",
+    "Ascent is an AI-native growth agency for Series A and B companies. Signal audits, growth sprints, and retainer partnerships. We start from signal, not a playbook.",
 };
 
 const clientLogos: { name: string; Mark: () => React.ReactElement }[] = [
@@ -132,7 +132,7 @@ const services: {
     num: "02",
     figure: "Seedling",
     title: "Growth Sprint",
-    desc: "Eight weeks. Outcomes agreed before day one, not aspired to. We build and test from week one, adapt from signal in weeks two through four, scale what is working in five through eight. At close: results against the agreed targets, not a document about them.",
+    desc: "Eight weeks. Outcomes agreed before day one, not aspired to. We build and test from week one, adapt from signal in weeks two through four, scale what is working in five through eight. AI handles content at scale and attribution so we move faster than a traditional team can. At close: results against the agreed targets, not a document about them.",
     tag: "FIG-SEEDLING",
     href: "/services#growth-sprint",
     Icon: Rocket,
@@ -153,7 +153,7 @@ const services: {
 const coverageAreas: { label: string; desc: string; icon: string }[] = [
   {
     label: "Paid acquisition",
-    desc: "Search, social, and programmatic targeted by signal, not assumption.",
+    desc: "Channel strategy and targeting logic built from your signal data, not default audience templates.",
     icon: "/images/icons/paid-acquisition.png",
   },
   {
@@ -265,7 +265,7 @@ const teamStats = [
   },
   {
     value: "100%",
-    label: "Of post-sprint clients offered a retainer chose to continue",
+    label: "Of clients who hit sprint targets and were offered a retainer chose to continue",
   },
 ];
 
@@ -280,7 +280,7 @@ const faqs = [
   },
   {
     q: "How is this different from a traditional growth agency?",
-    a: "Most agencies optimise for retained hours. Our engagement structure ends when we hit the target. We have no incentive to extend the work beyond what was agreed.",
+    a: "Most agencies use the same playbooks with AI bolted on top. We start from signal: the audit maps what's actually driving revenue, then AI lets us execute at a speed and precision a traditional team can't match. Our engagement ends when we hit the agreed target — we have no incentive to extend it.",
   },
   {
     q: "What stage are you right for?",
@@ -308,39 +308,21 @@ export default function HomePage() {
     <>
       {/* ── Hero ─────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden -mt-16 pt-32 md:pt-40 pb-0" style={{ background: "#000000" }}>
-        <GrainGradient
-          key="hero-grain-10"
-          width={1280}
-          height={720}
-          style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}
-          colors={["#5a4fcf", "#000000"]}
-          colorBack="#000000"
-          softness={0}
-          intensity={0.15}
-          noise={1}
-          shape="corners"
-          speed={0}
-          scale={1}
-          rotation={212}
-          offsetX={0.28}
-          offsetY={0.3}
-        />
+        <HeroGrainShader />
         <div className="relative mx-auto max-w-[1200px] px-6">
           <div className="mb-10 lg:mb-14 flex flex-col lg:flex-row lg:items-start lg:justify-between lg:gap-16">
             <h1
               className="text-[38px] md:text-[52px] lg:text-[68px] font-normal leading-[1.05] tracking-[-0.03em] mb-6 lg:mb-0"
               style={{ color: "#ffffff" }}
             >
-              You&rsquo;re growing.
-              <br />
-              You just don&rsquo;t know why.
+              Every ascent starts with a signal &mdash; we find yours.
             </h1>
             <p
               className="text-[18px] leading-relaxed max-w-[360px] lg:pt-3 lg:shrink-0"
-              style={{ color: "rgba(255,255,255,0.55)" }}
+              style={{ color: "rgba(255,255,255,0.7)" }}
             >
-              We find what&rsquo;s actually driving your revenue and what
-              isn&rsquo;t. Then we build from it. Series A and B only.
+              We audit first, define outcomes before week one, and only
+              take clients we can grow.
             </p>
           </div>
 
@@ -356,7 +338,7 @@ export default function HomePage() {
         <LogoLoop
           logos={clientLogos.map(({ name, Mark }) => ({
             node: (
-              <div className="flex items-center gap-3" style={{ color: "rgba(255,255,255,0.5)" }}>
+              <div className="flex items-center gap-3" style={{ color: "rgba(255,255,255,0.7)" }}>
                 <Mark />
                 <span className="text-[18px] font-semibold">{name}</span>
               </div>
@@ -386,17 +368,18 @@ export default function HomePage() {
               className="text-[30px] md:text-[56px] font-normal tracking-tight leading-[1.05]"
               style={{ color: "#ffffff" }}
             >
-              You&rsquo;re reading the wrong signals.
+              Most growth data is noise.
             </AnimateIn>
             <AnimateIn delay={0.1}
               className="text-[17px] leading-relaxed lg:pb-2"
-              style={{ color: "rgba(255,255,255,0.5)" }}
+              style={{ color: "rgba(255,255,255,0.7)" }}
               as="p"
             >
-              Not because you lack data. Because no one has looked at which data
-              actually precedes closed revenue, and which is just noise. Most
-              clients arrive having confidently funded the wrong channels for 12
-              months or more.
+              Your data already holds the answer. The problem is that no one
+              has ranked which signals precede closed revenue and which are
+              just noise. The companies we work with have typically been
+              funding the wrong channels for over a year before we find
+              what&rsquo;s working.
             </AnimateIn>
           </div>
         </div>
@@ -552,7 +535,7 @@ export default function HomePage() {
                 found a content channel responsible for 40% of our pipeline.
                 It had been completely untracked.&rdquo;
               </blockquote>
-              <p className="text-[14px]" style={{ color: "rgba(255,255,255,0.65)" }}>
+              <p className="text-[14px]" style={{ color: "rgba(255,255,255,0.7)" }}>
                 Head of Growth, Series B SaaS
               </p>
             </div>
@@ -571,7 +554,7 @@ export default function HomePage() {
             >
               Three targets. All hit.
             </AnimateIn>
-            <AnimateIn delay={0.1} as="p" className="text-[17px] leading-relaxed" style={{ color: "rgba(255,255,255,0.5)" }}>
+            <AnimateIn delay={0.1} as="p" className="text-[17px] leading-relaxed" style={{ color: "rgba(255,255,255,0.7)" }}>
               Defined before week one. Measured at close.
             </AnimateIn>
           </div>
@@ -598,7 +581,7 @@ export default function HomePage() {
                 </p>
                 <p
                   className="text-[15px] leading-relaxed"
-                  style={{ color: "rgba(255,255,255,0.5)" }}
+                  style={{ color: "rgba(255,255,255,0.7)" }}
                 >
                   {detail}
                 </p>
@@ -707,17 +690,19 @@ export default function HomePage() {
                 />
 
                 {/* Expanded state — text pinned to bottom */}
-                <div className="t-expanded absolute inset-0 flex flex-col justify-end p-6" style={{ zIndex: 4 }}>
-                  <p className="t-quote text-[16px] leading-relaxed mb-2" style={{ color: "rgba(255,255,255,0.92)" }}>
+                <figure className="t-expanded absolute inset-0 flex flex-col justify-end p-6" style={{ zIndex: 4 }}>
+                  <blockquote className="t-quote text-[16px] leading-relaxed mb-2" style={{ color: "rgba(255,255,255,0.92)" }}>
                     {quote}
-                  </p>
-                  <p className="t-name text-[14px] font-semibold" style={{ color: "#FFFFFF" }}>
-                    {name}
-                  </p>
-                  <p className="t-meta text-[13px]" style={{ color: "rgba(255,255,255,0.65)" }}>
-                    {role} &middot; {company}
-                  </p>
-                </div>
+                  </blockquote>
+                  <figcaption>
+                    <p className="t-name text-[14px] font-semibold" style={{ color: "#FFFFFF" }}>
+                      {name}
+                    </p>
+                    <p className="t-meta text-[13px]" style={{ color: "rgba(255,255,255,0.7)" }}>
+                      {role} &middot; {company}
+                    </p>
+                  </figcaption>
+                </figure>
               </div>
             ))}
           </div>
@@ -729,21 +714,7 @@ export default function HomePage() {
         className="relative overflow-hidden py-16 md:py-24"
         style={{ background: "#0A0A0A" }}
       >
-        <GrainGradient
-          width="100%"
-          height="100%"
-          style={{ position: "absolute", inset: 0 }}
-          colors={["#f5f1ea", "#c5c0f0", "#f5f1ea"]}
-          colorBack="#f5f1ea"
-          softness={1}
-          intensity={0.5}
-          noise={0.14}
-          shape="wave"
-          speed={0.4}
-          scale={1.2}
-          offsetY={0.15}
-        />
-        <HeroShader />
+        <AboutShader />
         <div className="relative mx-auto max-w-[1200px] px-6">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-16 items-start">
             <div>
@@ -759,10 +730,11 @@ export default function HomePage() {
                 className="text-[17px] leading-relaxed mb-5 max-w-[520px]"
                 style={{ color: "rgba(255,255,255,0.72)" }}
               >
-                Ascent is a small team of practitioners who ran growth from
-                inside Series A and B companies before building this. We know
-                what the data looks like when it&rsquo;s being read wrong,
-                because we have read it wrong ourselves.
+                Ascent is a small team of practitioners who ran growth inside
+                venture-backed companies before building this. We know what
+                misread data costs &mdash; we&rsquo;ve paid that price
+                ourselves. We use AI to find what instinct misses and move
+                faster than any traditional team can.
               </AnimateIn>
               <AnimateIn delay={0.15}>
                 <ButtonLink href="/about" variant="inverted" size="default">
@@ -782,7 +754,7 @@ export default function HomePage() {
                   </p>
                   <p
                     className="text-[13px] leading-snug"
-                    style={{ color: "rgba(255,255,255,0.5)" }}
+                    style={{ color: "rgba(255,255,255,0.7)" }}
                   >
                     {label}
                   </p>
@@ -830,8 +802,8 @@ export default function HomePage() {
               style={{ color: "rgba(255,255,255,0.7)" }}
             >
               The exact diagnostic we run on every new client, adapted so
-              founders and growth leads can use it without us. Twelve pages.
-              Most people find something they were not expecting.
+              founders and growth leads can run it without us. Twelve pages.
+              Most people find at least one channel they have been misreading.
             </AnimateIn>
 
             <EmailCapture />

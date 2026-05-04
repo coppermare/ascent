@@ -6,14 +6,19 @@ import { AnimateIn, StaggerIn } from "@/components/AnimateIn";
 export const metadata: Metadata = {
   title: "About — Ascent",
   description:
-    "Ascent is a growth consultancy built around data, not playbooks. We start with a signal audit, work in focused sprints, and measure everything.",
+    "Ascent is an AI growth agency. We start from signal, not a playbook. Five-day audits, eight-week sprints, defined outcomes before week one.",
+  openGraph: {
+    title: "About — Ascent",
+    description: "Ascent is an AI growth agency. We start from signal, not a playbook. Five-day audits, eight-week sprints, defined outcomes before week one.",
+  },
+  twitter: { card: "summary_large_image" },
 };
 
 const principles = [
   {
     number: "01",
     title: "Read the data before touching the strategy.",
-    body: "Every engagement starts with a Signal Audit. We spend five days mapping what's actually driving revenue before we recommend a single change. The data tells us where to go. Not the other way around.",
+    body: "Every engagement starts with a Signal Audit. Five days to map what's driving revenue, what's burning budget, and what's sitting unattributed. The data tells us where to go. We don't recommend anything before we've read it.",
   },
   {
     number: "02",
@@ -46,7 +51,7 @@ export default function AboutPage() {
       <PageHeader
         variant="dark"
         title="We work differently. On purpose."
-        subtitle="Most agencies run the same playbook with different tools. We start with the data."
+        subtitle="Most agencies run the same playbook with different tools. We start with a signal audit."
       />
 
       {/* How we think */}
@@ -62,8 +67,8 @@ export default function AboutPage() {
               </p>
               <p className="text-[17px] leading-[1.75]" style={{ color: "#3F3F46" }}>
                 We start every engagement with a Signal Audit. Five days. We
-                map which channels are actually driving revenue, which are
-                burning budget, and where pipeline is sitting unattributed.
+                map which channels are driving revenue, which are burning
+                budget, and where pipeline is sitting unattributed.
                 Most teams are surprised by at least one finding. Some are
                 surprised by three.
               </p>

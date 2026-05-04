@@ -6,13 +6,22 @@ export function HeroImage() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    let rafId: number;
+
     const handleScroll = () => {
-      if (!containerRef.current) return;
-      containerRef.current.style.transform = `translateY(${window.scrollY * -0.25}px)`;
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        if (!containerRef.current) return;
+        if (window.innerWidth < 768) return;
+        containerRef.current.style.transform = `translateY(${window.scrollY * -0.25}px)`;
+      });
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      cancelAnimationFrame(rafId);
+    };
   }, []);
 
   return (

@@ -8,7 +8,12 @@ import { AnimateIn } from "@/components/AnimateIn";
 export const metadata: Metadata = {
   title: "Services — Ascent",
   description:
-    "Signal audits, growth sprints, and retainer partnerships. Every engagement starts with data. No playbooks, no retainers without a sprint.",
+    "Signal audits, growth sprints, and retainer partnerships from an AI-native growth agency. Every engagement starts with data. Defined outcomes before week one.",
+  openGraph: {
+    title: "Services — Ascent",
+    description: "Signal audits, growth sprints, and retainer partnerships from an AI-native growth agency. Every engagement starts with data.",
+  },
+  twitter: { card: "summary_large_image" },
 };
 
 import type { Icon } from "@phosphor-icons/react";
