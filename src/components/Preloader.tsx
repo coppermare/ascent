@@ -1,7 +1,14 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { GrainGradient } from "@paper-design/shaders-react";
 import { gsap } from "gsap";
+
+// useLayoutEffect fires synchronously before the browser paints — ensures the
+// overlay renders on the very first frame without a flash of page content.
+// We alias it to useEffect on the server to avoid SSR warnings.
+const useIsomorphicLayoutEffect =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 export function Preloader() {
   const overlayRef = useRef<HTMLDivElement>(null);
@@ -9,7 +16,20 @@ export function Preloader() {
   const [ready, setReady] = useState(false);
   const [gone, setGone] = useState(false);
 
+  // Synchronous check before first paint — sets ready:true so the overlay div
+  // is in the DOM on the very first render the browser paints.
+  useIsomorphicLayoutEffect(() => {
+    if (window.location.pathname !== "/" || sessionStorage.getItem("preloader_done")) {
+      setGone(true);
+    } else {
+      setReady(true);
+    }
+  }, []);
+
+  // Animation setup — runs after the overlay is mounted.
   useEffect(() => {
+    if (!ready || gone) return;
+
     let tl: gsap.core.Timeline;
     let loadTimer: ReturnType<typeof setTimeout>;
     let safetyTimer: ReturnType<typeof setTimeout>;
@@ -19,17 +39,8 @@ export function Preloader() {
       setGone(true);
     };
 
-    if (window.location.pathname !== "/" || sessionStorage.getItem("preloader_done")) {
-      setGone(true);
-      return;
-    }
-    setReady(true);
-
     // Defer past React Strict Mode's unmount/remount cycle
     const startTimer = setTimeout(() => {
-      // Remove the inline preloader overlay created by the blocking script
-      document.getElementById("preloader-overlay")?.remove();
-
       const overlay = overlayRef.current;
       const symbol = symbolRef.current;
       if (!overlay || !symbol) return;
@@ -108,7 +119,7 @@ export function Preloader() {
       clearTimeout(safetyTimer);
       tl?.kill();
     };
-  }, []);
+  }, [ready, gone]);
 
   if (!ready || gone) return null;
 
@@ -119,16 +130,32 @@ export function Preloader() {
         position: "fixed",
         inset: 0,
         zIndex: 9999,
-        background:
-          "radial-gradient(ellipse at 25% 65%, rgba(90,79,207,0.38) 0%, #000000 62%)",
+        background: "#000000",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         willChange: "transform",
         WebkitMaskImage: "linear-gradient(to bottom, black 85%, transparent 100%)",
         maskImage: "linear-gradient(to bottom, black 85%, transparent 100%)",
+        overflow: "hidden",
       }}
     >
+      <GrainGradient
+        width={1280}
+        height={720}
+        style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}
+        colors={["#5a4fcf", "#5a4fcf", "#5a4fcf"]}
+        colorBack="#000000"
+        softness={0.7}
+        intensity={1}
+        noise={1}
+        shape="wave"
+        speed={0}
+        scale={1.4}
+        rotation={360}
+        offsetX={0.22}
+        offsetY={0.9}
+      />
       <img
         ref={symbolRef}
         src="/images/ascent-symbol-3d.png"

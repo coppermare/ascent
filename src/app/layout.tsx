@@ -70,28 +70,25 @@ const organizationSchema = {
   },
 };
 
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${ibmPlexMono.variable} h-full antialiased`}
-    >
+    <html lang="en" className="h-full" suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){if(window.location.pathname==='/'&&!sessionStorage.getItem('preloader_done')){var s=document.createElement('style');s.textContent='#preloader-overlay{position:fixed;inset:0;z-index:9999;background:radial-gradient(ellipse at 25% 65%,rgba(90,79,207,0.38) 0%,#000 62%)}';document.head.appendChild(s);var d=document.createElement('div');d.id='preloader-overlay';document.body.appendChild(d);}})();`,
-          }}
+          suppressHydrationWarning
         />
       </head>
-      <body className="min-h-full flex flex-col">
+      <body
+        className={`min-h-full flex flex-col ${geistSans.variable} ${geistMono.variable} ${ibmPlexMono.variable} antialiased`}
+        suppressHydrationWarning
+      >
         <PreloaderLoader />
         <Nav />
         <main className="flex-1 pt-16">{children}</main>
