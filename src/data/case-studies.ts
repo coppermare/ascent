@@ -20,7 +20,7 @@ export const caseStudies: CaseStudy[] = [
     client: "Series A fintech, UK",
     headline: "3.2× qualified pipeline. CAC down 28%. Sales cycle back to 34 days.",
     duration: "8-week sprint",
-    coverImage: "/images/growth-sprint.png",
+    coverImage: "/images/work-fintech-cover.png",
     challenge:
       "They raised their Series A on strong early traction, but pipeline had stalled in the nine months since. CAC was climbing from £420 to £680 per qualified lead, and the growth team wasn't clear on which channels were responsible. Sales cycle had lengthened from 30 to 90 days without an obvious cause. The internal read was 'we need more content.' The real problem was different.",
     approach:
@@ -56,7 +56,7 @@ export const caseStudies: CaseStudy[] = [
     client: "Series B SaaS, US",
     headline: "40% of pipeline was invisible. Three positioning gaps. Sprint started the following week.",
     duration: "5-day audit",
-    coverImage: "/images/audit-bg.png",
+    coverImage: "/images/work-saas-cover.png",
     challenge:
       "Strong product, good NRR, but new business acquisition had plateaued for two quarters. They'd hired a growth lead six months prior with no material change in the trend. The board was asking whether the plateau was a strategy problem, an execution problem, or a market problem, and the team didn't have a confident answer. They needed a clear read before committing to more headcount or spend.",
     approach:
@@ -92,7 +92,7 @@ export const caseStudies: CaseStudy[] = [
     client: "Series B marketplace, EU",
     headline: "90-day sales cycle to 22. Zero headcount added. 120 to 340 customers.",
     duration: "6-month retainer",
-    coverImage: "/images/retainer-partnership.png",
+    coverImage: "/images/work-marketplace-cover.png",
     challenge:
       "Post-sprint client. The first sprint had focused on supply-side acquisition with strong results: supplier count up 2.4× in eight weeks. The challenge for the retainer was demand-side: scaling buyer acquisition against a new ICP that had emerged from the supply-side growth, without adding headcount. The founding team wanted to stay lean and weren't ready to build an internal growth function.",
     approach:

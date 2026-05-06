@@ -31,7 +31,7 @@ export default function Error({
       <div className="flex gap-3">
         <button
           onClick={reset}
-          className="inline-flex items-center justify-center h-11 min-h-[44px] px-5 rounded-lg text-[14px] font-semibold transition-opacity hover:opacity-80"
+          className="inline-flex items-center justify-center h-11 min-h-[44px] px-5 rounded-md text-[14px] font-semibold transition-opacity hover:opacity-80"
           style={{ background: "var(--primary)", color: "#ffffff" }}
         >
           Try again

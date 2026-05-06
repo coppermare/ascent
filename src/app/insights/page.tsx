@@ -29,6 +29,7 @@ export default function InsightsPage() {
     <>
       <PageHeader
         variant="dark"
+        staticShader
         title="Insights."
         subtitle="What we've found to be true about growth, attribution, and building something that compounds."
       />
@@ -56,20 +57,9 @@ export default function InsightsPage() {
                 </div>
               )}
               <div>
-                <div className="flex flex-wrap items-center gap-3 mb-5">
-                  <span
-                    className="text-[12px] font-medium px-3 py-1"
-                    style={{ color: "#5A4FCF", background: "#EAE8FA", borderRadius: "4px" }}
-                  >
-                    {featured.category}
-                  </span>
-                  <span className="text-[13px]" style={{ color: "#A1A1AA" }}>
-                    {featured.readTime}
-                  </span>
-                  <span className="text-[13px]" style={{ color: "#A1A1AA" }}>
-                    {formattedFeatured}
-                  </span>
-                </div>
+                <p className="text-[13px] mb-5" style={{ color: "#71717A" }}>
+                  {featured.category} &middot; {featured.readTime} &middot; {formattedFeatured}
+                </p>
                 <h2
                   className="text-[28px] md:text-[36px] font-normal leading-[1.1] tracking-tight mb-4 group-hover:underline underline-offset-4"
                   style={{ color: "#0A0A0A", letterSpacing: "-0.02em" }}
@@ -117,20 +107,9 @@ export default function InsightsPage() {
                     </div>
                   )}
                   <div>
-                    <div className="flex flex-wrap items-center gap-3 mb-3">
-                      <span
-                        className="text-[12px] font-medium px-3 py-1"
-                        style={{ color: "#5A4FCF", background: "#EAE8FA", borderRadius: "4px" }}
-                      >
-                        {category}
-                      </span>
-                      <span className="text-[13px]" style={{ color: "#A1A1AA" }}>
-                        {readTime}
-                      </span>
-                      <span className="text-[13px]" style={{ color: "#A1A1AA" }}>
-                        {formatted}
-                      </span>
-                    </div>
+                    <p className="text-[13px] mb-3" style={{ color: "#71717A" }}>
+                      {category} &middot; {readTime} &middot; {formatted}
+                    </p>
                     <h2
                       className="text-[20px] font-normal mb-2 leading-snug tracking-tight"
                       style={{ color: "#0A0A0A", letterSpacing: "-0.01em" }}

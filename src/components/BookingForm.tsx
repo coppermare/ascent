@@ -12,10 +12,11 @@ type FormState = {
 };
 
 const inputClass =
-  "w-full h-11 rounded border px-4 text-[14px] bg-white focus:outline-none transition-colors";
-const labelClass =
-  "block text-[13px] font-semibold mb-1.5";
-const fieldStyle = { borderColor: "#E4E4E7", color: "#0A0A0A" };
+  "w-full h-11 rounded-md border px-3.5 text-[14px] bg-white focus:outline-none transition-colors placeholder:text-[#A1A1AA]";
+const labelClass = "block text-[13px] mb-2";
+const baseBorder = "#E4E4E7";
+const focusBorder = "#5A4FCF";
+const fieldStyle = { borderColor: baseBorder, color: "#0A0A0A" };
 
 export function BookingForm() {
   const [form, setForm] = useState<FormState>({
@@ -33,22 +34,21 @@ export function BookingForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: wire to booking service / calendar
     setSubmitted(true);
   };
 
   if (submitted) {
     return (
-      <div className="py-8 text-center">
+      <div className="py-10">
         <p
-          className="text-[22px] font-semibold mb-3"
-          style={{ color: "#0A0A0A" }}
+          className="text-[24px] md:text-[28px] font-normal tracking-tight mb-4 leading-tight"
+          style={{ color: "#0A0A0A", letterSpacing: "-0.02em" }}
         >
-          We'll be in touch within one business day.
+          We&rsquo;ll be in touch within one business day.
         </p>
-        <p className="text-[16px]" style={{ color: "#3F3F46" }}>
-          We read every submission before replying. If there's a clear fit,
-          we'll suggest a time for a call.
+        <p className="text-[16px] leading-relaxed" style={{ color: "#3F3F46" }}>
+          Every submission gets read before it gets a reply. If there&rsquo;s a
+          clear fit, we&rsquo;ll suggest a time for the call.
         </p>
       </div>
     );
@@ -66,11 +66,10 @@ export function BookingForm() {
             required
             value={form.name}
             onChange={set("name")}
-            placeholder="Jane Smith"
             className={inputClass}
             style={fieldStyle}
-            onFocus={(e) => (e.target.style.borderColor = "#5A4FCF")}
-            onBlur={(e) => (e.target.style.borderColor = "#E4E4E7")}
+            onFocus={(e) => (e.target.style.borderColor = focusBorder)}
+            onBlur={(e) => (e.target.style.borderColor = baseBorder)}
           />
         </div>
         <div>
@@ -82,30 +81,35 @@ export function BookingForm() {
             required
             value={form.company}
             onChange={set("company")}
-            placeholder="Acme Inc."
             className={inputClass}
             style={fieldStyle}
-            onFocus={(e) => (e.target.style.borderColor = "#5A4FCF")}
-            onBlur={(e) => (e.target.style.borderColor = "#E4E4E7")}
+            onFocus={(e) => (e.target.style.borderColor = focusBorder)}
+            onBlur={(e) => (e.target.style.borderColor = baseBorder)}
           />
         </div>
       </div>
 
       <div>
         <label className={labelClass} style={{ color: "#0A0A0A" }}>
-          Company stage
+          Stage
         </label>
         <select
           required
           value={form.stage}
           onChange={set("stage")}
-          className="w-full h-11 rounded border px-4 text-[14px] bg-white focus:outline-none transition-colors appearance-none"
-          style={fieldStyle}
-          onFocus={(e) => (e.target.style.borderColor = "#5A4FCF")}
-          onBlur={(e) => (e.target.style.borderColor = "#E4E4E7")}
+          className="w-full h-11 rounded-md border px-3.5 pr-9 text-[14px] bg-white focus:outline-none transition-colors appearance-none"
+          style={{
+            ...fieldStyle,
+            backgroundImage:
+              "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'><path d='M1 1L6 6L11 1' stroke='%2371717A' stroke-width='1.5' stroke-linecap='round'/></svg>\")",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "right 14px center",
+          }}
+          onFocus={(e) => (e.target.style.borderColor = focusBorder)}
+          onBlur={(e) => (e.target.style.borderColor = baseBorder)}
         >
           <option value="" disabled>
-            Select your stage
+            Select
           </option>
           <option value="series-a">Series A</option>
           <option value="series-b">Series B</option>
@@ -117,18 +121,17 @@ export function BookingForm() {
 
       <div>
         <label className={labelClass} style={{ color: "#0A0A0A" }}>
-          What's your main growth challenge right now?
+          What&rsquo;s the growth question on your mind?
         </label>
         <textarea
           required
           value={form.challenge}
           onChange={set("challenge")}
-          placeholder="Describe where you're stuck or what you're trying to figure out..."
           rows={4}
-          className="w-full rounded border px-4 py-3 text-[14px] bg-white focus:outline-none transition-colors resize-none"
+          className="w-full rounded-md border px-3.5 py-3 text-[14px] bg-white focus:outline-none transition-colors resize-none placeholder:text-[#A1A1AA]"
           style={fieldStyle}
-          onFocus={(e) => (e.target.style.borderColor = "#5A4FCF")}
-          onBlur={(e) => (e.target.style.borderColor = "#E4E4E7")}
+          onFocus={(e) => (e.target.style.borderColor = focusBorder)}
+          onBlur={(e) => (e.target.style.borderColor = baseBorder)}
         />
       </div>
 
@@ -140,21 +143,21 @@ export function BookingForm() {
           type="text"
           value={form.referral}
           onChange={set("referral")}
-          placeholder="Referral, LinkedIn, Google..."
           className={inputClass}
           style={fieldStyle}
-          onFocus={(e) => (e.target.style.borderColor = "#5A4FCF")}
-          onBlur={(e) => (e.target.style.borderColor = "#E4E4E7")}
+          onFocus={(e) => (e.target.style.borderColor = focusBorder)}
+          onBlur={(e) => (e.target.style.borderColor = baseBorder)}
         />
       </div>
 
-      <Button type="submit" size="lg" className="w-full">
-        Book
-      </Button>
-
-      <p className="text-[12px] text-center" style={{ color: "#A1A1AA" }}>
-        We reply within one business day. No pitch decks, no hard sell.
-      </p>
+      <div className="pt-2">
+        <Button type="submit" size="lg" className="w-full">
+          Send
+        </Button>
+        <p className="text-[12px] text-center mt-4" style={{ color: "#A1A1AA" }}>
+          One business day for a reply. No deck, no follow-up sequence.
+        </p>
+      </div>
     </form>
   );
 }

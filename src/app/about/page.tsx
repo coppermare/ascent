@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ClosingCTA } from "@/components/ClosingCTA";
 import { PageHeader } from "@/components/PageHeader";
 import { AnimateIn, StaggerIn } from "@/components/AnimateIn";
+import { X } from "@phosphor-icons/react/dist/ssr";
 
 export const metadata: Metadata = {
   title: "About — Ascent",
@@ -9,40 +10,37 @@ export const metadata: Metadata = {
     "Ascent is an AI growth agency. We start from signal, not a playbook. Five-day audits, eight-week sprints, defined outcomes before week one.",
   openGraph: {
     title: "About — Ascent",
-    description: "Ascent is an AI growth agency. We start from signal, not a playbook. Five-day audits, eight-week sprints, defined outcomes before week one.",
+    description:
+      "Ascent is an AI growth agency. We start from signal, not a playbook. Five-day audits, eight-week sprints, defined outcomes before week one.",
   },
   twitter: { card: "summary_large_image" },
 };
 
 const principles = [
   {
-    number: "01",
     title: "Read the data before touching the strategy.",
-    body: "Every engagement starts with a Signal Audit. Five days to map what's driving revenue, what's burning budget, and what's sitting unattributed. The data tells us where to go. We don't recommend anything before we've read it.",
+    body: "Every engagement starts with a Signal Audit. The data tells us where to go. We don't recommend anything before we've read it.",
   },
   {
-    number: "02",
     title: "Agree on the number before you agree on the work.",
-    body: "We set a specific metric and a timeframe before any engagement begins. If we can't name what success looks like, we shouldn't be charging for it. Most agencies skip this step. We won't start without it.",
+    body: "We set a specific metric and a timeframe before any engagement begins. If we can't name what success looks like, we shouldn't be charging for it.",
   },
   {
-    number: "03",
     title: "Build from day one, not week six.",
-    body: "Strategy and execution run in parallel. We're testing in week one, adapting in weeks two through four, scaling what works in weeks five through eight. A deck is not a deliverable.",
+    body: "Strategy and execution run in parallel. Testing in week one, adapting through four, scaling to eight. A deck is not a deliverable.",
   },
   {
-    number: "04",
     title: "AI is plumbing, not a pitch.",
-    body: "We use it for signal detection, content at scale, attribution modelling, and targeting. It's in the infrastructure, not the marketing. It either moves the number or it doesn't. We measure which.",
+    body: "Signal detection, content at scale, attribution, targeting. It's in the infrastructure, not the marketing. It either moves the number or it doesn't.",
   },
 ];
 
 const wontDo = [
-  "Take on clients we can't grow. If your stage, model, or market makes eight-week results unlikely, we'll say so on the discovery call, before anything is agreed.",
-  "Start a retainer without a sprint. Ongoing work has to follow results. We won't bill for maintenance on a growth function we haven't already built.",
-  "Hand you a strategy and disappear. We don't write plans for other people to execute. If we can't run it ourselves, we won't propose it.",
-  "Treat AI as a selling point. It's in the workflow the same way spreadsheets are: useful, unremarkable, and only worth keeping if it improves the output.",
-  "Drag out a bad fit. If it becomes clear mid-engagement that we're not the right partner, we'll say so directly and work out an honest exit.",
+  "Take on clients we can't grow.",
+  "Start a retainer without a sprint.",
+  "Hand you a strategy and disappear.",
+  "Treat AI as a selling point.",
+  "Drag out a bad fit.",
 ];
 
 export default function AboutPage() {
@@ -51,122 +49,135 @@ export default function AboutPage() {
       <PageHeader
         variant="dark"
         title="We work differently. On purpose."
-        subtitle="Most agencies run the same playbook with different tools. We start with a signal audit."
+        subtitle="Most agencies run the same playbook with different tools. We start with the signal."
       />
 
-      {/* How we think */}
-      <section className="py-16 md:py-24" style={{ background: "#FAF9F6" }}>
-        <div className="mx-auto max-w-[1200px] px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_440px] gap-16 items-start">
-            <div className="space-y-6">
-              <p className="text-[17px] leading-[1.75]" style={{ color: "#3F3F46" }}>
-                Most growth agencies are structured around deliverables:
-                content calendars, ad packages, monthly reports. Their
-                incentive is the retainer. The retainer rewards activity, not
-                results. Adding AI to that model doesn't change it.
-              </p>
-              <p className="text-[17px] leading-[1.75]" style={{ color: "#3F3F46" }}>
-                We start every engagement with a Signal Audit. Five days. We
-                map which channels are driving revenue, which are burning
-                budget, and where pipeline is sitting unattributed.
-                Most teams are surprised by at least one finding. Some are
-                surprised by three.
-              </p>
-              <p className="text-[17px] leading-[1.75]" style={{ color: "#3F3F46" }}>
-                Then we work. Defined outcomes, agreed upfront, measured
-                throughout. Eight weeks or fewer. If we hit the targets, we
-                talk about what comes next. If we don't, we own it.
-              </p>
-            </div>
+      {/* ── Manifesto + image ───────────────────────────────────── */}
+      <section className="overflow-hidden" style={{ background: "#0A0A0A" }}>
+        <div className="mx-auto max-w-[1200px] px-6 pt-20 pb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-24 items-start">
+            <AnimateIn
+              as="h2"
+              className="text-[30px] md:text-[56px] font-normal tracking-tight leading-[1.05]"
+              style={{ color: "#ffffff" }}
+            >
+              The retainer rewards activity. We measure results.
+            </AnimateIn>
+            <AnimateIn
+              delay={0.1}
+              className="text-[17px] leading-relaxed"
+              style={{ color: "rgba(255,255,255,0.7)" }}
+              as="p"
+            >
+              Most growth agencies are structured around deliverables: content
+              calendars, ad packages, monthly reports. Adding AI to that model
+              doesn&rsquo;t change it. We start from signal, agree on the
+              number before week one, and close against it.
+            </AnimateIn>
+          </div>
+        </div>
 
-            <div className="grid grid-cols-2 gap-x-8 gap-y-8 pt-2">
-              {[
-                { value: "12+", label: "Years combined experience" },
-                { value: "5 days", label: "Signal audit turnaround" },
-                { value: "8 wks", label: "Standard sprint duration" },
-                { value: "100%", label: "Sprint readiness before we start" },
-              ].map(({ value, label }) => (
-                <div key={label} className="border-t pt-5" style={{ borderColor: "#E4E4E7" }}>
-                  <p className="text-[32px] font-normal leading-none mb-1 tracking-tight" style={{ color: "#0A0A0A" }}>
-                    {value}
-                  </p>
-                  <p className="text-[13px]" style={{ color: "#71717A" }}>
-                    {label}
-                  </p>
-                </div>
-              ))}
-            </div>
+        <div className="relative w-full" style={{ height: "440px" }}>
+          <img
+            src="/images/about-manifesto.png"
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(to bottom, #0A0A0A 0%, transparent 18%)",
+            }}
+          />
+        </div>
+      </section>
+
+      {/* ── How we're built (editorial, not stat cards) ─────────── */}
+      <section className="py-20 md:py-28" style={{ background: "#FAF9F6" }}>
+        <div className="mx-auto max-w-[1200px] px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-12 lg:gap-24">
+            <AnimateIn
+              as="h2"
+              className="text-[30px] md:text-[44px] font-normal tracking-tight leading-[1.1]"
+              style={{ color: "#0A0A0A", letterSpacing: "-0.02em" }}
+            >
+              A small team of operators.
+            </AnimateIn>
+            <AnimateIn delay={0.1}>
+              <p className="text-[17px] leading-[1.75] mb-6" style={{ color: "#3F3F46" }}>
+                Ascent is a senior team of practitioners who ran growth inside
+                venture-backed companies before building this. Every
+                engagement is led by someone who has carried the number
+                themselves.
+              </p>
+              <p className="text-[17px] leading-[1.75]" style={{ color: "#3F3F46" }}>
+                We hold a maximum of five active engagements at a time. If
+                we&rsquo;re full when you reach out, we&rsquo;ll say so and
+                give you a realistic start date.
+              </p>
+            </AnimateIn>
           </div>
         </div>
       </section>
 
-      {/* Principles */}
-      <section className="py-16 md:py-24 border-t" style={{ background: "#F5F1EA", borderColor: "#E4E4E7" }}>
+      {/* ── Principles ───────────────────────────────────────────── */}
+      <section className="py-20 md:py-28 border-t" style={{ background: "#F5F1EA", borderColor: "#E4E4E7" }}>
         <div className="mx-auto max-w-[1200px] px-6">
-          <AnimateIn as="h2"
-            className="text-[32px] md:text-[36px] font-normal tracking-tight mb-14"
+          <AnimateIn
+            as="h2"
+            className="text-[30px] md:text-[44px] font-normal tracking-tight leading-[1.1] mb-14 md:mb-20 max-w-[640px]"
             style={{ color: "#0A0A0A", letterSpacing: "-0.02em" }}
           >
-            How we think
+            How we think.
           </AnimateIn>
-          <StaggerIn className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12">
-            {principles.map(({ number, title, body }) => (
-              <div key={number} className="flex gap-6">
-                <span
-                  className="text-[40px] font-light leading-none shrink-0 select-none"
-                  style={{ color: "#C4BFEE", fontVariantNumeric: "tabular-nums" }}
+
+          <StaggerIn className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-14">
+            {principles.map(({ title, body }) => (
+              <div key={title}>
+                <h3
+                  className="text-[22px] md:text-[24px] font-normal mb-4 leading-snug tracking-tight"
+                  style={{ color: "#0A0A0A", letterSpacing: "-0.01em" }}
                 >
-                  {number}
-                </span>
-                <div>
-                  <h3
-                    className="text-[18px] font-medium mb-2 leading-snug"
-                    style={{ color: "#0A0A0A" }}
-                  >
-                    {title}
-                  </h3>
-                  <p className="text-[15px] leading-[1.75]" style={{ color: "#3F3F46" }}>
-                    {body}
-                  </p>
-                </div>
+                  {title}
+                </h3>
+                <p className="text-[15px] leading-[1.75]" style={{ color: "#3F3F46" }}>
+                  {body}
+                </p>
               </div>
             ))}
           </StaggerIn>
         </div>
       </section>
 
-      {/* What we won't do */}
-      <section className="py-16 md:py-24" style={{ background: "#0A0A0A" }}>
+      {/* ── What we won't do ─────────────────────────────────────── */}
+      <section className="py-20 md:py-28" style={{ background: "#0A0A0A" }}>
         <div className="mx-auto max-w-[1200px] px-6">
-          <div className="max-w-[640px]">
-            <AnimateIn as="h2"
-              className="text-[32px] md:text-[36px] font-normal tracking-tight mb-4"
+          <div className="grid grid-cols-1 lg:grid-cols-[420px_1fr] gap-12 lg:gap-20 items-start">
+            <AnimateIn
+              as="h2"
+              className="text-[30px] md:text-[52px] font-normal tracking-tight leading-[1.05]"
               style={{ color: "#ffffff", letterSpacing: "-0.02em" }}
             >
-              What we won't do
+              What we won&rsquo;t do.
             </AnimateIn>
-            <AnimateIn delay={0.1}>
-              <p
-                className="text-[17px] leading-[1.75] mb-10"
-                style={{ color: "rgba(255,255,255,0.55)" }}
-              >
-                Clarity about what we won't take on is the reason the engagements
-                we do take on actually work.
-              </p>
-            </AnimateIn>
-            <StaggerIn className="space-y-0 divide-y" style={{ borderColor: "rgba(255,255,255,0.08)" }}>
+
+            <StaggerIn>
               {wontDo.map((item, i) => (
-                <div key={i} className="flex items-start gap-4 py-5">
-                  <span
-                    className="mt-[3px] h-5 w-5 shrink-0 rounded-full flex items-center justify-center"
-                    style={{ background: "rgba(90,79,207,0.2)" }}
+                <div
+                  key={i}
+                  className="flex items-center gap-5 py-6 border-t"
+                  style={{
+                    borderColor: "rgba(255,255,255,0.1)",
+                    borderBottom: i === wontDo.length - 1 ? "1px solid rgba(255,255,255,0.1)" : undefined,
+                  }}
+                >
+                  <X size={22} weight="bold" style={{ color: "#5A4FCF", flexShrink: 0 }} />
+                  <p
+                    className="text-[20px] md:text-[26px] font-normal tracking-tight leading-tight"
+                    style={{ color: "#ffffff", letterSpacing: "-0.01em" }}
                   >
-                    <span
-                      className="block h-1.5 w-1.5 rounded-full"
-                      style={{ background: "#5A4FCF" }}
-                    />
-                  </span>
-                  <p className="text-[16px] leading-[1.75]" style={{ color: "rgba(255,255,255,0.7)" }}>
                     {item}
                   </p>
                 </div>

@@ -49,7 +49,7 @@ export default async function CaseStudyPage({ params }: Props) {
         </div>
         {cs.coverImage && (
           <div className="mx-auto max-w-[1200px] px-6">
-            <div className="rounded-xl overflow-hidden" style={{ aspectRatio: "16/9" }}>
+            <div className="rounded-xl overflow-hidden" style={{ aspectRatio: "4/3" }}>
               <img
                 src={cs.coverImage}
                 alt=""
@@ -82,33 +82,27 @@ export default async function CaseStudyPage({ params }: Props) {
       {/* Challenge */}
       <section className="py-20 md:py-24" style={{ background: "#ffffff" }}>
         <div className="mx-auto max-w-[1200px] px-6 grid grid-cols-1 lg:grid-cols-[200px_1fr] gap-10">
-          <div className="pt-1">
-            <p
-              className="text-[12px] font-semibold tracking-[0.12em] uppercase"
-              style={{ color: "#5A4FCF" }}
-            >
-              The situation
-            </p>
-          </div>
-          <div>
-            <p className="text-[18px] leading-[1.85]" style={{ color: "#3F3F46" }}>
-              {cs.challenge}
-            </p>
-          </div>
+          <h2
+            className="text-[18px] font-medium pt-1"
+            style={{ color: "#0A0A0A" }}
+          >
+            The situation
+          </h2>
+          <p className="text-[18px] leading-[1.85]" style={{ color: "#3F3F46" }}>
+            {cs.challenge}
+          </p>
         </div>
       </section>
 
       {/* Approach */}
       <section className="py-20 md:py-24" style={{ background: "#0A0A0A" }}>
         <div className="mx-auto max-w-[1200px] px-6 grid grid-cols-1 lg:grid-cols-[200px_1fr] gap-10">
-          <div className="pt-1">
-            <p
-              className="text-[12px] font-semibold tracking-[0.12em] uppercase"
-              style={{ color: "#8B82E0" }}
-            >
-              What we did
-            </p>
-          </div>
+          <h2
+            className="text-[18px] font-medium pt-1"
+            style={{ color: "#ffffff" }}
+          >
+            What we did
+          </h2>
           <div>
             <p
               className="text-[18px] leading-[1.85] mb-10"
@@ -116,24 +110,21 @@ export default async function CaseStudyPage({ params }: Props) {
             >
               {cs.approach}
             </p>
-            {/* Methodology steps */}
-            <div className="border-t pt-8" style={{ borderColor: "rgba(255,255,255,0.08)" }}>
-              <p
-                className="text-[11px] font-semibold tracking-[0.1em] uppercase mb-6"
-                style={{ color: "rgba(255,255,255,0.3)" }}
-              >
-                How we did it
-              </p>
-              <ol className="space-y-4">
+            <div className="border-t pt-8" style={{ borderColor: "rgba(255,255,255,0.1)" }}>
+              <ol>
                 {cs.methodology.map((step, i) => (
-                  <li key={i} className="flex items-start gap-4">
+                  <li
+                    key={i}
+                    className="flex items-baseline gap-5 py-3 border-b"
+                    style={{ borderColor: "rgba(255,255,255,0.08)" }}
+                  >
                     <span
-                      className="text-[12px] font-semibold tabular-nums shrink-0 mt-[3px]"
-                      style={{ color: "#8B82E0", minWidth: "20px" }}
+                      className="text-[13px] tabular-nums shrink-0"
+                      style={{ color: "rgba(255,255,255,0.4)", minWidth: "20px" }}
                     >
-                      {String(i + 1).padStart(2, "0")}
+                      {i + 1}
                     </span>
-                    <p className="text-[15px] leading-[1.65]" style={{ color: "rgba(255,255,255,0.55)" }}>
+                    <p className="text-[15px] leading-[1.7]" style={{ color: "rgba(255,255,255,0.75)" }}>
                       {step}
                     </p>
                   </li>

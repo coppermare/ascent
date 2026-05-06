@@ -21,6 +21,7 @@ export default function WorkPage() {
     <>
       <PageHeader
         variant="dark"
+        staticShader
         title="The work."
         subtitle="Specific results from signal audits, growth sprints, and retainer partnerships. Numbers, timeframes, and what changed."
       />

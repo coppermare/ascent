@@ -17,7 +17,7 @@ export const blogPosts: BlogPost[] = [
       "Most companies have more growth data than they know what to do with. The problem isn't access, it's attribution. Here's how to find what's actually driving revenue.",
     readTime: "6 min read",
     category: "Signal Audit",
-    coverImage: "/images/visual-statement.png",
+    coverImage: "/images/insight-growth-signals-cover.png",
   },
   {
     slug: "cac-attribution-gaps",
@@ -27,7 +27,7 @@ export const blogPosts: BlogPost[] = [
       "Misattributed pipeline is the most expensive quiet problem in B2B growth. Here's the pattern we see across almost every audit, and how to fix it.",
     readTime: "5 min read",
     category: "Attribution",
-    coverImage: "/images/channels-bg.png",
+    coverImage: "/images/insight-cac-attribution-cover.png",
   },
   {
     slug: "icp-refinement-series-b",
@@ -37,7 +37,7 @@ export const blogPosts: BlogPost[] = [
       "The ICP that got you to Series A is rarely the ICP that gets you to Series B. Here's how to decide whether to double down or open up.",
     readTime: "7 min read",
     category: "Strategy",
-    coverImage: "/images/audit-bg.png",
+    coverImage: "/images/insight-icp-refinement-cover.png",
   },
 ];
 

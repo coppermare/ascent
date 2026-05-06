@@ -12,7 +12,7 @@ export type ButtonVariant =
 export type ButtonSize = "default" | "sm" | "lg";
 
 const base =
-  "box-border inline-flex items-center justify-center gap-1.5 rounded font-semibold leading-none transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--color-primary) disabled:pointer-events-none disabled:opacity-50";
+  "box-border inline-flex items-center justify-center gap-1.5 rounded-md font-semibold leading-none transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--color-primary) disabled:pointer-events-none disabled:opacity-50";
 
 /* DESIGN.md: min 44px touch; mobile primary CTAs 48px — `lg` for hero, default/sm at 44px */
 const variants: Record<ButtonVariant, string> = {

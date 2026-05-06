@@ -52,20 +52,9 @@ export default async function InsightPostPage({ params }: Props) {
     <>
       <section className="pt-16 pb-0 md:pt-24" style={{ background: "#0A0A0A" }}>
         <div className="mx-auto max-w-[720px] px-6">
-          <div className="flex flex-wrap items-center gap-3 mb-8">
-            <span
-              className="text-[12px] font-medium px-3 py-1"
-              style={{ color: "#8B82E0", background: "rgba(139,130,224,0.12)", borderRadius: "4px" }}
-            >
-              {post.category}
-            </span>
-            <span className="text-[13px]" style={{ color: "rgba(255,255,255,0.35)" }}>
-              {formatted}
-            </span>
-            <span className="text-[13px]" style={{ color: "rgba(255,255,255,0.35)" }}>
-              {post.readTime}
-            </span>
-          </div>
+          <p className="text-[13px] mb-8" style={{ color: "rgba(255,255,255,0.5)" }}>
+            {post.category} &middot; {post.readTime} &middot; {formatted}
+          </p>
           <h1
             className="text-[32px] md:text-[48px] font-light leading-[1.05] tracking-tight mb-6"
             style={{ color: "#ffffff", letterSpacing: "-0.02em" }}
@@ -78,7 +67,7 @@ export default async function InsightPostPage({ params }: Props) {
         </div>
         {post.coverImage && (
           <div className="mx-auto max-w-[1200px] px-6">
-            <div className="rounded-t-xl overflow-hidden" style={{ aspectRatio: "16/9" }}>
+            <div className="rounded-t-xl overflow-hidden" style={{ aspectRatio: "4/3" }}>
               <img
                 src={post.coverImage}
                 alt=""
@@ -119,12 +108,9 @@ export default async function InsightPostPage({ params }: Props) {
             <div className="space-y-8">
               {related.map((p) => (
                 <div key={p.slug} className="border-b pb-8 last:border-0 last:pb-0" style={{ borderColor: "#E4E4E7" }}>
-                  <span
-                    className="text-[12px] font-medium px-2.5 py-1 mb-3 inline-block"
-                    style={{ color: "#5A4FCF", background: "#EAE8FA", borderRadius: "4px" }}
-                  >
+                  <p className="text-[13px] mb-2" style={{ color: "#71717A" }}>
                     {p.category}
-                  </span>
+                  </p>
                   <h3 className="text-[18px] font-normal leading-snug mb-2 tracking-tight" style={{ color: "#0A0A0A" }}>
                     <a href={`/insights/${p.slug}`} className="hover:underline underline-offset-4">
                       {p.title}

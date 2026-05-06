@@ -15,6 +15,8 @@ interface PageHeaderProps {
   subtitle?: string;
   variant?: "dark" | "light";
   align?: "left" | "center";
+  noShader?: boolean;
+  staticShader?: boolean;
 }
 
 export function PageHeader({
@@ -22,6 +24,8 @@ export function PageHeader({
   subtitle,
   variant = "light",
   align = "left",
+  noShader = false,
+  staticShader = false,
 }: PageHeaderProps) {
   const isDark = variant === "dark";
   const isCentered = align === "center";
@@ -50,7 +54,7 @@ export function PageHeader({
       className="relative overflow-hidden py-16 md:py-28"
       style={{ background: isDark ? "#0A0A0A" : "#FAF9F6" }}
     >
-      {isDark && <HeroShader speed={0.3} />}
+      {isDark && !noShader && <HeroShader speed={staticShader ? 0 : 0.3} />}
       <div className={`relative mx-auto max-w-[1200px] px-6 ${isCentered ? "text-center" : ""}`}>
         <div className={`max-w-[640px]${isCentered ? " mx-auto" : ""}`}>
           <h1

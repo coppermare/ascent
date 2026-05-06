@@ -34,7 +34,7 @@ export function EmailCapture() {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder="your@email.com"
-        className="w-full min-w-0 flex-1 h-12 min-h-[48px] rounded border px-4 text-[14px] bg-white transition-colors focus:outline-none focus:border-(--color-primary)"
+        className="w-full min-w-0 flex-1 h-12 min-h-[48px] rounded-md border px-4 text-[14px] bg-white transition-colors focus:outline-none focus:border-(--color-primary)"
         style={{
           borderColor: "#E4E4E7",
           color: "#0A0A0A",

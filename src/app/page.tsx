@@ -265,8 +265,8 @@ const teamStats = [
     label: "Maximum active client engagements at any time, by design",
   },
   {
-    value: "100%",
-    label: "Of clients who hit sprint targets and were offered a retainer chose to continue",
+    value: "8 wks",
+    label: "Maximum sprint length. Defined outcome agreed before week one",
   },
 ];
 
@@ -439,16 +439,10 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {services.map(({ num, title, desc, tag, image }) => (
-              <div key={num} className="flex flex-col pt-6 border-t" style={{ borderColor: "#E4E4E7" }}>
-                <p
-                  className="text-[12px] font-medium mb-4"
-                  style={{ color: "#5A4FCF", fontFamily: "var(--font-ibm-plex-mono)" }}
-                >
-                  {tag}
-                </p>
+            {services.map(({ num, title, desc, image }) => (
+              <div key={num} className="flex flex-col">
                 {image && (
-                  <div className="relative w-full aspect-[4/3] mb-5 rounded-lg overflow-hidden shrink-0">
+                  <div className="relative w-full aspect-[4/3] mb-6 rounded-lg overflow-hidden shrink-0">
                     <img
                       src={image}
                       alt=""
@@ -458,8 +452,8 @@ export default function HomePage() {
                   </div>
                 )}
                 <h3
-                  className="text-[20px] font-normal tracking-tight mb-3"
-                  style={{ color: "#0A0A0A" }}
+                  className="text-[22px] font-normal tracking-tight mb-3"
+                  style={{ color: "#0A0A0A", letterSpacing: "-0.01em" }}
                 >
                   {title}
                 </h3>
@@ -522,8 +516,8 @@ export default function HomePage() {
                 >
                   Closed results,<br />not forecasts.
                 </h2>
-                <p className="text-[13px] leading-relaxed max-w-[260px]" style={{ color: "rgba(255,255,255,0.75)" }}>
-                  Three engagements from the last 18 months. Targets were set before week one. These are what the data showed at close.
+                <p className="text-[16px] md:text-[18px] leading-relaxed max-w-[360px]" style={{ color: "rgba(255,255,255,0.85)" }}>
+                  Targets set before week one. Measured at close. What clients tell us afterwards.
                 </p>
               </div>
             </div>
@@ -752,7 +746,7 @@ export default function HomePage() {
               {teamStats.map(({ value, label }) => (
                 <div key={value} className="p-0">
                   <p
-                    className="text-[56px] md:text-[64px] font-normal tracking-[-0.03em] leading-none mb-3"
+                    className="text-[36px] md:text-[40px] font-normal tracking-[-0.02em] leading-none mb-3"
                     style={{ color: "#ffffff" }}
                   >
                     {value}

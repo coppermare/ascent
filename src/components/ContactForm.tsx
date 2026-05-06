@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/Button";
 
 const inputClass =
-  "w-full h-11 rounded border px-4 text-[14px] bg-white focus:outline-none transition-colors";
+  "w-full h-11 rounded-md border px-4 text-[14px] bg-white focus:outline-none transition-colors";
 const labelClass = "block text-[13px] font-semibold mb-1.5";
 const fieldStyle = { borderColor: "#E4E4E7", color: "#0A0A0A" };
 
@@ -77,7 +77,7 @@ export function ContactForm() {
           onChange={(e) => setMessage(e.target.value)}
           placeholder="What can we help with?"
           rows={5}
-          className="w-full rounded border px-4 py-3 text-[14px] bg-white focus:outline-none transition-colors resize-none"
+          className="w-full rounded-md border px-4 py-3 text-[14px] bg-white focus:outline-none transition-colors resize-none"
           style={fieldStyle}
           onFocus={(e) => (e.target.style.borderColor = "#5A4FCF")}
           onBlur={(e) => (e.target.style.borderColor = "#E4E4E7")}
