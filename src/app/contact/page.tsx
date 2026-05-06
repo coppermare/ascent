@@ -41,7 +41,7 @@ export default function ContactPage() {
                 style={{ color: "rgba(255,255,255,0.6)" }}
               >
                 Thirty minutes. We ask, you answer, we give you our honest
-                read on whether there's a fit, and what a signal audit would
+                read on whether there&rsquo;s a fit, and what a signal audit would
                 surface in your business.
               </p>
 
@@ -86,7 +86,7 @@ export default function ContactPage() {
               className="text-[15px] leading-[1.75] mb-7"
               style={{ color: "#71717A" }}
             >
-              For press, partnerships, or anything that doesn't fit a 30-minute
+              For press, partnerships, or anything that doesn&rsquo;t fit a 30-minute
               call. We read every message and reply the same day where we can.
             </p>
             <ContactForm />
@@ -109,7 +109,7 @@ export default function ContactPage() {
               <Link href="/faq" className="font-semibold hover:underline" style={{ color: "#5A4FCF" }}>
                 FAQ
               </Link>{" "}
-              for straight answers about how we work and whether we're a fit.
+              for straight answers about how we work and whether we&rsquo;re a fit.
             </p>
           </div>
           <div>

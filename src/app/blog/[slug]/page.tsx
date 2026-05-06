@@ -93,7 +93,7 @@ export default async function BlogPostPage({ params }: Props) {
               Found something worth investigating?
             </p>
             <p className="text-[14px] leading-[1.65]" style={{ color: "#71717A" }}>
-              A Signal Audit takes five days. We map what's actually driving revenue and what isn't.
+              A Signal Audit takes five days. We map what&rsquo;s actually driving revenue and what isn&rsquo;t.
             </p>
           </div>
           <ButtonLink href="/book" size="lg">Book</ButtonLink>

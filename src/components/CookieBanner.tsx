@@ -1,27 +1,27 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useSyncExternalStore } from "react";
 import { Button } from "@/components/Button";
 
-export function CookieBanner() {
-  const [visible, setVisible] = useState(false);
+const subscribe = () => () => {};
+const getConsent = () => localStorage.getItem("cookie-consent");
+const getServerConsent = () => null;
 
-  useEffect(() => {
-    const consent = localStorage.getItem("cookie-consent");
-    if (!consent) setVisible(true);
-  }, []);
+export function CookieBanner() {
+  const consent = useSyncExternalStore(subscribe, getConsent, getServerConsent);
+  const [dismissed, setDismissed] = useState(false);
+
+  if (consent || dismissed) return null;
 
   const accept = () => {
     localStorage.setItem("cookie-consent", "accepted");
-    setVisible(false);
+    setDismissed(true);
   };
 
   const decline = () => {
     localStorage.setItem("cookie-consent", "declined");
-    setVisible(false);
+    setDismissed(true);
   };
-
-  if (!visible) return null;
 
   return (
     <div
@@ -53,4 +53,3 @@ export function CookieBanner() {
     </div>
   );
 }
-

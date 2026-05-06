@@ -26,9 +26,7 @@ export function Preloader() {
     const symbol = symbolRef.current;
     if (!overlay || !symbol) return;
 
-    let tl: gsap.core.Timeline;
     let loadTimer: ReturnType<typeof setTimeout>;
-    let safetyTimer: ReturnType<typeof setTimeout>;
 
     const dismiss = () => {
       gsap.set('[data-hero="heading"], [data-hero="body"], [data-hero="image"]', { clearProps: "opacity,transform,translate,rotate,scale" });
@@ -36,14 +34,14 @@ export function Preloader() {
       setGone(true);
     };
 
-    safetyTimer = setTimeout(dismiss, 6000);
+    const safetyTimer = setTimeout(dismiss, 6000);
 
     const onVisible = () => { if (!document.hidden) gsap.ticker.wake(); };
     document.addEventListener("visibilitychange", onVisible);
 
     gsap.set('[data-hero="heading"], [data-hero="body"], [data-hero="image"]', { opacity: 0, y: 0 });
 
-    tl = gsap.timeline();
+    const tl = gsap.timeline();
     tl.to(symbol, { y: 0, opacity: 1, duration: 1.6, ease: "power2.out" });
 
     const exit = () => {

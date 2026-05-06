@@ -27,7 +27,7 @@ export function ContactForm() {
           Message received.
         </p>
         <p className="text-[15px]" style={{ color: "#3F3F46" }}>
-          We'll get back to you within one business day.
+          We&rsquo;ll get back to you within one business day.
         </p>
       </div>
     );
