@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 export function LogoReveal() {
   const ref = useRef<HTMLDivElement>(null);
@@ -23,10 +24,12 @@ export function LogoReveal() {
 
   return (
     <div ref={ref} className="relative flex items-center justify-center py-16">
-      <img
+      <Image
         src="/images/ascent-symbol-3d.png"
         alt="Ascent"
-        className="w-[220px] md:w-[300px] lg:w-[360px] select-none"
+        width={360}
+        height={360}
+        className="w-[220px] md:w-[300px] lg:w-[360px] h-auto select-none"
         style={{
           transform: visible ? "translateY(0)" : "translateY(64px)",
           opacity: visible ? 1 : 0,

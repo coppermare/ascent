@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { ClosingCTA } from "@/components/ClosingCTA";
 import { PageHeader } from "@/components/PageHeader";
@@ -34,12 +35,14 @@ export default function WorkPage() {
               <article key={slug}>
                 <Link href={`/work/${slug}`} className="block group">
                   {coverImage && (
-                    <div className="w-full rounded-lg overflow-hidden mb-6" style={{ aspectRatio: "4/3" }}>
-                      <img
+                    <div className="relative w-full rounded-lg overflow-hidden mb-6" style={{ aspectRatio: "4/3" }}>
+                      <Image
                         src={coverImage}
                         alt=""
                         aria-hidden="true"
-                        className="w-full h-full object-cover"
+                        fill
+                        sizes="(max-width: 768px) 100vw, 600px"
+                        className="object-cover"
                       />
                     </div>
                   )}

@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { caseStudies, getCaseStudy } from "@/data/case-studies";
 import { getSiteUrl } from "@/lib/site";
@@ -49,12 +50,14 @@ export default async function CaseStudyPage({ params }: Props) {
         </div>
         {cs.coverImage && (
           <div className="mx-auto max-w-[1200px] px-6">
-            <div className="rounded-xl overflow-hidden" style={{ aspectRatio: "4/3" }}>
-              <img
+            <div className="relative rounded-xl overflow-hidden" style={{ aspectRatio: "4/3" }}>
+              <Image
                 src={cs.coverImage}
                 alt=""
                 aria-hidden="true"
-                className="w-full h-full object-cover"
+                fill
+                sizes="(max-width: 1200px) 100vw, 1200px"
+                className="object-cover"
               />
             </div>
           </div>

@@ -1,18 +1,10 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import React from "react";
 import {
   Binoculars,
   Rocket,
   ArrowsClockwise,
-  CurrencyDollar,
-  MagnifyingGlass,
-  Article,
-  EnvelopeSimple,
-  Funnel,
-  ChartBar,
-  TrendUp,
-  Buildings,
-  Quotes,
 } from "@phosphor-icons/react/dist/ssr";
 import type { Icon } from "@phosphor-icons/react";
 import { ClosingCTA } from "@/components/ClosingCTA";
@@ -297,13 +289,6 @@ const faqs = [
   },
 ];
 
-const frameworkItems = [
-  "Channel attribution mapping",
-  "Revenue signal scoring",
-  "Budget allocation analysis",
-  "Sprint readiness checklist",
-];
-
 export default function HomePage() {
   return (
     <>
@@ -397,10 +382,12 @@ export default function HomePage() {
             indigo #5A4FCF cast pulled into the darker mass areas. No ground visible.
             The formation reads as a single organism made of ten thousand parts." */}
         <div className="relative w-full" style={{ height: "520px" }}>
-          <img
+          <Image
             src="/images/visual-statement.png"
             alt="Astronaut standing at the edge of a diagonal beam of light"
-            className="absolute inset-0 w-full h-full object-cover"
+            fill
+            sizes="100vw"
+            className="object-cover"
           />
           <div
             className="absolute inset-0"
@@ -443,11 +430,13 @@ export default function HomePage() {
               <div key={num} className="flex flex-col">
                 {image && (
                   <div className="relative w-full aspect-[4/3] mb-6 rounded-lg overflow-hidden shrink-0">
-                    <img
+                    <Image
                       src={image}
                       alt=""
                       aria-hidden="true"
-                      className="absolute inset-0 w-full h-full object-cover"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 400px"
+                      className="object-cover"
                     />
                   </div>
                 )}
@@ -501,11 +490,13 @@ export default function HomePage() {
           <div className="mb-10 md:mb-16 rounded-lg overflow-hidden flex flex-col md:flex-row">
             {/* Image — 3:4 portrait with heading overlaid top-left */}
             <div className="relative w-full md:w-[50%] shrink-0 aspect-[3/4]">
-              <img
+              <Image
                 src="/images/quote-bg.png"
                 alt=""
                 aria-hidden="true"
-                className="absolute inset-0 w-full h-full object-cover"
+                fill
+                sizes="(max-width: 768px) 100vw, 600px"
+                className="object-cover"
               />
               <div className="absolute inset-0 p-6 md:p-10 flex flex-col justify-start"
                 style={{ background: "linear-gradient(to bottom, rgba(90,79,207,0.7) 0%, transparent 60%)" }}
@@ -623,7 +614,7 @@ export default function HomePage() {
                   className="flex items-center gap-3 rounded-lg px-5 py-4 shrink-0"
                   style={{ background: "#FFFFFF", width: 220, marginRight: 16 }}
                 >
-                  <img src={icon} alt={label} className="w-11 h-11 shrink-0 object-contain" />
+                  <Image src={icon} alt={label} width={44} height={44} className="w-11 h-11 shrink-0 object-contain" />
                   <p className="text-[14px] font-semibold" style={{ color: "#0A0A0A" }}>
                     {label}
                   </p>
@@ -641,7 +632,7 @@ export default function HomePage() {
                   className="flex items-center gap-3 rounded-lg px-5 py-4 shrink-0"
                   style={{ background: "#FFFFFF", width: 220, marginRight: 16 }}
                 >
-                  <img src={icon} alt={label} className="w-11 h-11 shrink-0 object-contain" />
+                  <Image src={icon} alt={label} width={44} height={44} className="w-11 h-11 shrink-0 object-contain" />
                   <p className="text-[14px] font-semibold" style={{ color: "#0A0A0A" }}>
                     {label}
                   </p>

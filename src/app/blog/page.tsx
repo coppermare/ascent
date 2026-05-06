@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { blogPosts } from "@/data/blog-posts";
 import { PageHeader } from "@/components/PageHeader";
@@ -73,14 +74,16 @@ export default function BlogPage() {
               {/* Cover image */}
               {featured.coverImage && (
                 <div
-                  className="hidden lg:block rounded-lg overflow-hidden"
+                  className="hidden lg:block relative rounded-lg overflow-hidden"
                   style={{ aspectRatio: "4/3" }}
                 >
-                  <img
+                  <Image
                     src={featured.coverImage}
                     alt=""
                     aria-hidden="true"
-                    className="w-full h-full object-cover group-hover:opacity-90 transition-opacity"
+                    fill
+                    sizes="360px"
+                    className="object-cover group-hover:opacity-90 transition-opacity"
                   />
                 </div>
               )}
@@ -141,12 +144,14 @@ export default function BlogPage() {
                   {/* Cover thumbnail */}
                   {coverImage ? (
                     <Link href={`/blog/${slug}`} className="hidden md:block">
-                      <div className="rounded-lg overflow-hidden" style={{ aspectRatio: "4/3" }}>
-                        <img
+                      <div className="relative rounded-lg overflow-hidden" style={{ aspectRatio: "4/3" }}>
+                        <Image
                           src={coverImage}
                           alt=""
                           aria-hidden="true"
-                          className="w-full h-full object-cover hover:opacity-90 transition-opacity"
+                          fill
+                          sizes="160px"
+                          className="object-cover hover:opacity-90 transition-opacity"
                         />
                       </div>
                     </Link>

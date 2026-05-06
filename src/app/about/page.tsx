@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ClosingCTA } from "@/components/ClosingCTA";
 import { PageHeader } from "@/components/PageHeader";
 import { AnimateIn, StaggerIn } from "@/components/AnimateIn";
@@ -78,11 +79,13 @@ export default function AboutPage() {
         </div>
 
         <div className="relative w-full" style={{ height: "440px" }}>
-          <img
+          <Image
             src="/images/about-manifesto.png"
             alt=""
             aria-hidden="true"
-            className="absolute inset-0 w-full h-full object-cover"
+            fill
+            sizes="(max-width: 768px) 100vw, 1200px"
+            className="object-cover"
           />
           <div
             className="absolute inset-0"

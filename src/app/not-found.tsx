@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { ButtonLink } from "@/components/Button";
 
 export const metadata: Metadata = {

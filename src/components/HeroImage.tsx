@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import Image from 'next/image';
 
 export function HeroImage() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -30,10 +31,14 @@ export function HeroImage() {
       className="relative w-screen -ml-6 md:ml-0 md:w-full md:rounded-lg h-[600px] md:h-auto overflow-hidden"
       style={{ willChange: 'transform' }}
     >
-      <img
+      <Image
         src="/images/hero-bg.png"
         alt=""
         aria-hidden="true"
+        width={1920}
+        height={1080}
+        priority
+        sizes="100vw"
         className="w-full h-full md:h-auto object-cover md:object-none object-center block"
       />
     </div>

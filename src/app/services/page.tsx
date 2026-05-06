@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ClosingCTA } from "@/components/ClosingCTA";
 import { ButtonLink } from "@/components/Button";
 import { PageHeader } from "@/components/PageHeader";
@@ -109,10 +110,12 @@ export default function ServicesPage() {
       {/* ── Hero image ──────────────────────────────────────────── */}
       <div className="px-6" style={{ background: "#0A0A0A" }}>
         <div className="mx-auto max-w-[1200px]">
-          <img
+          <Image
             src="/images/services-hero.png"
             alt=""
             aria-hidden="true"
+            width={1200}
+            height={560}
             className="w-full object-cover block rounded-lg"
             style={{ maxHeight: "560px", objectPosition: "center" }}
           />
@@ -126,11 +129,13 @@ export default function ServicesPage() {
             {services.map(({ id, name, tagline, tileImage }) => (
               <a key={id} href={`#${id}`} className="block group">
                 <div className="relative w-full aspect-[4/3] mb-6 rounded-lg overflow-hidden">
-                  <img
+                  <Image
                     src={tileImage}
                     alt=""
                     aria-hidden="true"
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 400px"
+                    className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                   />
                 </div>
                 <h3
@@ -165,11 +170,13 @@ export default function ServicesPage() {
                 <div className="rounded-xl overflow-hidden flex flex-col lg:flex-row" style={{ background: "#F5F1EA" }}>
                   {/* Image — fills left third */}
                   <div className="relative w-full lg:w-2/5 shrink-0" style={{ minHeight: "360px" }}>
-                    <img
+                    <Image
                       src={s.heroImage}
                       alt=""
                       aria-hidden="true"
-                      className="absolute inset-0 w-full h-full object-cover"
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 480px"
+                      className="object-cover"
                     />
                   </div>
                   {/* Text panel */}
@@ -253,11 +260,13 @@ export default function ServicesPage() {
                   </div>
                   {/* Image — right */}
                   <div className="relative w-full lg:w-2/5 shrink-0" style={{ minHeight: "360px" }}>
-                    <img
+                    <Image
                       src={s.heroImage}
                       alt=""
                       aria-hidden="true"
-                      className="absolute inset-0 w-full h-full object-cover"
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 480px"
+                      className="object-cover"
                     />
                   </div>
                 </div>
@@ -281,11 +290,13 @@ export default function ServicesPage() {
                 <div className="rounded-xl overflow-hidden flex flex-col lg:flex-row" style={{ background: "#F5F1EA" }}>
                   {/* Image — left */}
                   <div className="relative w-full lg:w-2/5 shrink-0" style={{ minHeight: "360px" }}>
-                    <img
+                    <Image
                       src={s.heroImage}
                       alt=""
                       aria-hidden="true"
-                      className="absolute inset-0 w-full h-full object-cover"
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 480px"
+                      className="object-cover"
                     />
                   </div>
                   {/* Text panel */}

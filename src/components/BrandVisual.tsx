@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import { GrainGradient } from "@paper-design/shaders-react";
 import type { PaperShaderElement } from "@paper-design/shaders";
 
@@ -71,11 +72,14 @@ export function BrandVisual() {
           scale={1.8}
         />
         <div className="relative flex items-center justify-center">
-          <img
+          <Image
             ref={logoRef}
             src="/images/ascent-symbol-3d.png"
             alt="Ascent"
-            className="w-[220px] md:w-[300px] lg:w-[360px] select-none"
+            width={360}
+            height={360}
+            priority
+            className="w-[220px] md:w-[300px] lg:w-[360px] h-auto select-none"
             style={{
               transform: "translateY(80px)",
               opacity: 0,

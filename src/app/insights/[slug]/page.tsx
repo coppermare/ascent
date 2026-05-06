@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { blogPosts, getBlogPost } from "@/data/blog-posts";
 import { getSiteUrl } from "@/lib/site";
-import Link from "next/link";
 import { ClosingCTA } from "@/components/ClosingCTA";
 import { ButtonLink } from "@/components/Button";
 
@@ -67,12 +67,14 @@ export default async function InsightPostPage({ params }: Props) {
         </div>
         {post.coverImage && (
           <div className="mx-auto max-w-[1200px] px-6">
-            <div className="rounded-t-xl overflow-hidden" style={{ aspectRatio: "4/3" }}>
-              <img
+            <div className="relative rounded-t-xl overflow-hidden" style={{ aspectRatio: "4/3" }}>
+              <Image
                 src={post.coverImage}
                 alt=""
                 aria-hidden="true"
-                className="w-full h-full object-cover"
+                fill
+                sizes="(max-width: 1200px) 100vw, 1200px"
+                className="object-cover"
               />
             </div>
           </div>

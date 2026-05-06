@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState, memo } from "react";
+import Image from "next/image";
 import "./LogoLoop.css";
 
 const ANIMATION_CONFIG = { SMOOTH_TAU: 0.25, MIN_COPIES: 2, COPY_HEADROOM: 2 };
@@ -210,13 +211,13 @@ export const LogoLoop = memo(({
     const isNode = "node" in item;
     const content = isNode
       ? <span className="logoloop__node" aria-hidden={!!item.href && !item.ariaLabel}>{item.node}</span>
-      : <img src={item.src} srcSet={item.srcSet} sizes={item.sizes} width={item.width} height={item.height} alt={item.alt ?? ""} title={item.title} loading="lazy" decoding="async" draggable={false} />;
+      : <Image src={item.src} sizes={item.sizes} width={item.width ?? logoHeight * 4} height={item.height ?? logoHeight} alt={item.alt ?? ""} title={item.title} loading="lazy" decoding="async" draggable={false} />;
     const label = isNode ? (item.ariaLabel ?? item.title) : (item.alt ?? item.title);
     const wrapped = item.href
       ? <a className="logoloop__link" href={item.href} aria-label={label || "logo link"} target="_blank" rel="noreferrer noopener">{content}</a>
       : content;
     return <li className="logoloop__item" key={key} role="listitem">{wrapped}</li>;
-  }, [renderItem]);
+  }, [renderItem, logoHeight]);
 
   const logoLists = useMemo(() =>
     Array.from({ length: copyCount }, (_, i) => (

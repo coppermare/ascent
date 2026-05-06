@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { GrainGradient } from "@paper-design/shaders-react";
 import { gsap } from "gsap";
 
@@ -113,11 +114,14 @@ export function Preloader() {
         offsetX={0.22}
         offsetY={0.9}
       />
-      <img
+      <Image
         ref={symbolRef}
         src="/images/ascent-symbol-3d.png"
         alt=""
         aria-hidden="true"
+        width={140}
+        height={140}
+        priority
         draggable={false}
         style={{ width: 140, height: "auto", opacity: 0, transform: "translateY(55vh)", willChange: "transform, opacity" }}
       />
