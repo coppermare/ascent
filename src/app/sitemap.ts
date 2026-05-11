@@ -12,7 +12,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/services`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/work`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
     { url: `${base}/insights`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.7 },
-    { url: `${base}/blog`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.7 },
     { url: `${base}/faq`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.6 },
     { url: `${base}/contact`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.6 },
     { url: `${base}/book`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.7 },
@@ -20,8 +19,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/terms`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.3 },
   ];
 
-  const blogRoutes: MetadataRoute.Sitemap = blogPosts.map((post) => ({
-    url: `${base}/blog/${post.slug}`,
+  const insightRoutes: MetadataRoute.Sitemap = blogPosts.map((post) => ({
+    url: `${base}/insights/${post.slug}`,
     lastModified: new Date(post.date),
     changeFrequency: "monthly",
     priority: 0.6,
@@ -34,5 +33,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...blogRoutes, ...workRoutes];
+  return [...staticRoutes, ...insightRoutes, ...workRoutes];
 }

@@ -82,22 +82,22 @@ const engagementStats = [
   {
     value: "5 days",
     label: "To complete the signal audit and rank every channel by revenue impact",
-    image: "/images/stat-card-1.png",
+    image: "/images/stat-card-1.jpg",
   },
   {
     value: "8 wks",
     label: "From audit findings to agreed results, not a presentation of them",
-    image: "/images/stat-card-2.png",
+    image: "/images/stat-card-2.jpg",
   },
   {
     value: "5",
     label: "Active client engagements at any time. A hard limit, not a target",
-    image: "/images/stat-card-3.png",
+    image: "/images/stat-card-3.jpg",
   },
   {
     value: "0",
     label: "Open-ended retainers. Every engagement closes against a defined result",
-    image: "/images/stat-card-4.png",
+    image: "/images/stat-card-4.jpg",
   },
 ];
 
@@ -119,7 +119,7 @@ const services: {
     tag: "FIG-BINOCULARS",
     href: "/services#signal-audit",
     Icon: Binoculars,
-    image: "/images/binoculars.png",
+    image: "/images/binoculars.jpg",
   },
   {
     num: "02",
@@ -129,7 +129,7 @@ const services: {
     tag: "FIG-SEEDLING",
     href: "/services#growth-sprint",
     Icon: Rocket,
-    image: "/images/growth-sprint.png",
+    image: "/images/growth-sprint.jpg",
   },
   {
     num: "03",
@@ -139,7 +139,7 @@ const services: {
     tag: "FIG-HANDSHAKE",
     href: "/services#retainer",
     Icon: ArrowsClockwise,
-    image: "/images/retainer-partnership.png",
+    image: "/images/retainer-partnership.jpg",
   },
 ];
 
@@ -215,7 +215,7 @@ const testimonials = [
     name: "Sarah Chen",
     role: "VP Growth",
     company: "Series B Fintech",
-    image: "/images/testimonials/sarah-chen.png",
+    image: "/images/testimonials/sarah-chen.jpg",
   },
   {
     quote:
@@ -223,7 +223,7 @@ const testimonials = [
     name: "Tom Bergman",
     role: "CEO",
     company: "Series A Developer Tools",
-    image: "/images/testimonials/tom-bergman.png",
+    image: "/images/testimonials/tom-bergman.jpg",
   },
   {
     quote:
@@ -231,7 +231,7 @@ const testimonials = [
     name: "Priya Nair",
     role: "Head of Marketing",
     company: "Series B SaaS",
-    image: "/images/testimonials/priya-nair.png",
+    image: "/images/testimonials/priya-nair.jpg",
   },
   {
     quote:
@@ -239,7 +239,7 @@ const testimonials = [
     name: "James Okafor",
     role: "Co-founder",
     company: "Series A Marketplace",
-    image: "/images/testimonials/james-okafor.png",
+    image: "/images/testimonials/james-okafor.jpg",
   },
 ];
 
@@ -383,7 +383,7 @@ export default function HomePage() {
             The formation reads as a single organism made of ten thousand parts." */}
         <div className="relative w-full" style={{ height: "520px" }}>
           <Image
-            src="/images/visual-statement.png"
+            src="/images/visual-statement.jpg"
             alt="Astronaut standing at the edge of a diagonal beam of light"
             fill
             sizes="100vw"
@@ -491,7 +491,7 @@ export default function HomePage() {
             {/* Image — 3:4 portrait with heading overlaid top-left */}
             <div className="relative w-full md:w-[50%] shrink-0 aspect-[3/4]">
               <Image
-                src="/images/quote-bg.png"
+                src="/images/quote-bg.jpg"
                 alt=""
                 aria-hidden="true"
                 fill
@@ -586,7 +586,7 @@ export default function HomePage() {
         <div
           className="mx-auto max-w-[1200px] overflow-hidden rounded-xl py-12 md:py-20"
           style={{
-            backgroundImage: "url('/images/channels-bg.png')",
+            backgroundImage: "url('/images/channels-bg.jpg')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -772,7 +772,7 @@ export default function HomePage() {
         />
         <div
           className="relative mx-auto max-w-[1200px] overflow-hidden rounded-t-xl py-24 px-6 md:py-48 md:px-16"
-          style={{ backgroundImage: "url('/images/audit-bg.png')", backgroundSize: "cover", backgroundPosition: "center" }}
+          style={{ backgroundImage: "url('/images/audit-bg.jpg')", backgroundSize: "cover", backgroundPosition: "center" }}
         >
           <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.65) 100%)" }} />
           <div className="relative max-w-[720px]">

@@ -21,7 +21,7 @@ export function ClosingCTA({
       >
         {/* Background image */}
         <Image
-          src="/images/cta-bg.png"
+          src="/images/cta-bg.jpg"
           alt=""
           aria-hidden="true"
           fill

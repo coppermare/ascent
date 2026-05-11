@@ -80,7 +80,7 @@ export default function AboutPage() {
 
         <div className="relative w-full" style={{ height: "440px" }}>
           <Image
-            src="/images/about-manifesto.png"
+            src="/images/about-manifesto.jpg"
             alt=""
             aria-hidden="true"
             fill

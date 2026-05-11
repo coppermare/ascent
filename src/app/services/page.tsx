@@ -31,8 +31,8 @@ const services = [
       "Budget allocation analysis",
       "Top three immediate opportunities",
     ],
-    tileImage: "/images/binoculars.png",
-    heroImage: "/images/signal-audit-hero.png",
+    tileImage: "/images/binoculars.jpg",
+    heroImage: "/images/signal-audit-hero.jpg",
     bg: "#FAF9F6",
   },
   {
@@ -50,8 +50,8 @@ const services = [
       "ICP and messaging",
       "Weekly outcome tracking",
     ],
-    tileImage: "/images/growth-sprint.png",
-    heroImage: "/images/stat-bg-2.png",
+    tileImage: "/images/growth-sprint.jpg",
+    heroImage: "/images/stat-bg-2.jpg",
     bg: "#F5F1EA",
   },
   {
@@ -68,8 +68,8 @@ const services = [
       "Monthly performance review",
       "Strategy adaptation as you scale",
     ],
-    tileImage: "/images/retainer-partnership.png",
-    heroImage: "/images/retainer-partnership-hero.png",
+    tileImage: "/images/retainer-partnership.jpg",
+    heroImage: "/images/retainer-partnership-hero.jpg",
     bg: "#FAF9F6",
   },
 ];
@@ -111,7 +111,7 @@ export default function ServicesPage() {
       <div className="px-6" style={{ background: "#0A0A0A" }}>
         <div className="mx-auto max-w-[1200px]">
           <Image
-            src="/images/services-hero.png"
+            src="/images/services-hero.jpg"
             alt=""
             aria-hidden="true"
             width={1200}

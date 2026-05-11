@@ -43,7 +43,7 @@ export function Preloader() {
     gsap.set('[data-hero="heading"], [data-hero="body"], [data-hero="image"]', { opacity: 0, y: 0 });
 
     const tl = gsap.timeline();
-    tl.to(symbol, { y: 0, opacity: 1, duration: 1.6, ease: "power2.out" });
+    tl.to(symbol, { opacity: 1, duration: 0.4, ease: "power2.out" });
 
     const exit = () => {
       tl
@@ -59,7 +59,7 @@ export function Preloader() {
         });
     };
 
-    const minDisplay = 1200;
+    const minDisplay = 400;
     const t0 = Date.now();
     const onLoad = () => {
       loadTimer = setTimeout(exit, Math.max(0, minDisplay - (Date.now() - t0)));
@@ -123,7 +123,7 @@ export function Preloader() {
         height={140}
         priority
         draggable={false}
-        style={{ width: 140, height: "auto", opacity: 0, transform: "translateY(55vh)", willChange: "transform, opacity" }}
+        style={{ width: 140, height: "auto", opacity: 0, willChange: "transform, opacity" }}
       />
     </div>
   );
