@@ -28,7 +28,7 @@ export function HeroImage() {
   return (
     <div
       ref={containerRef}
-      className="relative w-screen -ml-6 md:ml-0 md:w-full md:rounded-lg h-[600px] md:h-auto overflow-hidden"
+      className="relative w-full"
       style={{ willChange: 'transform' }}
     >
       <Image
@@ -39,7 +39,7 @@ export function HeroImage() {
         height={1080}
         priority
         sizes="100vw"
-        className="w-full h-full md:h-auto object-cover md:object-none object-center block"
+        className="w-full h-auto block"
       />
     </div>
   );

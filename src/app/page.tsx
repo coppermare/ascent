@@ -295,8 +295,8 @@ export default function HomePage() {
       {/* ── Hero ─────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden -mt-16 pt-32 md:pt-40 pb-0" style={{ background: "#000000" }}>
         <HeroGrainShader />
-        <div className="relative mx-auto max-w-[1200px] px-6">
-          <div className="mb-10 lg:mb-14 flex flex-col lg:flex-row lg:items-start lg:justify-between lg:gap-16">
+        <div className="relative mx-auto max-w-[1200px] px-6 mb-10 lg:mb-14">
+          <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between lg:gap-16">
             <h1
               data-hero="heading"
               className="text-[38px] md:text-[52px] lg:text-[68px] font-normal leading-[1.05] tracking-[-0.03em] mb-6 lg:mb-0"
@@ -313,10 +313,10 @@ export default function HomePage() {
               take clients we can grow.
             </p>
           </div>
+        </div>
 
-          <div data-hero="image">
-            <HeroImage />
-          </div>
+        <div data-hero="image">
+          <HeroImage />
         </div>
       </section>
 
