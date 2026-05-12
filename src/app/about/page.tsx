@@ -120,6 +120,18 @@ export default function AboutPage() {
                 we&rsquo;re full when you reach out, we&rsquo;ll say so and
                 give you a realistic start date.
               </p>
+              <p className="text-[14px] leading-[1.75] mt-6" style={{ color: "#71717A" }}>
+                Ascent is a fictional agency built as a live case study.{" "}
+                <a
+                  href="https://kristikumrija.com/ideas/zero-to-live-how-to-build-a-website-with-ai-that-doesnt-look-like-slop"
+                  className="underline underline-offset-2 transition-opacity hover:opacity-70"
+                  style={{ color: "#71717A" }}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Read how it was built.
+                </a>
+              </p>
             </AnimateIn>
           </div>
         </div>
