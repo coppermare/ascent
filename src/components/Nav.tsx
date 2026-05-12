@@ -65,7 +65,7 @@ export function Nav() {
 
         {/* Desktop CTA */}
         <div className="hidden items-center gap-3 lg:flex">
-          <ButtonLink href="/book" variant={transparent ? "inverted" : "primary"} size="sm">
+          <ButtonLink href="/book" variant={transparent ? "inverted" : "primary"} size="sm" className="!h-9 !px-4 !text-[13px]">
             Book
           </ButtonLink>
         </div>

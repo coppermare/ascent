@@ -15,7 +15,6 @@ const footerLinks = {
   Resources: [
     { href: "/faq", label: "FAQ" },
     { href: "/insights", label: "Insights" },
-    { href: "/#lead-magnet", label: "Signal Audit Guide" },
   ],
 };
 
